@@ -1,0 +1,9 @@
+{
+  "serviceURL": "https://ipmp.ctre.iastate.edu/maps/sharing/tools/newPrint",
+  "defaultTitle": "ArcGIS Web Map",
+  "defaultAuthor": "ArcGIS Web AppBuilder",
+  "defaultCopyright": "",
+  "defaultFormat": "",
+  "defaultLayout": "",
+  "copyrightEditable": true
+}

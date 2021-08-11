@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: widgets/AttributeTable/Widget.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: widgets/AttributeTable/Widget.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>///////////////////////////////////////////////////////////////////////////
+// Copyright © Esri. All Rights Reserved.
+//
+// Licensed under the Apache License Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+///////////////////////////////////////////////////////////////////////////
+
+/**
+ * @fileoverview
+ * Shows all fields and data of selected layer. Similar to Attribute Table in Arcmap or Arcgis Pro. ({@link module:AttributeTable|More info})
+ */
+define([
+	'dojo/_base/declare',
+	'dojo/_base/html',
+	'dijit/_WidgetsInTemplateMixin',
+	'jimu/BaseWidget',
+	'dijit/layout/TabContainer',
+	'dijit/layout/ContentPane',
+	'jimu/utils',
+	'jimu/dijit/Message',
+	'dojo/Deferred',
+	'dojo/promise/all',
+	'esri/layers/FeatureLayer',
+	'esri/lang',
+	'dojo/_base/lang',
+	'dojo/on',
+	'dojo/touch',
+	'dojo/topic',
+	'dojo/aspect',
+	'dojo/_base/array',
+	'dojo/query',
+	'jimu/dijit/LoadingIndicator',
+	'jimu/FilterManager',
+	'./_ResourceManager',
+	// './_TableFunctionController',
+	'./utils',
+	'./a11y/WidgetMixin',
+], function (
+	declare,
+	html,
+	_WidgetsInTemplateMixin,
+	BaseWidget,
+	TabContainer,
+	ContentPane,
+	utils,
+	Message,
+	Deferred,
+	all,
+	FeatureLayer,
+	esriLang,
+	lang,
+	on,
+	touch,
+	topic,
+	aspect,
+	array,
+	domQuery,
+	LoadingIndicator,
+	FilterManager,
+	_ResourceManager,
+	attrUtils,
+	A11yWidgetMixin
+) {
+	/**
+	 * @module AttributeTable
+	 */
+	var clazz = declare([BaseWidget, _WidgetsInTemplateMixin, A11yWidgetMixin], {
+		/* global apiUrl */
+		name: 'AttributeTable',
+		baseClass: 'jimu-widget-attributetable',
+		normalHeight: 0,
+		openHeight: 0,
+		arrowDivHeight: null,
+
+		_relatedDef: null,
+
+		_resourceManager: null,
+
+		_activeLayerInfoId: null,
+
+		// TODO: layerType: FeatureLayer,  RelationshipTable
+		_layerTypes: {
+			FEATURELAYER: 'FeatureLayerTable',
+			RELATIONSHIPTABLE: 'RelationshipTable',
+		},
+
+		postMixInProperties: function () {
+			this.nls.features = this.nls.features || 'features';
+		},
+
+		postCreate: function () {
+			this.inherited(arguments);
+			html.setAttr(this.domNode, 'aria-label', this.nls._widgetLabel);
+
+			utils.loadStyleLink('dgrid', apiUrl + 'dgrid/css/dgrid.css');
+			this._loadInfoDef = null;
+			this.AttributeTableDiv = null;
+			this.NoTableMessageDiv = null;
+
+			this._delayedLayerInfos = [];
+			this.layerTabPages = []; //[ContentPane]
+			// one layer may be have multiple relationships, so we use key-value to store relationships
+			// this.relationTabPagesSet = {};
+
+			this.tabContainer = null; //TabContainer
+
+			this.moveMode = false;
+			this.moveY = 0; //currentHeight - previousDomHeight
+			this.previousDomHeight = 0;
+			this.noGridHeight = 0;
+			this.bottomPosition = 0;
+			this.layerTabPagesIndex = -1;
+
+			this.showing = false;
+
+			// set initial position
+			this.openHeight = this.normalHeight = this._getNormalHeight();
+			this.arrowDivHeight = 0;
+
+			// event handlers on draging
+			this._dragingHandlers = [];
+
+			this._activeTable = null; // _FeatureTable
+			this._activeTableHandles = [];
+
+			this.filterManager = FilterManager.getInstance();
+
+			this._createUtilitiesUI();
+
+			this._resourceManager = new _ResourceManager({
+				map: this.map,
+				nls: this.nls,
+				parent: this,
+			});
+			this._resourceManager.setConfig(this.config);
+
+			//eg: TabTheme maxmize or minimize
+			this.own(topic.subscribe('changeMapPosition', lang.hitch(this, this._onMapPositionChange)));
+			attrUtils.readLayerInfosObj(this.map).then(
+				lang.hitch(this, function (layerInfosObj) {
+					if (!this.domNode || !layerInfosObj) {
+						return;
+					}
+					this.own(on(layerInfosObj, 'layerInfosIsShowInMapChanged', lang.hitch(this, this.onLayerInfosIsShowInMapChanged)));
+					this.own(layerInfosObj.on('layerInfosChanged', lang.hitch(this, this.onLayerInfosChanged)));
+					this.own(layerInfosObj.on('layerInfosFilterChanged', lang.hitch(this, this.onLayerInfosFilterChanged)));
+				})
+			);
+		},
+
+		_createUtilitiesUI: function () {
+			this._createSwitchUI(); //eg: LaunchPad Theme
+
+			this._createBarUI();
+		},
+
+		_createBarUI: function () {
+			this.arrowDiv = html.create('div');
+			html.addClass(this.arrowDiv, 'jimu-widget-attributetable-move');
+			html.create(
+				'div',
+				{
+					class: 'jimu-widget-attributetable-thumb',
+				},
+				this.arrowDiv
+			);
+			html.place(this.arrowDiv, this.domNode);
+
+			if (!this.arrowDivHeight) {
+				var arrowDivBox = html.getMarginBox(this.arrowDiv);
+				this.arrowDivHeight = arrowDivBox &amp;&amp; arrowDivBox.h ? arrowDivBox.h : 7;
+			}
+
+			this.own(on(this.arrowDiv, 'mousedown', lang.hitch(this, this._onDragStart)));
+			this.own(on(this.arrowDiv, touch.press, lang.hitch(this, this._onDragStart)));
+		},
+
+		_isOnlyTable: function () {
+			return this.closeable || !this.isOnScreen;
+		},
+
+		_createSwitchUI: function () {
+			if (!this._isOnlyTable()) {
+				this.switchBtn = html.create(
+					'div',
+					{
+						className: 'jimu-widget-attributetable-switch',
+						tabindex: '0',
+						role: 'button',
+					},
+					this.domNode
+				);
+				// html.addClass(this.switchBtn, "jimu-widget-attributetable-switch");
+				// html.place(this.switchBtn, this.domNode);
+				// this.highlightLine = html.create("div", {
+				//   className: "jimu-widget-attributetable-highlight-line"
+				// }, this.domNode);
+
+				this.own(
+					on(
+						this.switchBtn,
+						'click',
+						lang.hitch(this, function () {
+							this._switchTable();
+							this.hasBeenActivated = this.showing;
+							this.focusToDisplay = !this.showing;
+						})
+					)
+				);
+			}
+		},
+
+		_processOpenBarUI: function () {
+			if (!this._isOnlyTable()) {
+				html.removeClass(this.switchBtn, 'close');
+				html.addClass(this.switchBtn, 'open');
+				html.setAttr(this.switchBtn, 'title', this.nls.closeTableTip);
+				html.setAttr(this.switchBtn, 'aria-label', this.nls.closeTableTip);
+			}
+		},
+
+		_processCloseBarUI: function () {
+			if (!this._isOnlyTable()) {
+				html.removeClass(this.switchBtn, 'open');
+				html.addClass(this.switchBtn, 'close');
+				html.setAttr(this.switchBtn, 'title', this.nls.openTableTip);
+				html.setAttr(this.switchBtn, 'aria-label', this.nls.openTableTip);
+			}
+		},
+
+		_switchTable: function () {
+			if (!this.showing) {
+				this._openTable();
+			} else {
+				this._closeTable();
+			}
+		},
+
+		_openTable: function () {
+			html.removeClass(this.domNode, 'closed');
+
+			if (!this._loadInfoDef) {
+				this._loadInfoDef = new Deferred();
+				this.own(this._loadInfoDef);
+				if (!this.loading) {
+					this.loading = new LoadingIndicator();
+				}
+				this.loading.placeAt(this.domNode);
+				this._toggleLoading(true);
+
+				this._resourceManager.updateLayerInfoResources(true).then(
+					lang.hitch(this, function () {
+						if (!this.domNode) {
+							return;
+						}
+
+						this._init();
+						this.showRefreshing(false);
+
+						this.showing = true;
+						this._loadInfoDef.resolve();
+					}),
+					lang.hitch(this, function (err) {
+						console.error(err);
+						this._loadInfoDef.reject(err);
+					})
+				);
+			} else if (this._loadInfoDef &amp;&amp; this._loadInfoDef.isFulfilled()) {
+				this.showing = true;
+				this._processDelayedLayerInfos();
+				if (this._activeTable) {
+					this._activeTable.active();
+				}
+			}
+
+			this._changeHeight(this.openHeight);
+			// if (this.highlightLine) {
+			//   html.setStyle(this.highlightLine, 'display', 'none');
+			// }
+			this._processOpenBarUI();
+			return this._loadInfoDef;
+		},
+
+		_onCloseBtnClicked: function () {
+			console.log('Line 275, on close button clicked!');
+			if (this.showing &amp;&amp; this._isOnlyTable()) {
+				this.widgetManager.closeWidget(this);
+			} else if (this.showing) {
+				this._closeTable();
+			}
+
+			if (this._activeTable) {
+				this._activeTable.deactive();
+			}
+		},
+
+		_closeTable: function () {
+			html.addClass(this.domNode, 'closed');
+
+			this._changeHeight(0);
+			this.showRefreshing(false);
+			this._processCloseBarUI();
+			// this._tableFunctionController.deactive();
+			if (this._activeTable) {
+				this._activeTable.deactive();
+			}
+
+			this.showing = false;
+
+			// if (this.highlightLine) {
+			//   html.setStyle(this.highlightLine, 'display', '');
+			// }
+			// fix arrowDiv display bug on bottom when close table (only mobile)
+			html.setStyle(this.arrowDiv, 'display', 'none');
+			html.setStyle(this.domNode, 'overflow', 'hidden');
+			setTimeout(
+				lang.hitch(this, function () {
+					if (!this.domNode) {
+						return;
+					}
+					html.setStyle(this.domNode, 'overflow', 'visible');
+					html.setStyle(this.arrowDiv, 'display', 'block');
+				}),
+				10
+			);
+		},
+
+		_init: function () {
+			this.initDiv();
+			this._changeHeight(this.openHeight);
+			this.resize();
+
+			this.own(on(window.document, 'mouseup', lang.hitch(this, this._onDragEnd)));
+			this.own(on(window.document, 'mousemove', lang.hitch(this, this._onDraging)));
+			this.own(on(window.document, touch.move, lang.hitch(this, this._onDraging)));
+			this.own(on(window.document, touch.release, lang.hitch(this, this._onDragEnd)));
+		},
+
+		_processDelayedLayerInfos: function () {
+			// must be invoke after initialize this._layerInfos
+			if (this._delayedLayerInfos.length > 0) {
+				array.forEach(
+					this._delayedLayerInfos,
+					lang.hitch(this, function (delayedLayerInfo) {
+						this._resourceManager.addLayerInfo(delayedLayerInfo);
+					})
+				);
+
+				this._delayedLayerInfos = [];
+			}
+		},
+
+		onLayerInfosIsShowInMapChanged: function (changedLayerInfos) {
+			if (this._activeTable) {
+				this._activeTable.changeToolbarStatus();
+			}
+
+			// check if the tabs are configured to synchronize with
+			// layer visibilities:
+			if (this.config.syncWithLayers) {
+				array.forEach(
+					changedLayerInfos,
+					lang.hitch(this, function (changedLayerInfo) {
+						// check if is leaf layer
+						if (!changedLayerInfo.getSubLayers().length) {
+							var isVisible = changedLayerInfo.isShowInMap();
+							var configInfo = attrUtils.getConfigInfoFromLayerInfo(changedLayerInfo);
+							var page = this.getExistLayerTabPage(configInfo.id);
+
+							if (isVisible) {
+								if (page) {
+									if (page.closable) {
+										// remove the "X" button if the layer is turned on
+										page.set('closable', false);
+									}
+								} else {
+									var layerInfoIndex = this._resourceManager.getVisivleLayerInfoIndexById(changedLayerInfo.id);
+									var isInResources = this._resourceManager.getLayerInfoById(changedLayerInfo.id);
+									var params = {
+										layer: changedLayerInfo,
+										closeable: false,
+										isActive: false,
+										index: layerInfoIndex,
+									};
+
+									if (!isInResources) {
+										this._resourceManager.updateLayerInfoResources(false).then(
+											lang.hitch(this, function () {
+												layerInfoIndex = this._resourceManager.getVisivleLayerInfoIndexById(changedLayerInfo.id);
+												params.index = layerInfoIndex;
+												this._addLayerToTable(params);
+											})
+										);
+									} else {
+										this._addLayerToTable(params);
+									}
+								}
+							} else {
+								if (page) {
+									this.layerTabPageClose(configInfo.id, true);
+								}
+							}
+						}
+					})
+				);
+			}
+		},
+
+		onLayerInfosChanged: function (layerInfo, changeType, layerInfoSelf) {
+			if (!layerInfoSelf || !layerInfo) {
+				return;
+			}
+
+			if ('added' === changeType) {
+				layerInfoSelf.getSupportTableInfo().then(
+					lang.hitch(this, function (supportTableInfo) {
+						if (supportTableInfo.isSupportedLayer) {
+							this._resourceManager.addLayerInfo(layerInfoSelf);
+						}
+					})
+				);
+			} else if ('removed' === changeType) {
+				var selfId = layerInfoSelf.id;
+				if (this.getExistLayerTabPage(selfId)) {
+					this.layerTabPageClose(selfId, true);
+				}
+
+				if (this._resourceManager.getLayerInfoById(selfId)) {
+					this._resourceManager.removeLayerInfo(selfId);
+				}
+				if (this._resourceManager.getConfigInfoById(selfId)) {
+					this._resourceManager.removeConfigInfo(selfId);
+				}
+			}
+		},
+
+		onLayerInfosFilterChanged: function (changedLayerInfos) {
+			array.some(
+				changedLayerInfos,
+				lang.hitch(this, function (info) {
+					if (this._activeTable &amp;&amp; info.id === this._activeTable.layerInfo.id) {
+						if (!this._activeTable._relatedQuery) {
+							this._activeTable.startQuery();
+						}
+						return true;
+					}
+				})
+			);
+		},
+
+		destroy: function () {
+			if (this._destroyed) {
+				return;
+			}
+			var len, i;
+			if (this.layerTabPages &amp;&amp; this.layerTabPages.length > 0) {
+				len = this.layerTabPages.length;
+				for (i = 0; i &lt; len; i++) {
+					var paneId = this.layerTabPages[i].paneId;
+					var table = lang.getObject('_resourceManager.featureTableSet.' + paneId, false, this);
+					if (table) {
+						var filterObj = table.getFilterObj();
+						if (filterObj &amp;&amp; esriLang.isDefined(filterObj.expr)) {
+							this.filterManager.applyWidgetFilter(paneId, this.id, '');
+						}
+					}
+					this.layerTabPages[i].destroy();
+				}
+				this.layerTabPages = null;
+			}
+
+			// if (this.relationTabPagesSet) {
+			//   for (var p in this.relationTabPagesSet) {
+			//     if (this.relationTabPagesSet[p]) {
+			//       this.relationTabPagesSet[p].destroy();
+			//     }
+			//   }
+			//   this.relationTabPagesSet = null;
+			// }
+
+			if (this.tabContainer) {
+				this.tabContainer.destroy();
+				this.tabContainer = null;
+			}
+
+			this.AttributeTableDiv = null;
+			this._loadInfoDef = null;
+			this._activeLayerInfoId = null;
+			if (this._resourceManager) {
+				this._resourceManager.empty();
+			}
+			this.inherited(arguments);
+		},
+
+		onOpen: function () {
+			if (!this.showing &amp;&amp; this._isOnlyTable()) {
+				this._openTable();
+				this.hasBeenActivated = true;
+			}
+		},
+
+		onClose: function () {
+			if (this.showing) {
+				this._closeTable();
+				this.hasBeenActivated = false;
+			}
+		},
+
+		_changeHeight: function (h) {
+			html.setStyle(this.domNode, 'height', h + 'px');
+			if (this.tabContainer &amp;&amp; this.tabContainer.domNode &amp;&amp; h - this.arrowDivHeight >= 0) {
+				html.setStyle(this.tabContainer.domNode, 'height', h - this.arrowDivHeight + 'px');
+			}
+
+			if (this._activeTable) {
+				this._activeTable.changeHeight(h - this.noGridHeight);
+			}
+
+			// publish changeMapPosition to MapManager
+			topic.publish('changeMapPosition', {
+				bottom: h + this.bottomPosition,
+			});
+			// publish changeMapPosition to other widgets
+			this.publishData({
+				changeMapPosition: {
+					bottom: h + this.bottomPosition,
+				},
+			});
+
+			if (h !== 0) {
+				var minOpenHeight = this.arrowDivHeight;
+
+				this.openHeight = h >= minOpenHeight ? h : this.normalHeight;
+			}
+		},
+
+		_onMapPositionChange: function (pos) {
+			if (isFinite(pos.left) &amp;&amp; typeof pos.left === 'number') {
+				if (window.isRTL) {
+					html.setStyle(this.domNode, 'right', parseFloat(pos.left) + 'px');
+				} else {
+					html.setStyle(this.domNode, 'left', parseFloat(pos.left) + 'px');
+				}
+			}
+			if (isFinite(pos.right) &amp;&amp; typeof pos.right === 'number') {
+				if (window.isRTL) {
+					html.setStyle(this.domNode, 'left', parseFloat(pos.right) + 'px');
+				} else {
+					html.setStyle(this.domNode, 'right', parseFloat(pos.right) + 'px');
+				}
+			}
+
+			if (this.tabContainer) {
+				this.tabContainer.resize();
+			}
+		},
+
+		setPosition: function (position) {
+			this.position = position;
+			if (this._isOnlyTable()) {
+				this.bottomPosition = 0;
+			} else {
+				if ('bottom' in position) {
+					this.bottomPosition = parseInt(position.bottom, 10);
+				} else {
+					this.bottomPosition = 0;
+				}
+			}
+			if (!this.domNode.parentNode || this.domNode.parentNode.id !== window.jimuConfig.layoutId) {
+				html.place(this.domNode, window.jimuConfig.layoutId);
+				this.setInitialPosition(position);
+
+				this.showRefreshing(false);
+			}
+			html.setStyle(this.domNode, 'bottom', this.bottomPosition + 'px');
+			if (!this._resourceManager.isEmpty()) {
+				setTimeout(
+					lang.hitch(this, function () {
+						var ngHeight = this._getGridTopSectionHeight();
+						var domHeight = html.getStyle(this.domNode, 'height');
+						if (ngHeight > 0) {
+							this.noGridHeight = ngHeight;
+						}
+						if (domHeight > 0) {
+							this._changeHeight(domHeight);
+						}
+					}),
+					20
+				);
+			}
+		},
+
+		_startQueryOnLayerTab: function (tabId, featureSet) {
+			var layerInfo = this._resourceManager.getLayerInfoById(tabId);
+			var tabPage = this.getExistLayerTabPage(tabId);
+
+			if (layerInfo &amp;&amp; tabPage) {
+				this.showRefreshing(true);
+				this._resourceManager.getQueryTable(tabId, this.config.filterByMapExtent, this.config.hideExportButton, this.config.allowTextSelection).then(
+					lang.hitch(this, function (result) {
+						//prevent overwrite by another asynchronous callback
+						if (this._activeLayerInfoId !== tabId || !result) {
+							return;
+						}
+						//prevent overwrite by another asynchronous callback
+						tabPage = this.getExistLayerTabPage(tabId);
+
+						if (result.isSupportQuery) {
+							var table = result.table;
+							if (table.getParent() !== tabPage) {
+								table.placeAt(tabPage);
+							}
+
+							this.setActiveTable(table, {
+								h: this.openHeight - this.noGridHeight,
+								featureSet: featureSet,
+							});
+						} else {
+							var tip = html.toDom('&lt;div>' + this.nls.unsupportQueryWarning + '&lt;/div>');
+							tabPage.set('content', tip);
+
+							if (this._activeTable) {
+								this._activeTable.changeToolbarStatus();
+							}
+						}
+						this.showRefreshing(false);
+					}),
+					lang.hitch(this, function (err) {
+						new Message({
+							message: err.message || err,
+						});
+						this.showRefreshing(false);
+					})
+				);
+			}
+		},
+
+		_startQueryOnRelationTab: function (infoId, relationShipKey, selectedIds, originalInfoId) {
+			var originalInfo = this._resourceManager.getLayerInfoById(originalInfoId);
+			var tabPage = this.getExistLayerTabPage(infoId);
+			if (!(originalInfo &amp;&amp; originalInfo.layerObject) || !tabPage) {
+				return;
+			}
+
+			this._resourceManager.getRelationTable(originalInfoId, relationShipKey, false, this.config.hideExportButton, this.config.allowTextSelection).then(
+				lang.hitch(this, function (result) {
+					//prevent overwrite by another asynchronous callback
+					if (this._activeLayerInfoId !== infoId || !result) {
+						return;
+					}
+					//prevent overwrite by another asynchronous callback
+					tabPage = this.getExistLayerTabPage(infoId);
+
+					if (result.isSupportQuery) {
+						var table = result.table;
+						if (table.getParent() !== tabPage) {
+							table.placeAt(tabPage);
+						}
+
+						this.setActiveTable(table, {
+							h: this.openHeight - this.noGridHeight,
+							layer: originalInfo.layerObject,
+							selectedIds: selectedIds,
+						});
+					} else {
+						var tip = html.toDom('&lt;div>' + this.nls.unsupportQueryWarning + '&lt;/div>');
+						tabPage.set('content', tip);
+
+						if (this._activeTable) {
+							this._activeTable.changeToolbarStatus();
+						}
+					}
+					this.showRefreshing(false);
+				})
+			);
+		},
+
+		tabChanged: function () {
+			if (this.tabContainer &amp;&amp; this.tabContainer.selectedChildWidget) {
+				if (this.noGridHeight &lt;= 0) {
+					this.noGridHeight = this._getGridTopSectionHeight() + 5;
+				}
+				var params = this.tabContainer.selectedChildWidget.params; // ContentPage.params
+
+				var layerType = params.layerType;
+				var infoId = params.paneId;
+				var relKey = params.relKey;
+
+				if (
+					layerType === this._layerTypes.FEATURELAYER &amp;&amp;
+					// change tab or the lasest operate is queryRelatedRecords
+					(this._activeLayerInfoId !== infoId || params.oids || params.featureSet)
+				) {
+					this.setActiveTable(null);
+					delete params.oids;
+					this._activeLayerInfoId = infoId;
+					this._startQueryOnLayerTab(infoId, params.featureSet);
+				} else if (layerType === this._layerTypes.RELATIONSHIPTABLE) {
+					// need key and oids to judgement
+					this.setActiveTable(null);
+					var selectIds = params.oids;
+					var originalInfoId = params.originalInfoId;
+					this._activeLayerInfoId = infoId;
+					this._startQueryOnRelationTab(infoId, relKey, selectIds, originalInfoId);
+				}
+
+				// html.setAttr(this.tabContainer.selectedChildWidget.domNode, 'tabindex', '0');
+			}
+		},
+
+		showRefreshing: function (refresh) {
+			if (!this.loading) {
+				return;
+			}
+
+			this._toggleLoading(refresh);
+		},
+
+		_onDragStart: function (evt) {
+			this.moveMode = true;
+			this.moveY = evt.clientY;
+			this.previousDomHeight = html.getStyle(this.domNode, 'height');
+			html.addClass(this.arrowDiv, 'draging');
+
+			this._dragingHandlers = this._dragingHandlers.concat([
+				on(this.ownerDocument, 'dragstart', function (e) {
+					e.stopPropagation();
+					e.preventDefault();
+				}),
+				on(this.ownerDocumentBody, 'selectstart', function (e) {
+					e.stopPropagation();
+					e.preventDefault();
+				}),
+			]);
+		},
+
+		_onDraging: function (evt) {
+			if (this.moveMode &amp;&amp; evt.clientY >= 125) {
+				var y = this.moveY - evt.clientY;
+				this._changeHeight(y + this.previousDomHeight);
+			}
+		},
+
+		_onDragEnd: function () {
+			this.moveMode = false;
+			html.removeClass(this.arrowDiv, 'draging');
+
+			var h = this._dragingHandlers.pop();
+			while (h) {
+				h.remove();
+				h = this._dragingHandlers.pop();
+			}
+		},
+
+		_getNormalHeight: function () {
+			var h = document.body.clientHeight;
+			return window.appInfo.isRunInMobile ? h / 2 : h / 3;
+		},
+
+		setInitialPosition: function () {
+			// Attribute Table decide position by itself if there is no configuration in theme.
+			var left = html.getStyle(this.domNode, 'left');
+			var right = html.getStyle(this.domNode, 'right');
+			if (!left) {
+				html.setStyle(this.domNode, 'left', '0px');
+			}
+			if (!right) {
+				html.setStyle(this.domNode, 'right', '0px');
+			}
+			html.setStyle(this.domNode, 'top', 'auto');
+			html.setStyle(this.domNode, 'position', 'absolute');
+
+			if (!this._isOnlyTable()) {
+				if (this.config &amp;&amp; this.config.initiallyExpand) {
+					this._openTable();
+				} else {
+					this._closeTable();
+				}
+			} // else use openAtStart by widgetManager or controller
+		},
+
+		_bindActiveTableEvents: function () {
+			var that = this;
+			if (that._activeTable) {
+				that._activeTableHandles.push(
+					on(that._activeTable, 'show-related-records', function (evt) {
+						var layerInfoId = evt.layerInfoId;
+						var selectedIds = evt.objectIds;
+						that._showRelatedRecords(layerInfoId, selectedIds);
+					})
+				);
+				that._activeTableHandles.push(
+					on(that._activeTable, 'show-all-records', function (evt) {
+						var page = that.getExistLayerTabPage(evt.layerInfoId);
+						page.params.layerType = that._layerTypes.FEATURELAYER;
+					})
+				);
+				that._activeTableHandles.push(
+					on(that._activeTable, 'refresh', function (evt) {
+						var page = that.getExistLayerTabPage(evt.layerInfoId);
+						// page.params.layerType = that._layerTypes.FEATURELAYER;
+						delete page.params.featureSet;
+					})
+				);
+				// that._activeTableHandles.push(on(that._activeTable,
+				//   'row-click', function() {
+				//     var tables = that._resourceManager.featureTableSet;
+				//     for (var p in tables) {
+				//       var t = tables[p];
+				//       if (t !== that._activeTable) {
+				//         t.clearSelection(false);
+				//       }
+				//     }
+				//   }));
+				that._activeTableHandles.push(
+					on(that._activeTable, 'apply-filter', function (events) {
+						that.filterManager.applyWidgetFilter(events.layerInfoId, that.id, events.expr);
+						that._activeTable.startQuery();
+					})
+				);
+			}
+		},
+
+		_unbindActiveTableEvents: function () {
+			var that = this;
+			var handlers = that._activeTableHandles;
+			while (handlers.length > 0) {
+				var h = handlers.pop();
+				if (h &amp;&amp; h.remove) {
+					h.remove();
+				}
+			}
+		},
+
+		setActiveTable: function (table, options) {
+			if (this._activeTable) {
+				this._activeTable.cancelThread();
+				this._activeTable.deactive();
+				this._unbindActiveTableEvents();
+				this._activeTable = null;
+			}
+			if (table) {
+				this._activeTable = table;
+				this._activeTable.active();
+				this._activeTable.changeHeight(options.h);
+				if (
+					!this._activeTable.tableCreated ||
+					(this._activeTable.tableCreated &amp;&amp; this._activeTable.matchingMap) ||
+					(this._activeTable.tableCreated &amp;&amp; !this._activeTable.matchingMap &amp;&amp; options.featureSet) ||
+					(options.layer &amp;&amp; options.selectedIds)
+				) {
+					// queryRecordsByRelationship
+
+					var validFeatureSet = lang.getObject('featureSet.features.length', false, options);
+					if (options.layer &amp;&amp; options.selectedIds) {
+						this._activeTable.queryRecordsByRelationship(options);
+					} else if (validFeatureSet) {
+						var primaryId = options.featureSet.displayFieldName;
+						var featureIds = array.map(options.featureSet.features, function (f) {
+							return f.attributes[primaryId];
+						});
+						this._activeTable.startQuery(featureIds);
+					} else {
+						this._activeTable.startQuery();
+					}
+				}
+				this._bindActiveTableEvents();
+				this._activeTable.changeToolbarStatus();
+			}
+		},
+
+		initDiv: function () {
+			this.AttributeTableDiv = html.create('div', {}, this.domNode);
+			html.addClass(this.AttributeTableDiv, 'jimu-widget-attributetable-main');
+
+			var tabDiv = html.create('div');
+			html.place(tabDiv, this.AttributeTableDiv);
+
+			this.tabContainer = new TabContainer(
+				{
+					style: 'width: 100%;',
+				},
+				tabDiv
+			);
+			html.setStyle(this.tabContainer.domNode, 'height', this.normalHeight + 'px');
+
+			//if(has("mozilla")){
+			//  this.tabContainer.tablist.containerNode.style.width = "50000px";
+			//}
+			//We need to startup tabContainer before call addChild method, or it will result in issue #8678
+			this.tabContainer.startup();
+
+			var configInfos = this._resourceManager.getConfigInfos();
+			var len = configInfos.length;
+			for (var j = 0; j &lt; len; j++) {
+				var configInfo = configInfos[j];
+				if (configInfo.show) {
+					var json = lang.clone(configInfo);
+					var paneJson = {};
+
+					paneJson.paneId = json.id;
+					paneJson.title = json.name;
+					paneJson.name = json.name;
+					paneJson.layerType = this._layerTypes.FEATURELAYER;
+					paneJson.style = 'height: 100%; width: 100%; overflow: visible;';
+					var cp = new ContentPane(paneJson);
+					this.layerTabPages[j] = cp;
+					this.tabContainer.addChild(cp);
+				}
+			}
+
+			if (len > 0) {
+				// tabListWrapperHeight + tolerance
+				this.noGridHeight = this._getGridTopSectionHeight() + 5;
+			} else {
+				this._toggleNoTableMessage(true);
+			}
+			// vertical center
+			utils.setVerticalCenter(this.tabContainer.domNode);
+			this.tabChanged();
+			this.own(aspect.after(this.tabContainer, 'selectChild', lang.hitch(this, this.tabChanged)));
+
+			// apply extra work to make widget accessible:
+			if (this.applyA11y) {
+				this.applyA11y();
+			}
+		},
+
+		getLayerInfoLabel: function (layerInfo) {
+			var label = layerInfo.name || layerInfo.title;
+			return label;
+		},
+
+		getLayerInfoId: function (layerInfo) {
+			return (layerInfo &amp;&amp; layerInfo.id) || '';
+		},
+
+		_getGridTopSectionHeight: function () {
+			var tabPageWrapper = domQuery('.dijitTabPaneWrapper', this.domNode)[0];
+			if (tabPageWrapper) {
+				var widgetTop = html.position(this.domNode).y;
+				var tabPaneTop = html.position(tabPageWrapper).y;
+				return tabPaneTop - widgetTop;
+			} else {
+				return 0;
+			}
+		},
+
+		_getLayerInfoByIdFromConfigJSON: function (id) {
+			var configedInfos = array.filter(this.config.layerInfos, function (linfo) {
+				return linfo.id === id;
+			});
+			return configedInfos &amp;&amp; configedInfos.length > 0 &amp;&amp; configedInfos[0];
+		},
+
+		_showRelatedRecords: function (infoId, objIds) {
+			var activeTable = this._activeTable;
+			if (activeTable) {
+				var layerInfo = activeTable.layerInfo;
+				if (layerInfo &amp;&amp; layerInfo.id === infoId &amp;&amp; layerInfo.layerObject) {
+					var _layer = layerInfo.layerObject;
+					var ships = _layer.relationships;
+					// var objIds = activeTable.getSelectedRows();
+
+					for (var i = 0, len = ships.length; i &lt; len; i++) {
+						this.addNewRelationTab(objIds, ships[i], layerInfo.id, true, true);
+					}
+				}
+			}
+		},
+
+		addNewLayerTab: function (infoId, featureSet, closeable, isActive, index) {
+			var layerInfo = this._resourceManager.getLayerInfoById(infoId);
+			if (!layerInfo) {
+				return;
+			}
+			var page = this.getExistLayerTabPage(infoId);
+			var json = {};
+			json.title = this.getLayerInfoLabel(layerInfo);
+			json.name = json.title;
+			json.paneId = this.getLayerInfoId(layerInfo);
+			json.closable = closeable;
+			json.layerType = this._layerTypes.FEATURELAYER;
+			json.featureSet = featureSet;
+			if (page) {
+				lang.mixin(page.params, json);
+				this.onOpen();
+				// this.tabContainer.selectChild(page);
+			} else {
+				if (!this._resourceManager.getConfigInfoById(layerInfo.id)) {
+					this._resourceManager.addConfigInfo(layerInfo);
+				}
+				if (!this._resourceManager.getLayerInfoById(layerInfo.id)) {
+					this._resourceManager.addLayerInfo(layerInfo);
+				}
+				this.onOpen();
+
+				json.style = 'height: 100%; width: 100%; overflow: visible';
+				page = new ContentPane(json);
+				this.layerTabPages.push(page);
+
+				page.set('title', json.name);
+				// tabContainer will remove the page and destroy the page by itself.
+				this.own(on(page, 'close', lang.hitch(this, this.layerTabPageClose, json.paneId, true)));
+				this.tabContainer.addChild(page, index);
+			}
+			if (isActive) {
+				this.tabContainer.selectChild(page); // goto tabChanged
+			}
+			if (this.layerTabPages.length === 1) {
+				this._toggleNoTableMessage(false);
+			}
+		},
+
+		addNewRelationTab: function (oids, relationShip, originalInfoId, closeable, isActive) {
+			var relationshipInfo = this._resourceManager.getRelationShipInfo(relationShip);
+			var lInfo = relationShip &amp;&amp; relationshipInfo;
+			if (!lInfo) {
+				return;
+			}
+			var pageId = relationshipInfo.id;
+			var page = this.getExistLayerTabPage(pageId);
+
+			var json = {};
+			json.oids = oids;
+			var paneTitle = lInfo.title || lInfo.name || relationShip.name;
+			json.title = paneTitle;
+			json.name = json.title;
+			json.paneId = lInfo.id;
+			json.relKey = relationShip._relKey;
+			json.originalInfoId = originalInfoId;
+			json.closable = closeable;
+			json.layerType = this._layerTypes.RELATIONSHIPTABLE;
+
+			if (page) {
+				lang.mixin(page.params, json);
+			} else {
+				if (!this._resourceManager.getConfigInfoById(lInfo.id)) {
+					this._resourceManager.addConfigInfo(lInfo);
+				}
+				if (!this._resourceManager.getLayerInfoById(lInfo.id)) {
+					this._resourceManager.addLayerInfo(lInfo);
+				}
+				json.style = 'height: 100%; width: 100%; overflow: visible';
+				page = new ContentPane(json);
+				this.layerTabPages.push(page);
+				page.set('title', json.name);
+				// tabContainer will remove the page and destroy the page by itself.
+				this.own(on(page, 'close', lang.hitch(this, this.layerTabPageClose, json.paneId, true)));
+
+				this.tabContainer.addChild(page);
+			}
+			if (isActive) {
+				this.tabContainer.selectChild(page); // goto tabChanged
+			}
+		},
+
+		onReceiveData: function (name, source, params) {
+			/*jshint unused:vars*/
+			if (params &amp;&amp; params.target === 'AttributeTable') {
+				if (this._isOnlyTable()) {
+					if (this.state === 'closed') {
+						console.warn('Please open Attribute Table!');
+						return;
+					}
+				}
+				params.layer = params.layer || params.layerInfo;
+				params.closeable = true;
+				params.isActive = true;
+
+				if (!this.showing) {
+					this._openTable().then(
+						lang.hitch(this, function () {
+							var isInResources = !!this._resourceManager.getLayerInfoById(params.layer.id);
+							if (!isInResources) {
+								this._resourceManager.updateLayerInfoResources(false).then(
+									lang.hitch(this, function () {
+										this._addLayerToTable(params);
+									})
+								);
+							} else {
+								this._addLayerToTable(params);
+							}
+						})
+					);
+				} else {
+					this._resourceManager.updateLayerInfoResources(false).then(
+						lang.hitch(this, function () {
+							this._addLayerToTable(params);
+						})
+					);
+				}
+			}
+		},
+
+		_addLayerToTable: function (params) {
+			var layer = null;
+			if (!(lang.getObject('layer.id', false, params) || lang.getObject('layerInfo.id', false, params))) {
+				return;
+			}
+			var layerInfo = this._resourceManager.getLayerInfoById((params.layerInfo &amp;&amp; params.layerInfo.id) || (params.layer &amp;&amp; params.layer.id));
+			layerInfo.getLayerObject().then(
+				lang.hitch(this, function (layerObject) {
+					if (layerObject) {
+						layerObject.id = params.layer.id;
+						if (layerObject.loaded) {
+							this.addNewLayerTab(layerInfo.id, params.featureSet, !!params.closeable, !!params.isActive, params.index);
+						} else {
+							this.own(on(layerObject, 'load', lang.hitch(this, this.addNewLayerTab, layerInfo.id, params.featureSet, !!params.closeable, !!params.isActive, params.index)));
+						}
+					} else if (params.url) {
+						layer = new FeatureLayer(params.url);
+						this.own(on(layer, 'load', lang.hitch(this, this.addNewLayerTab, layerInfo.id, params.featureSet, !!params.closeable, !!params.isActive, params.index)));
+					}
+				}),
+				lang.hitch(this, function (err) {
+					new Message({
+						message: err.message || err,
+					});
+				})
+			);
+		},
+
+		getExistLayerTabPage: function (paneId) {
+			var len = this.layerTabPages.length;
+			for (var i = 0; i &lt; len; i++) {
+				if (this.layerTabPages[i] &amp;&amp; this.layerTabPages[i].get('paneId') === paneId) {
+					return this.layerTabPages[i];
+				}
+			}
+			return null;
+		},
+
+		layerTabPageClose: function (paneId, isRemoveChild) {
+			var len = this.layerTabPages.length;
+			var activeId = lang.getObject('_activeTable.layerInfo.id', false, this);
+			if (activeId === paneId) {
+				this.setActiveTable(null);
+			}
+			for (var i = 0; i &lt; len; i++) {
+				if (this.layerTabPages[i] &amp;&amp; this.layerTabPages[i].paneId === paneId) {
+					// this.featureTableSet
+
+					// var table = that._resourceManager.featureTableSet[paneId];
+					var table = lang.getObject('_resourceManager.featureTableSet.' + paneId, false, this);
+					if (table) {
+						var filterObj = table.getFilterObj();
+						if (filterObj &amp;&amp; esriLang.isDefined(filterObj.expr)) {
+							this.filterManager.applyWidgetFilter(paneId, this.id, '');
+						}
+					}
+					if (isRemoveChild === true) {
+						this.tabContainer.removeChild(this.layerTabPages[i]);
+						this.layerTabPages[i].destroyRecursive();
+					}
+					if (this.layerTabPages &amp;&amp; this.layerTabPages[i]) {
+						this.layerTabPages.splice(i, 1); // removed contentpane from memory
+					}
+
+					this._resourceManager.removeConfigInfo(paneId); // destroy featureTable
+					this._resourceManager.removeLayerInfo(paneId);
+
+					if (len === 1) {
+						this._activeLayerInfoId = null;
+						this.onClose();
+						this._toggleNoTableMessage(true);
+						return;
+					} else if (paneId === this._activeLayerInfoId) {
+						var layerIndex = len - 2; // show last contentpane
+						this.tabContainer.selectChild(this.layerTabPages[layerIndex]);
+					}
+					break;
+				}
+			}
+		},
+
+		_processRelatedRecordsFromPopup: function (layerInfo, featureIds) {
+			if (layerInfo) {
+				var defs = [];
+				defs.push(layerInfo.getLayerObject());
+				defs.push(layerInfo.getRelatedTableInfoArray());
+				all(defs).then(
+					lang.hitch(this, function (results) {
+						if (results) {
+							var layerObject = results[0];
+							var relatedTableInfos = results[1];
+							this._resourceManager.collectRelationShips(layerInfo, relatedTableInfos);
+							var ships = layerObject.relationships;
+							for (var i = 0, len = ships.length; i &lt; len; i++) {
+								this.addNewRelationTab(featureIds, ships[i], layerInfo.id, true, true);
+							}
+						}
+					})
+				);
+			}
+		},
+
+		showRelatedRecordsFromPopup: function (layerInfo, featureIds) {
+			if (!this.showing) {
+				this._openTable().then(
+					lang.hitch(this, function () {
+						var isInResources = !!this._resourceManager.getLayerInfoById(layerInfo.id);
+						if (!isInResources) {
+							this._resourceManager.updateLayerInfoResources(false).then(
+								lang.hitch(this, function () {
+									this._processRelatedRecordsFromPopup(layerInfo, featureIds);
+								})
+							);
+						} else {
+							this._processRelatedRecordsFromPopup(layerInfo, featureIds);
+						}
+					})
+				);
+			} else {
+				this._resourceManager.updateLayerInfoResources(false).then(
+					lang.hitch(this, function () {
+						this._processRelatedRecordsFromPopup(layerInfo, featureIds);
+					})
+				);
+			}
+		},
+
+		_toggleNoTableMessage: function (show) {
+			if (!this.NoTableMessageDiv) {
+				var srcRef = this.AttributeTableDiv || this.domNode;
+				var messageText =
+					this.nls.noTablesAvailable + '&lt;br/>&lt;br/>' + (this.config.syncWithLayers ? this.nls.checkLayerListToSelectLayers : this.nls.checkConfigutationToSelectLayers);
+
+				this.NoTableMessageDiv = html.create('div', {
+					innerHTML: messageText,
+					className: 'jimu-widget-attributetable-notable hidden',
+				});
+				html.place(this.NoTableMessageDiv, srcRef);
+			}
+			html[show ? 'removeClass' : 'addClass'](this.NoTableMessageDiv, 'hidden');
+		},
+
+		_toggleLoading: function (show) {
+			if (show === undefined) {
+				var isHidden = this.loading.hidden;
+				if (isHidden) {
+					this.loading.show();
+				} else {
+					this.loading.hide();
+				}
+			} else {
+				if (show) {
+					this.loading.show();
+				} else {
+					this.loading.hide();
+				}
+			}
+		},
+
+		isLoading: function () {
+			return (
+				(this.loading &amp;&amp; !this.loading.hidden) || // widget is loading
+				(this._activeTable &amp;&amp; this._activeTable.loading &amp;&amp; !this._activeTable.loading.hidden)
+			); // table is loading
+		},
+	});
+
+	clazz.inPanel = false;
+	clazz.hasUIFile = false;
+	return clazz;
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="echarts_coord_scale_Ordinal%250D%250Dhttp___en.wikipedia.org_wiki_Level_of_measurementmodule_.html">echarts/coord/scale/Ordinalhttp://en.wikipedia.org/wiki/Level_of_measurement</a></li><li><a href="echarts-module_ECharts.html">ECharts</a></li><li><a href="echarts-module_MessageCenter.html">MessageCenter</a></li><li><a href="module-AttributeTable.html">AttributeTable</a></li><li><a href="module-BasemapGallery.html">BasemapGallery</a></li><li><a href="module-Draw.html">Draw</a></li><li><a href="module-echarts_animation_Animator.html">echarts/animation/Animator</a></li><li><a href="module-echarts_chart_helper_Line.html">echarts/chart/helper/Line</a></li><li><a href="module-echarts_chart_helper_LineDraw.html">echarts/chart/helper/LineDraw</a></li><li><a href="module-echarts_chart_helper_Symbol.html">echarts/chart/helper/Symbol</a></li><li><a href="module-echarts_chart_helper_SymbolDraw.html">echarts/chart/helper/SymbolDraw</a></li><li><a href="module-echarts_coord_Cartesian.html">echarts/coord/Cartesian</a></li><li><a href="module-echarts_coord_geo_parseGeoJson.html">echarts/coord/geo/parseGeoJson</a></li><li><a href="module-echarts_coord_geo_Region.html">echarts/coord/geo/Region</a></li><li><a href="module-echarts_core_BoundingRect.html">echarts/core/BoundingRect</a></li><li><a href="module-echarts_data_List.html">echarts/data/List</a></li><li><a href="module-echarts_model_Component.html">echarts/model/Component</a></li><li><a href="module-echarts_model_Model.html">echarts/model/Model</a></li><li><a href="module-echarts_scale_Interval.html">echarts/scale/Interval</a></li><li><a href="module-echarts_scale_Log.html">echarts/scale/Log</a></li><li><a href="module-echarts_scale_Scale.html">echarts/scale/Scale</a></li><li><a href="module-echarts_stream_Scheduler.html">echarts/stream/Scheduler</a></li><li><a href="module-Geoprocessing.html">Geoprocessing</a></li><li><a href="module-HomeButton.html">HomeButton</a></li><li><a href="module-Infographic.html">Infographic</a></li><li><a href="module-LayerList.html">LayerList</a></li><li><a href="module-MapProgress.html">MapProgress</a></li><li><a href="module-PickColumns.html">PickColumns</a></li><li><a href="module-Search.html">Search</a></li><li><a href="module-Select.html">Select</a></li><li><a href="module-Splash.html">Splash</a></li><li><a href="module-themes_LaunchpadTheme_widgets_AnchorBarController_BaseIconItem.html">themes/LaunchpadTheme/widgets/AnchorBarController/BaseIconItem</a></li><li><a href="module-themes_LaunchpadTheme_widgets_AnchorBarController_DockableItem.html">themes/LaunchpadTheme/widgets/AnchorBarController/DockableItem</a></li><li><a href="module-themes_LaunchpadTheme_widgets_AnchorBarController_GroupItems.html">themes/LaunchpadTheme/widgets/AnchorBarController/GroupItems</a></li><li><a href="module-themes_LaunchpadTheme_widgets_AnchorBarController_Widget.html">themes/LaunchpadTheme/widgets/AnchorBarController/Widget</a></li><li><a href="module-Treatment.html">Treatment</a></li><li><a href="module-widgets_Coordinate.html">widgets/Coordinate</a></li><li><a href="module-zrender_animation_Animation.html">zrender/animation/Animation</a></li><li><a href="module-zrender_animation_easing.html">zrender/animation/easing</a></li><li><a href="module-zrender_core_bbox.html">zrender/core/bbox</a></li><li><a href="module-zrender_core_curve.html">zrender/core/curve</a></li><li><a href="module-zrender_core_event.html">zrender/core/event</a></li><li><a href="module-zrender_core_PathProxy.html">zrender/core/PathProxy</a></li><li><a href="module-zrender_core_util.html">zrender/core/util</a></li><li><a href="module-zrender_graphic_Displayable.html">zrender/graphic/Displayable</a></li><li><a href="module-zrender_graphic_Group.html">zrender/graphic/Group</a></li><li><a href="module-zrender_graphic_shape_Arc.html">zrender/graphic/shape/Arc</a></li><li><a href="module-zrender_graphic_shape_Line.html">zrender/graphic/shape/Line</a></li><li><a href="module-zrender_graphic_shape_Polyline.html">zrender/graphic/shape/Polyline</a></li><li><a href="module-zrender_graphic_shape_Rect.html">zrender/graphic/shape/Rect</a></li><li><a href="module-zrender_graphic_shape_Ring.html">zrender/graphic/shape/Ring</a></li><li><a href="module-zrender_graphic_shape_Sector.html">zrender/graphic/shape/Sector</a></li><li><a href="module-zrender_Layer.html">zrender/Layer</a></li><li><a href="module-zrender_mixin_Eventful.html">zrender/mixin/Eventful</a></li><li><a href="module-zrender_mixin_RectText.html">zrender/mixin/RectText</a></li><li><a href="module-zrender_mixin_Transformable.html">zrender/mixin/Transformable</a></li><li><a href="module-zrender_shape_BezierCurve.html">zrender/shape/BezierCurve</a></li><li><a href="module-zrender_shape_Circle.html">zrender/shape/Circle</a></li><li><a href="module-zrender_shape_Polygon.html">zrender/shape/Polygon</a></li><li><a href="module-zrender_shape_util_smoothBezier.html">zrender/shape/util/smoothBezier</a></li><li><a href="module-zrender_shape_util_smoothSpline.html">zrender/shape/util/smoothSpline</a></li><li><a href="module-zrender_tool_matrix.html">zrender/tool/matrix</a></li><li><a href="module-zrender_ZRender.html">zrender/ZRender</a></li><li><a href="module-%257Becharts_model_Global%257D.html">{echarts/model/Global}</a></li><li><a href="module-%257Becharts_model_OptionManager%257D.html">{echarts/model/OptionManager}</a></li></ul><h3>Namespaces</h3><ul><li><a href="crc.html">crc</a></li><li><a href="LocalMediaStream%2520--%2520https___developer.mozilla.org_en-US_docs_WebRTC_MediaStream_API_LocalMediaStream.html">LocalMediaStream</a></li><li><a href="xhr.sendAsBinary%2520%2520https___developer.mozilla.org_ru_XMLHttpRequest_Sending_binary_content.html">Sending_binary_content</a></li></ul><h3>Classes</h3><ul><li><a href="FileAPI.Camera.html">Camera</a></li><li><a href="FileAPI.Camera.Shot.html">Shot</a></li><li><a href="modue_zrender_mixin_Animatable.html">modue:zrender/mixin/Animatable</a></li><li><a href="module-echarts_chart_helper_SymbolDraw.html">echarts/chart/helper/SymbolDraw</a></li><li><a href="module-echarts_component_marker_LineDraw.html">echarts/component/marker/LineDraw</a></li><li><a href="module-echarts_component_tooltip_TooltipContent.html">echarts/component/tooltip/TooltipContent</a></li><li><a href="module-echarts_coord_Cartesian.html">echarts/coord/Cartesian</a></li><li><a href="module-echarts_coord_Cartesian-module_echarts_coord_cartesian_Axis2D.html">echarts/coord/cartesian/Axis2D</a></li><li><a href="module-echarts_coord_scale_Interval.html">echarts/coord/scale/Interval</a></li><li><a href="module-echarts_coord_scale_Time.html">echarts/coord/scale/Time</a></li><li><a href="module-echarts_data_List.html">echarts/data/List</a></li><li><a href="module-echarts_model_Component.html">echarts/model/Component</a></li><li><a href="module-echarts_model_Model.html">echarts/model/Model</a></li><li><a href="module-zrender_animation_Animation.html">zrender/animation/Animation</a></li><li><a href="module-zrender_animation_Animator.html">zrender/animation/Animator</a></li><li><a href="module-zrender_core_LRU.html">zrender/core/LRU</a></li><li><a href="module-zrender_core_PathProxy.html">zrender/core/PathProxy</a></li><li><a href="module-zrender_Element.html">zrender/Element</a></li><li><a href="module-zrender_graphic_Group.html">zrender/graphic/Group</a></li><li><a href="module-zrender_graphic_Path.html">zrender/graphic/Path</a></li><li><a href="module-zrender_Handler.html">zrender/Handler</a></li><li><a href="module-zrender_Layer.html">zrender/Layer</a></li><li><a href="module-zrender_mixin_Eventful.html">zrender/mixin/Eventful</a></li><li><a href="module-zrender_mixin_Transformable.html">zrender/mixin/Transformable</a></li><li><a href="module-zrender_Painter.html">zrender/Painter</a></li><li><a href="module-zrender_Storage.html">zrender/Storage</a></li><li><a href="module-zrender_ZRender.html">zrender/ZRender</a></li><li><a href="zrender_graphic_Image.html">zrender/graphic/Image</a></li><li><a href="zrender_graphic_Text.html">zrender/graphic/Text</a></li><li>{<a href="module-echarts_chart_helper_Line.html">module:echarts/chart/helper/Line</a>}</li><li>{<a href="module-echarts_chart_helper_Symbol.html">module:echarts/chart/helper/Symbol</a>}</li></ul><h3>Events</h3><ul><li><a href="module-echarts_chart_helper_SymbolDraw.html#~event:legendScroll">legendScroll</a></li><li><a href="module-echarts_chart_helper_SymbolDraw.html#~event:legendSelect">legendSelect</a></li><li><a href="module-echarts_chart_helper_SymbolDraw.html#~event:legendToggleSelect">legendToggleSelect</a></li><li><a href="module-echarts_chart_helper_SymbolDraw.html#~event:legendUnSelect">legendUnSelect</a></li></ul><h3>Mixins</h3><ul><li><a href="module-echarts_chart_helper_LineDraw-%257Bmodule_zrender_mixin_Eventful%257D.html">{zrender/mixin/Eventful}</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_addExternalStyleSheets">_addExternalStyleSheets</a></li><li><a href="global.html#_addSectionTitle">_addSectionTitle</a></li><li><a href="global.html#_createLayout">_createLayout</a></li><li><a href="global.html#_createPrintMapParameters">_createPrintMapParameters</a></li><li><a href="global.html#_createPrintTask">_createPrintTask</a></li><li><a href="global.html#_createReportNote">_createReportNote</a></li><li><a href="global.html#_displayLayers">_displayLayers</a></li><li><a href="global.html#_executePrintTask">_executePrintTask</a></li><li><a href="global.html#_filters">_filters</a></li><li><a href="global.html#_findContentItemById">_findContentItemById</a></li><li><a href="global.html#_formatAndRenderTables">_formatAndRenderTables</a></li><li><a href="global.html#_getFixedThemeStyles">_getFixedThemeStyles</a></li><li><a href="global.html#_handleDataSourceForWidgets">_handleDataSourceForWidgets</a></li><li><a href="global.html#_onAppProxyForMapChanged">_onAppProxyForMapChanged</a></li><li><a href="global.html#_onAppProxyForUrlChanged">_onAppProxyForUrlChanged</a></li><li><a href="global.html#_onFieldVisibleChange">_onFieldVisibleChange</a></li><li><a href="global.html#_renderHTMLData">_renderHTMLData</a></li><li><a href="global.html#_renderTable">_renderTable</a></li><li><a href="global.html#_resetCoordinate">_resetCoordinate</a></li><li><a href="global.html#_setButtonLabels">_setButtonLabels</a></li><li><a href="global.html#_setCoordControlsTabindex">_setCoordControlsTabindex</a></li><li><a href="global.html#_setFootNotes">_setFootNotes</a></li><li><a href="global.html#_setPageSize">_setPageSize</a></li><li><a href="global.html#_setReportData">_setReportData</a></li><li><a href="global.html#_setReportLogo">_setReportLogo</a></li><li><a href="global.html#_setReportSizeMessage">_setReportSizeMessage</a></li><li><a href="global.html#_setReportTitle">_setReportTitle</a></li><li><a href="global.html#_updatePartForBetween">_updatePartForBetween</a></li><li><a href="global.html#_validateParameters">_validateParameters</a></li><li><a href="global.html#acceptValue">acceptValue</a></li><li><a href="global.html#action">action</a></li><li><a href="global.html#applyWidgetFilter">applyWidgetFilter</a></li><li><a href="global.html#calculateLayerIndex">calculateLayerIndex</a></li><li><a href="global.html#canAssignUsersToOrgGroups">canAssignUsersToOrgGroups</a></li><li><a href="global.html#canChangeUserRoles">canChangeUserRoles</a></li><li><a href="global.html#canCreateGroup">canCreateGroup</a></li><li><a href="global.html#canCreateItem">canCreateItem</a></li><li><a href="global.html#canDeleteOrgGroups">canDeleteOrgGroups</a></li><li><a href="global.html#canDeleteOrgItems">canDeleteOrgItems</a></li><li><a href="global.html#canDeleteUsers">canDeleteUsers</a></li><li><a href="global.html#canDesignateOpenDataGroups">canDesignateOpenDataGroups</a></li><li><a href="global.html#canDisableUsers">canDisableUsers</a></li><li><a href="global.html#canEditFeatures">canEditFeatures</a></li><li><a href="global.html#canEditFeaturesFullControl">canEditFeaturesFullControl</a></li><li><a href="global.html#canInviteUsers">canInviteUsers</a></li><li><a href="global.html#canJoinNonOrgGroup">canJoinNonOrgGroup</a></li><li><a href="global.html#canJoinOrgGroup">canJoinOrgGroup</a></li><li><a href="global.html#canManageEnterpriseGroups">canManageEnterpriseGroups</a></li><li><a href="global.html#canManageLicenses">canManageLicenses</a></li><li><a href="global.html#canManageMarketplace">canManageMarketplace</a></li><li><a href="global.html#canManageOpenData">canManageOpenData</a></li><li><a href="global.html#canPublishFeatures">canPublishFeatures</a></li><li><a href="global.html#canPublishScenes">canPublishScenes</a></li><li><a href="global.html#canPublishTiles">canPublishTiles</a></li><li><a href="global.html#canPurchaseMarketplace">canPurchaseMarketplace</a></li><li><a href="global.html#canReassignOrgGroups">canReassignOrgGroups</a></li><li><a href="global.html#canReassignOrgItems">canReassignOrgItems</a></li><li><a href="global.html#canShareGroupToOrg">canShareGroupToOrg</a></li><li><a href="global.html#canShareGroupToPublic">canShareGroupToPublic</a></li><li><a href="global.html#canShareItemToGroup">canShareItemToGroup</a></li><li><a href="global.html#canShareItemToOrg">canShareItemToOrg</a></li><li><a href="global.html#canShareItemToPublic">canShareItemToPublic</a></li><li><a href="global.html#canTrialMarketplace">canTrialMarketplace</a></li><li><a href="global.html#canUpdateOrgGroups">canUpdateOrgGroups</a></li><li><a href="global.html#canUpdateOrgItems">canUpdateOrgItems</a></li><li><a href="global.html#canUpdateUsers">canUpdateUsers</a></li><li><a href="global.html#canUseDemographics">canUseDemographics</a></li><li><a href="global.html#canUseElevation">canUseElevation</a></li><li><a href="global.html#canUseGeocode">canUseGeocode</a></li><li><a href="global.html#canUseGeoenrichment">canUseGeoenrichment</a></li><li><a href="global.html#canUseNetworkAnalysis">canUseNetworkAnalysis</a></li><li><a href="global.html#canUseSpatialAnalysis">canUseSpatialAnalysis</a></li><li><a href="global.html#canViewOrgGroups">canViewOrgGroups</a></li><li><a href="global.html#canViewOrgItems">canViewOrgItems</a></li><li><a href="global.html#canViewUsers">canViewUsers</a></li><li><a href="global.html#clear">clear</a></li><li><a href="global.html#constructor">constructor</a></li><li><a href="global.html#coordTextInputKeyWasPressed">coordTextInputKeyWasPressed</a></li><li><a href="global.html#cpBtnWasClicked">cpBtnWasClicked</a></li><li><a href="global.html#cpSubBtnWasClicked">cpSubBtnWasClicked</a></li><li><a href="global.html#createPages">createPages</a></li><li><a href="global.html#deactivateDrawTool">deactivateDrawTool</a></li><li><a href="global.html#destroyOnScreenWidgetsAndGroups">destroyOnScreenWidgetsAndGroups</a></li><li><a href="global.html#drawPointButtonWasClicked">drawPointButtonWasClicked</a></li><li><a href="global.html#expandButtonWasClicked">expandButtonWasClicked</a></li><li><a href="global.html#formatButtonWasClicked">formatButtonWasClicked</a></li><li><a href="global.html#formatDialogApplyButtonClicked">formatDialogApplyButtonClicked</a></li><li><a href="global.html#geomSrvcDidComplete">geomSrvcDidComplete</a></li><li><a href="global.html#geomSrvcDidFail">geomSrvcDidFail</a></li><li><a href="global.html#getCandidateParamNames">getCandidateParamNames</a></li><li><a href="global.html#getCleanInput">getCleanInput</a></li><li><a href="global.html#getCoordValues">getCoordValues</a></li><li><a href="global.html#getCurrentMapCoordinate">getCurrentMapCoordinate</a></li><li><a href="global.html#getDDPoint">getDDPoint</a></li><li><a href="global.html#getExportString">getExportString</a></li><li><a href="global.html#getFormattedCoordinates">getFormattedCoordinates</a></li><li><a href="global.html#getFormattedCoordinateText">getFormattedCoordinateText</a></li><li><a href="global.html#getFormattedDDMStr">getFormattedDDMStr</a></li><li><a href="global.html#getFormattedDDStr">getFormattedDDStr</a></li><li><a href="global.html#getFormattedDMSStr">getFormattedDMSStr</a></li><li><a href="global.html#getFormattedGARSStr">getFormattedGARSStr</a></li><li><a href="global.html#getFormattedGEOREFStr">getFormattedGEOREFStr</a></li><li><a href="global.html#getFormattedMGRSStr">getFormattedMGRSStr</a></li><li><a href="global.html#getFormattedUSNGStr">getFormattedUSNGStr</a></li><li><a href="global.html#getFormattedUTMHStr">getFormattedUTMHStr</a></li><li><a href="global.html#getFormattedUTMStr">getFormattedUTMStr</a></li><li><a href="global.html#getIcon">getIcon</a></li><li><a href="global.html#getMapCoordinateDD">getMapCoordinateDD</a></li><li><a href="global.html#getOrderableInput">getOrderableInput</a></li><li><a href="global.html#getOrderableOutput">getOrderableOutput</a></li><li><a href="global.html#getProjectedPoint">getProjectedPoint</a></li><li><a href="global.html#getStatisticsResult">getStatisticsResult</a></li><li><a href="global.html#getSupportExportFormats">getSupportExportFormats</a></li><li><a href="global.html#getWidgetFilter">getWidgetFilter</a></li><li><a href="global.html#getXYNotation">getXYNotation</a></li><li><a href="global.html#iconClass">iconClass</a></li><li><a href="global.html#iconFormat">iconFormat</a></li><li><a href="global.html#initUI">initUI</a></li><li><a href="global.html#inputError">inputError</a></li><li><a href="global.html#isAdmin">isAdmin</a></li><li><a href="global.html#isBasedOnAdmin">isBasedOnAdmin</a></li><li><a href="global.html#isBasedOnPublisher">isBasedOnPublisher</a></li><li><a href="global.html#isBasedOnUser">isBasedOnUser</a></li><li><a href="global.html#isCustom">isCustom</a></li><li><a href="global.html#isFeatureSupported">isFeatureSupported</a></li><li><a href="global.html#isPublisher">isPublisher</a></li><li><a href="global.html#isUser">isUser</a></li><li><a href="global.html#label">label</a></li><li><a href="global.html#loadAndLayout">loadAndLayout</a></li><li><a href="global.html#mapWasClicked">mapWasClicked</a></li><li><a href="global.html#name">name</a></li><li><a href="global.html#nodes">nodes</a></li><li><a href="global.html#onClose">onClose</a></li><li><a href="global.html#onExecute">onExecute</a></li><li><a href="global.html#onMinimize">onMinimize</a></li><li><a href="global.html#onNormalize">onNormalize</a></li><li><a href="global.html#parentWidget">parentWidget</a></li><li><a href="global.html#popupDidClose">popupDidClose</a></li><li><a href="global.html#postCreate">postCreate</a></li><li><a href="global.html#postMixInProperties">postMixInProperties</a></li><li><a href="global.html#print">print</a></li><li><a href="global.html#processCoordTextInput">processCoordTextInput</a></li><li><a href="global.html#profile">profile</a></li><li><a href="global.html#QRCode">QRCode</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#resize">resize</a></li><li><a href="global.html#setActions">setActions</a></li><li><a href="global.html#setCoordUI">setCoordUI</a></li><li><a href="global.html#setHidden">setHidden</a></li><li><a href="global.html#setMapLayout">setMapLayout</a></li><li><a href="global.html#setPosition">setPosition</a></li><li><a href="global.html#setPrivileges">setPrivileges</a></li><li><a href="global.html#setReportLayout">setReportLayout</a></li><li><a href="global.html#setSubCoordUI">setSubCoordUI</a></li><li><a href="global.html#setUIListeners">setUIListeners</a></li><li><a href="global.html#setVisible">setVisible</a></li><li><a href="global.html#showToolTip">showToolTip</a></li><li><a href="global.html#statInfo">statInfo</a></li><li><a href="global.html#stringify">stringify</a></li><li><a href="global.html#stringifyPretty">stringifyPretty</a></li><li><a href="global.html#stringifyPrivileges">stringifyPrivileges</a></li><li><a href="global.html#stringifyRole">stringifyRole</a></li><li><a href="global.html#updateDisplay">updateDisplay</a></li><li><a href="global.html#zoomButtonWasClicked">zoomButtonWasClicked</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Thu Dec 31 2020 13:49:27 GMT-0600 (Central Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

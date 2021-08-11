@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: widgets/PickColumns/Widget.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: widgets/PickColumns/Widget.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @fileoverview
+ * (Custom Widget - {@link module:PickColumns|More info}) PickColumns (Visualize Data in web app) is a custom widget used as an interface to graphs and visualizations related fields in the IPMP FeatureSet. It displays average values, and interactive maps which display a color-coded representation of the selected field.
+ */
+
+/*global define, console, setTimeout*/
+define([
+	//dojo
+	'dojo/_base/declare',
+	'jimu/BaseWidget',
+	'dijit/_WidgetsInTemplateMixin',
+	'dijit/form/Button',
+	'dojo/on',
+	'dojo/aspect',
+	'dijit/form/SimpleTextarea',
+	'dojo/dom-class',
+	'dojo/_base/array',
+	'dojo/string',
+	'dojo/_base/lang',
+	'dojo/Deferred',
+	'dojo/promise/all',
+
+	//esri
+	'jimu/WidgetManager',
+	'jimu/PanelManager',
+	'esri/config',
+	'esri/InfoTemplate',
+	'esri/geometry/Point',
+	'esri/geometry/Extent',
+	'esri/tasks/query',
+	'esri/tasks/QueryTask',
+	'esri/symbols/SimpleLineSymbol',
+	'esri/symbols/SimpleFillSymbol',
+	'esri/symbols/SimpleMarkerSymbol',
+	'esri/layers/FeatureLayer',
+	'esri/InfoTemplate',
+	'dojo/promise/all',
+	'dojo/dom-class',
+	'esri/lang',
+	'jimu/dijit/LoadingShelter',
+	'esri/request',
+	'esri/Color',
+	'dojo/domReady!',
+	'dijit/registry',
+], function (
+	//dojo
+	declare,
+	BaseWidget,
+	_WidgetsInTemplateMixin,
+	Button,
+	on,
+	aspect,
+	SimpleTextarea,
+	domClass,
+	array,
+	dojoString,
+	lang,
+	Deferred,
+	all,
+
+	//esri
+	WidgetManager,
+	PanelManager,
+	esriConfig,
+	InfoTemplate,
+	Point,
+	Extent,
+	Query,
+	QueryTask,
+	SimpleLineSymbol,
+	SimpleFillSymbol,
+	SimpleMarkerSymbol,
+	FeatureLayer,
+	esriRequest,
+	InfoTemplate,
+	all,
+	domClass,
+	esriLang,
+	LoadingShelter,
+	Color,
+	registry
+) {
+	/**
+	 * @module PickColumns
+	 */
+	return declare([BaseWidget, _WidgetsInTemplateMixin], {
+		// DemoWidget code goes here
+
+		//please note that this property is be set by the framework when widget is loaded.
+		//templateString: template,
+
+		baseClass: 'jimu-widget-PickColumns',
+		name: 'PickColumns',
+		label: 'PickColumns',
+
+		layerQuery: null,
+		serviceQuery: null,
+		optionFieldSel: null,
+		prevFieldNode: null,
+		curWidget: null,
+		panelManager: null,
+		widgetManager: null,
+		layersVisible: null, //0 ~ all, 1 ~ 2013, 2 ~ 2014, 3 ~ 2015 .....
+		query: null,
+		baseWhere: null,
+		yearWhere: null,
+		queryTask: null,
+		currTab: null, // 0 (first menu on top), 1 (2nd menu from top), 2, 3
+		currSet: null,
+		subset: null,
+		curField: null,
+		maxF: null,
+		minF: null,
+		crMin: null,
+		crMax: null,
+		avgF: null,
+		typeInd: null,
+		prox: null,
+		yearCount: null,
+		featureLayer: null,
+		slider: null,
+		sliderVals: null,
+		loaderWidget: null,
+
+		postCreate: function () {
+			this.inherited(arguments);
+			console.log('postCreate');
+		},
+
+		// startup: function () {
+		//   this.inherited(arguments);
+		//   this.mapIdNode.innerHTML = 'map id:' + this.map.id;
+		//   console.log('startup');
+		// },
+
+		/**
+		 * Loads on initial setup, crreating EventListeners for buttons and running initial setup.
+		 */
+		startup: function startupFunc() {
+			this.inherited(arguments);
+
+			// this.own(on(this.selectGraph, "change", lang.hitch(this, function () {
+			//   if (this.selectGraph.get('value') != "Choose one:") {
+			//     this.curTab = 0;
+			//     this.selectAVG.set('value', "Choose one:");
+			//     // this.selectMIN.set('value', "Choose one:");
+			//     // this.selectMAX.set('value', "Choose one:");
+			//     this.optionLayerSelVal = this.selectGraph.get('value');
+			//     this.optionLayerSelText = this.selectGraph.get('displayedValue');
+			//     this.openGraph(this.selectGraph.get('value'));
+			//   }
+			// })));
+
+			// this.slider = document.getElementById("slider");
+
+			// noUiSlider.create(slider, {
+			//   start: [0, 100],
+			//   connect: false,
+			//   range: {
+			//     min: 0,
+			//     max: 100
+			//   }
+			// });
+
+			// this.slider.setAttribute("disabled", true);
+			// this.sliderVals = [];
+
+			this.own(
+				on(
+					this.selectAVG,
+					'change',
+					lang.hitch(this, function () {
+						if (this.selectAVG.get('value') != 'Choose one:') {
+							this.curTab = 1;
+							//this.selectGraph.set('value', "Choose one:");
+							//this.selectMIN.set('value', "Choose one:");
+							//this.selectMAX.set('value', "Choose one:");
+							this.optionLayerSelVal = this.selectAVG.get('value');
+							this.optionLayerSelText = this.selectAVG.get('displayedValue');
+							this.openGraph(this.selectAVG.get('value'), 0);
+						}
+					})
+				)
+			);
+
+			// document.getElementById("minB").addEventListener("click", ev => {
+			//   this.getGraphicExtent(this.sliderVals[0]);
+			// });
+
+			// document.getElementById("maxB").addEventListener("click", ev => {
+			//   this.getGraphicExtent(this.sliderVals[1]);
+			// });
+
+			// var selfRef = this;
+			// this.slider.noUiSlider.on("change", function(values, handle, unencoded, tap, positions) {
+			//   if (!selfRef.subset) return;
+			//   // console.log(`Values[0] was ${parseInt(values[0])} and that is equal to ${selfRef.subset[parseInt(values[0])].attributes[selfRef.curField]}`);
+			//   // console.log(`Values[1] was ${parseInt(values[1])} and that is equal to ${selfRef.subset[parseInt(values[1])].attributes[selfRef.curField]}`);
+			//   if (!handle) {
+			//     // min
+			//     selfRef.sliderVals[0] = parseInt(values[0]);
+			//     selfRef.crMin = selfRef.currSet.features[selfRef.sliderVals[0]].attributes[selfRef.curField];
+			//     selfRef.setMaxMinNodes(1);
+			//     selfRef.execQuery(1);
+			//   } else {
+			//     //max
+			//     selfRef.sliderVals[1] = parseInt(values[1]);
+			//     selfRef.crMax = selfRef.currSet.features[selfRef.sliderVals[1]].attributes[selfRef.curField];
+			//     selfRef.setMaxMinNodes(0);
+			//     selfRef.execQuery(1);
+			//   }
+			// });
+
+			// document.getElementById("indPicker").addEventListener("change", ev => {
+			//   if (this.subset &amp;&amp; this.featureLayer) {
+			//     this.setIndicatorLayer(ev.currentTarget.value);
+			//   }
+			// });
+
+			var self = this;
+			document.getElementById('indPicker').onchange = function () {
+				self.setIndicatorLayer(document.getElementById('indPicker').value);
+				self.setLegendColor();
+			};
+
+			document.getElementById('indTogB').addEventListener('click', (ev) => {
+				if (this.featureLayer) {
+					this.map.removeLayer(this.map.getLayer(`${this.curField} Indicator`));
+					this.featureLayer = null;
+				}
+				this.setLegend(ev.currentTarget);
+				if (this.subset &amp;&amp; this.typeInd) this.setIndicatorLayer(document.getElementById('indPicker').value);
+			});
+
+			this.loaderWidget = WidgetManager.getInstance().getWidgetByLabel('MapProgress');
+			//this.loaderWidget.visible = false;
+		},
+
+		/**
+		 * Sets the color of the legend based on user-selected color.
+		 */
+		setLegendColor: function () {
+			switch (document.getElementById('indTogB').innerText) {
+				case 'Max':
+					document.getElementById(
+						'legend'
+					).innerHTML = `&lt;div class="flex-container-PC" style='justify-content: center;'> &lt;div class="flex-container-PC" style='flex-basis: 100%;vertical-align:middle;'> View maximum values on map: &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						5,
+						1
+					)}'>&lt;/div> &lt;div> Min &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						30,
+						1
+					)}'>&lt;/div>  &lt;div>  Low &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						55,
+						1
+					)}'>&lt;/div>  &lt;div>  High &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(document.getElementById('indPicker').value, 80, 1)}'>&lt;/div>  &lt;div>  Max &lt;/div>  &lt;/div>`;
+					break;
+				case '-Δ':
+					document.getElementById(
+						'legend'
+					).innerHTML = `&lt;div class="flex-container-PC" style='justify-content: center;'> &lt;div class="flex-container-PC" style='flex-basis: 100%;'> Displays value of change from previous to current year: &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						5,
+						1
+					)}'>&lt;/div> &lt;div> Max &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						30,
+						1
+					)}'>&lt;/div>  &lt;div>  High &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						55,
+						1
+					)}'>&lt;/div>  &lt;div>  Low &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(document.getElementById('indPicker').value, 80, 1)}'>&lt;/div>  &lt;div>  Min &lt;/div>  &lt;/div>`;
+					break;
+				case '+Δ':
+					document.getElementById(
+						'legend'
+					).innerHTML = `&lt;div class="flex-container-PC" style='justify-content: center;'> &lt;div class="flex-container-PC" style='flex-basis: 100%;'> Displays value of change from previous to current year: &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						5,
+						1
+					)}'>&lt;/div> &lt;div> Min &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						30,
+						1
+					)}'>&lt;/div>  &lt;div>  Low &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						55,
+						1
+					)}'>&lt;/div>  &lt;div>  High &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(document.getElementById('indPicker').value, 80, 1)}'>&lt;/div>  &lt;div>  Max &lt;/div>  &lt;/div>`;
+					break;
+				case 'Min':
+					document.getElementById(
+						'legend'
+					).innerHTML = `&lt;div class="flex-container-PC" style='justify-content: center;'> &lt;div class="flex-container-PC" style='flex-basis: 100%;'> View minimum values on map: &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						5,
+						1
+					)}'>&lt;/div> &lt;div> Max &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						30,
+						1
+					)}'>&lt;/div>  &lt;div>  High &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						55,
+						1
+					)}'>&lt;/div>  &lt;div>  Low &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(document.getElementById('indPicker').value, 80, 1)}'>&lt;/div>  &lt;div>  Min &lt;/div>  &lt;/div>`;
+					break;
+			}
+		},
+
+		/**
+		 * Cycles button from Min -> Max -> -Δ -> +Δ -> Off -> Min
+		 * @param {Button} obj The current HTML button element
+		 */
+		setLegend: function (obj) {
+			switch (obj.innerText) {
+				case 'Min':
+					obj.innerText = 'Max';
+					document.getElementById(
+						'legend'
+					).innerHTML = `&lt;div class="flex-container-PC" style='justify-content: center;'> &lt;div class="flex-container-PC" style='flex-basis: 100%;'> View maximum values on map: &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						5,
+						1
+					)}'>&lt;/div> &lt;div> Min &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						30,
+						1
+					)}'>&lt;/div>  &lt;div>  Low &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						55,
+						1
+					)}'>&lt;/div>  &lt;div>  High &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(document.getElementById('indPicker').value, 80, 1)}'>&lt;/div>  &lt;div>  Max &lt;/div>  &lt;/div>`;
+					this.typeInd = 2;
+					break;
+				case 'Max':
+					obj.innerText = '-Δ';
+					document.getElementById(
+						'legend'
+					).innerHTML = `&lt;div class="flex-container-PC" style='justify-content: center;'> &lt;div class="flex-container-PC" style='flex-basis: 100%;'> Displays value of change from previous to current year: &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						5,
+						1
+					)}'>&lt;/div> &lt;div> Max &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						30,
+						1
+					)}'>&lt;/div>  &lt;div>  High &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						55,
+						1
+					)}'>&lt;/div>  &lt;div>  Low &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(document.getElementById('indPicker').value, 80, 1)}'>&lt;/div>  &lt;div>  Min &lt;/div>  &lt;/div>`;
+					this.typeInd = 3;
+					break;
+				case '-Δ':
+					obj.innerText = '+Δ';
+					document.getElementById(
+						'legend'
+					).innerHTML = `&lt;div class="flex-container-PC" style='justify-content: center;'> &lt;div class="flex-container-PC" style='flex-basis: 100%;'> Displays value of change from previous to current year: &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						5,
+						1
+					)}'>&lt;/div> &lt;div> Min &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						30,
+						1
+					)}'>&lt;/div>  &lt;div>  Low &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						55,
+						1
+					)}'>&lt;/div>  &lt;div>  High &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(document.getElementById('indPicker').value, 80, 1)}'>&lt;/div>  &lt;div>  Max &lt;/div>  &lt;/div>`;
+					this.typeInd = 4;
+					break;
+				case '+Δ':
+					obj.innerText = 'Off';
+					document.getElementById('legend').innerHTML = `&lt;div class="flex-container-PC" style='justify-content: center; flex-basis: 100%;'>  Add layer to map based on: &lt;/div>`;
+					this.typeInd = 0;
+					break;
+				case 'Off':
+					obj.innerText = 'Min';
+					document.getElementById(
+						'legend'
+					).innerHTML = `&lt;div class="flex-container-PC" style='justify-content: center;'> &lt;div class="flex-container-PC" style='justify-content: center; flex-basis: 100%;'> View minimum values on map: &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						5,
+						1
+					)}'>&lt;/div> &lt;div> Max &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						30,
+						1
+					)}'>&lt;/div>  &lt;div>  High &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(
+						document.getElementById('indPicker').value,
+						55,
+						1
+					)}'>&lt;/div>  &lt;div>  Low &lt;/div> &lt;div class="box" style='background:${this.hexToHSL(document.getElementById('indPicker').value, 80, 1)}'>&lt;/div>  &lt;div>  Min &lt;/div>  &lt;/div>`;
+					this.typeInd = 1;
+					break;
+			}
+		},
+
+		openGraph: function (newFieldNode) {
+			if (newFieldNode == this.prevFieldNode) return;
+
+			if (this.featureLayer) {
+				this.map.removeLayer(this.map.getLayer(`${this.curField} Indicator`));
+				this.featureLayer = null;
+			}
+
+			console.log('New field node was ' + newFieldNode);
+
+			let widConf;
+
+			this.query.where = this.baseWhere;
+			this.query.outFields = ['*']; // just in case
+			this.curField = null;
+
+			switch (newFieldNode) {
+				// Menu 1
+				case 'Averages by Jurisdiction':
+					widConf = this._getWidgetConfig('Average Values', false);
+					break;
+				case 'RPA in Current Extent':
+					widConf = this._getWidgetConfig('RPA by Year', false);
+					break;
+				//  Menu 2
+				case 'FAIL_COUNT':
+					this.query.where += ` AND PAVE_TYPE=PCC`;
+					widConf = this._getWidgetConfig('FAIL_COUNT', false);
+					break;
+				case 'IRI':
+					this.query.where += ` AND IRI&lt;>999`;
+					widConf = this._getWidgetConfig('IRI', false);
+					break;
+				case 'RUT':
+					this.query.where += ` AND PAVE_TYPE&lt;>PCC`;
+					widConf = this._getWidgetConfig('RUT', false);
+					break;
+				default:
+					widConf = this._getWidgetConfig(newFieldNode, false);
+					break;
+			}
+
+			if (this.curTab != 0) {
+				this.curField = newFieldNode;
+				this.query.outFields = [this.curField, `OBJECTID`, `YEAR`];
+				this.query.where += ` AND ${this.curField}&lt;>0`;
+				this.query.orderByFields = [this.curField];
+			}
+			this.execQuery(0);
+
+			if (widConf == null) return;
+
+			var headWidget = WidgetManager.getInstance().getControllerWidgets()[0]; // WidgetManager.getInstance().getWidgetByLabel(this._getWidgetConfig('Header', true).label);
+
+			if (this.curWidget != null) {
+				PanelManager.getInstance().closePanel(this.curWidget.id + '_panel');
+				headWidget._removeFromOpenedIds([this.curWidget.id]);
+			}
+
+			widConf.visible = true;
+			headWidget._createItem(widConf, headWidget.iconList.length + 1);
+			headWidget.setOpenedIds([widConf.id]);
+
+			this.curWidget = widConf;
+			prevFieldNode = newFieldNode;
+			headWidget.resize();
+
+			// if (temp.visible) {
+			//   temp.visible = false;
+			//   PanelManager.getInstance().closePanel(temp.id + '_panel')
+			//   headWidget._removeFromOpenedIds([temp.id])
+			//   WidgetManager.getInstance().openWidget("widgets_MapProgress_Widget_NaN");
+			// }
+		},
+
+		// CPU heavy process to disable any values with no results.
+		checkIfEmpty: function () {
+			this.selectAVG.options.forEach((element) => {
+				var value;
+				for (let i = 0; i &lt; this.subset.length; i++) {
+					value = this.subset[i].attributes[element.value];
+					if (!value) {
+						element.disabled = 'disabled';
+						break;
+					} else if (
+						(element.value == 'FAIL_COUNT' &amp;&amp; this.subset[i].attributes['PAVE_TYPE'] != 'PCC') ||
+						(element.value == 'IRI' &amp;&amp; value == 999) ||
+						(element.value == 'RUT' &amp;&amp; this.subset[i].attributes['PAVE_TYPE'] == 'PCC')
+					) {
+						element.disabled = 'disabled';
+						break;
+					}
+				}
+			});
+		},
+
+		// LEVEL 1 (1)
+		// Nuke | Lightning |
+
+		//utility function to get the proper widget config based on: the widget name !Not Label but Name!
+		_getWidgetConfig: function (widget, useName) {
+			var widgetCnfg = null;
+			array.some(WidgetManager.getInstance().appConfig.widgetPool.widgets, function (aWidget) {
+				if ((aWidget.label == widget &amp;&amp; !useName) || (aWidget.name == widget &amp;&amp; useName)) {
+					widgetCnfg = aWidget;
+					return true;
+				}
+				return false;
+			});
+			if (!widgetCnfg) {
+				/*Check OnScreen widgets if not found in widgetPool*/
+				array.some(WidgetManager.getInstance().appConfig.widgetOnScreen.widgets, function (aWidget) {
+					if ((aWidget.label == widget &amp;&amp; !useName) || (aWidget.name == widget &amp;&amp; useName)) {
+						widgetCnfg = aWidget;
+						return true;
+					}
+					return false;
+				});
+			}
+			return widgetCnfg;
+		},
+
+		drawSwitches: function () {
+			document.getElementById('place').innerHTML = '';
+			for (let i = 0; i &lt; window.yearArrI.length; i++) {
+				if (window.yearArrI[i]) {
+					// add / make switches visible
+					var label = document.createElement('label');
+					label.setAttribute('class', 'switch');
+
+					var div = document.createElement('div');
+					div.setAttribute('class', 'sliderPC' + i + ' round'); // to change is the div class
+
+					label.appendChild(window.yearArr[i]);
+					label.appendChild(div);
+
+					document.getElementById('place').appendChild(label);
+
+					//var div = document.createElement("div");
+					//div.appendChild(label);
+				}
+			}
+		},
+
+		onReceiveData: function (name, widgetId, data, historyData) {
+			console.log('Received data from ' + name + ' with data equal to: ' + data);
+			if (name == 'Splash' &amp;&amp; (window.isSplash || data.target != 'AttributeTable')) {
+				this.setYearWhere();
+				//filter out messages
+				if (widgetId != 'Splash_T') {
+					this.query = historyData[historyData.length - 1].value; // I'm assuming nothing else is using the data manager and know that query is at index 0
+				} else {
+					this.query = data;
+				}
+				this.query.returnDistinctValues = false;
+				this.query.returnGeometry = true;
+				this.baseWhere = this.query.where;
+				// Show PCI and PCI6 if RPA, only PCI6 if jurisdiction of city, and only PCI if County and not RPA
+				var str = this.query.where;
+				var index = str.indexOf('=');
+				if (str.substring(0, index) != 'RPA') {
+					if (str.length > index + 4 &amp;&amp; str.substring(index + 2, index + 4) == 'CI') {
+						this.selectAVG.removeOption('PCI');
+					} else {
+						//this.selectAVG.removeOption('PCI6');
+						this.selectAVG.removeOption('CityPCI');
+					}
+				}
+				//console.log("Received data from " + name + ". Query.where is: " + this.query.where);
+			} else if (name == 'selectOR') {
+				var temp = [];
+				// this.updateSource(temp.filter(n => !data.includes(n.attributes.OBJECTID)), 0);
+				for (let i = 0; i &lt; this.currSet.features.length; i++) {
+					if (data.includes(this.currSet.features[i].attributes.OBJECTID)) temp.push(this.currSet.features[i]);
+				}
+				this.updateSource(this.currSet, temp);
+			} else if (name == 'selectCLR') {
+				this.updateSource(this.currSet, this.currSet.features);
+			} else if (name == 'yearToggle' &amp;&amp; !window.isSplash) {
+				this.setYearWhere();
+				this.execQuery(0);
+			} else if (name == 'HOME') {
+				window.yearArrI = null;
+				window.yearArr = null;
+				if (this.featureLayer) {
+					this.map.removeLayer(this.map.getLayer(`${this.curField} Indicator`));
+					this.featureLayer = null;
+				}
+				var headWidget = WidgetManager.getInstance().getControllerWidgets()[0]; // WidgetManager.getInstance().getWidgetByLabel(this._getWidgetConfig('Header', true).label);
+
+				if (this.curWidget != null) {
+					PanelManager.getInstance().closePanel(this.curWidget.id + '_panel');
+					headWidget._removeFromOpenedIds([this.curWidget.id]);
+				}
+				PanelManager.getInstance().closePanel('PickColumns__32_panel');
+				headWidget._removeFromOpenedIds(['PickColumns__32']);
+				WidgetManager.getInstance().closeWidget('PickColumns__32');
+			}
+			window.isSplash = 0;
+		},
+
+		setYearWhere: function () {
+			this.yearWhere = '';
+			let year;
+			this.yearCount = 0;
+			for (let i = 0; i &lt; window.yearArrI.length; i++) {
+				if (window.yearArrI[i] === 2) {
+					if (this.yearWhere != '') {
+						this.yearWhere += ' OR YEAR = ' + (2013 + i);
+					} else {
+						this.yearWhere = ' AND (YEAR = ' + (2013 + i);
+					}
+					this.yearCount++;
+				}
+			}
+			if (this.yearWhere === '') {
+				this.yearWhere = ' AND (YEAR = 1000)'; // return no results
+			} else {
+				this.yearWhere += ')';
+			}
+		},
+
+		execQuery: function (mode) {
+			var tmp = this.query.where;
+			this.query.where += this.yearWhere;
+			switch (mode) {
+				case 0:
+					this.loaderWidget.showOrHide(1, false);
+					this.queryTask.execute(this.query, (result) => this.updateSource(result, 0));
+					break;
+				case 1:
+					this.loaderWidget.showOrHide(1, false);
+					this.query.where += ` AND ${this.curField} >= ${this.crMin} AND ${this.curField} &lt;= ${this.crMax}`;
+					this.queryTask.execute(this.query, (result) => this.updateSource(this.currSet, result));
+					break;
+				case 2:
+					return this.queryTask.execute(this.query);
+			}
+
+			console.log('Executed query with where = ' + this.query.where);
+			this.query.where = tmp;
+		},
+
+		updateSource: function (result, isSel) {
+			var isSlider = isSel.features ? 1 : 0;
+			if (!isSel) {
+				isSel = result.features;
+			} else if (isSlider) {
+				isSel = isSel.features;
+			}
+
+			try {
+				this.updateDataSourceData(0, {
+					features: isSel,
+				});
+			} catch (e) {
+				console.error(e);
+			}
+
+			this.currSet = result;
+			this.subset = isSel;
+
+			if (this.curField) {
+				// if (!isSlider &amp;&amp; this.subset.length !== 1) {
+				//   this.slider.removeAttribute("disabled");
+				//   slider.noUiSlider.updateOptions({
+				//     start: [0, this.subset.length - 1],
+				//     range: {
+				//       min: 0,
+				//       max: this.subset.length - 1
+				//     }
+				//   });
+				//   this.sliderVals[0] = 0;
+				//   this.sliderVals[1] = this.subset.length - 1;
+				// }
+				this.setValues(0);
+				this.setIndicatorLayer(document.getElementById('indPicker').value);
+			} else {
+				//this.slider.setAttribute("disabled", true);
+			}
+			this.loaderWidget.showOrHide(0, false);
+			//this.checkIfEmpty();
+		},
+
+		// concatenate string based on: value in min or max for the interactive button
+		setMaxMinNodes(isMin) {
+			var x = isMin ? this.crMin : this.crMax;
+			var y = isMin ? 'minSpan' : 'maxSpan';
+
+			if (x >= 0 &amp;&amp; x &lt;= 99999999) {
+				if (x >= 1000 &amp;&amp; x &lt;= 9999) {
+					var string = (x + '').substring(0, 4);
+					document.getElementById(y).innerHTML = string;
+				} else if (x >= 100000 &amp;&amp; x &lt;= 999999) {
+					document.getElementById(y).innerHTML = (x + '').substring(0, 3) + 'k';
+				} else if (x >= 1000000 &amp;&amp; x &lt;= 9999999) {
+					document.getElementById(y).innerHTML = (x + '').substring(0, 1) + '.' + (x + '').substring(1, 3) + 'm';
+				} else {
+					document.getElementById(y).innerHTML = (x + '').substring(0, 5);
+				}
+			} else {
+				console.log(console.log(`For ${this.curField}, value was ${isMin ? this.crMin : this.crMax}!`));
+				document.getElementById(y).innerHTML = 'none';
+			}
+		},
+
+		setValues: function (updateSlider) {
+			var arr = [];
+			for (let i = 0; i &lt; this.subset.length; i++) arr.push(this.subset[i].attributes[this.curField]);
+
+			if (updateSlider) {
+				this.maxF = this.crMax = Math.max.apply(Math, arr);
+				this.minF = this.crMin = Math.min.apply(Math, arr);
+
+				//this.setMaxMinNodes(0);
+				//this.setMaxMinNodes(1);
+			}
+
+			//var slider = document.getElementById('redSlider');
+			//slider.setAttribute('min', 0);
+			//slider.setAttribute('max', this.subset.length - 1);
+			//slider.setAttribute('value', slider.max);
+
+			this.avgF = Math.round((1000 * arr.reduce((a, b) => a + b, 0)) / arr.length) / 1000;
+			if (!this.subset.length) {
+				document.getElementById('count').innerHTML = `No year selected`;
+			} else if (this.curTab === 1) {
+				if (this.subset.length === 1) {
+					document.getElementById('count').innerHTML = `${this.avgF} is the average for ${this.subset.length} record`;
+				} else {
+					document.getElementById('count').innerHTML = `${this.avgF} is the average for ${this.subset.length} records`;
+				}
+			} else {
+				document.getElementById('count').innerHTML('No field selected');
+			}
+			console.log(`For ${this.curField}, max value was ${this.maxF} &amp; min was ${this.minF}`);
+		},
+
+		changeMinandMax: function (values, handle) {
+			if (!this.subset) return;
+			if (!handle) {
+				// min
+				this.crMin = this.subset[values[0]];
+				this.setMaxMinNodes(0);
+			} else {
+				//max
+				this.crMax = this.subset[values[1]];
+				this.setMaxMinNodes(1);
+			}
+		},
+
+		setIndicatorLayer: function (color) {
+			if (!this.query.returnGeometry || !this.typeInd || (this.yearCount &lt; 2 &amp;&amp; (this.typeInd === 3 || this.typeInd === 4))) {
+				console.log(
+					`Not drawing indicator layer. !returnGeometry was ${!this.query.returnGeometry} or !typeInd was ${!this.typeInd} or (yearCount was ${
+						this.yearCount
+					} (&lt; 2) and typeInd was ${this.typeInd} (= 3)`
+				);
+				return;
+			}
+
+			if (this.featureLayer) {
+				this.map.removeLayer(this.map.getLayer(`${this.curField} Indicator`));
+				this.featureLayer = null;
+			}
+
+			console.log('Drawing indicator layer with color = ' + color);
+
+			if (this.currSet.length === 0) {
+				alert('No results found.');
+			} else {
+				var geometryTypeQuery = this.currSet.features.geometryType;
+
+				var symbolQuery = new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([128, 128, 128], 1), 2);
+
+				//create a feature collection
+				var featureCollection = {
+					layerDefinition: null,
+					featureSet: {
+						features: [],
+						geometryType: geometryTypeQuery,
+					},
+				};
+
+				featureCollection.layerDefinition = {
+					geometryType: geometryTypeQuery,
+					drawingInfo: {
+						renderer: {
+							type: 'simple',
+							symbol: symbolQuery.toJson(),
+						},
+					},
+					fields: this.currSet.fields,
+				};
+
+				//create a feature layer based on: the feature collection
+				this.featureLayer = new FeatureLayer(featureCollection, {
+					id: `${this.curField} Indicator`,
+					infoTemplate: window.myInfoTemplate,
+				});
+
+				this.map.addLayer(this.featureLayer);
+
+				if (this.typeInd === 3 || this.typeInd === 4) {
+					if (this.yearCount &lt; 2) {
+						alert('Cannot draw layer – drawing change by year requires at least two years selected.');
+						return;
+					}
+					// Find object,
+					for (var i = 0; i &lt; this.subset.length; i++) {
+						for (var j = i + 1; j &lt; this.subset.length; j++) {
+							if (this.subset[i].attributes['HIST_ID_INT'] === this.subset[j].attributes['HIST_ID_INT']) {
+								var feature = this.subset[i];
+								var portion;
+								if (this.subset[i].attributes['YEAR'] &lt; this.subset[j].attributes['YEAR']) {
+									portion = this.subset[j].attributes[this.curField] / this.subset[i].attributes[this.curField];
+								} else {
+									portion = this.subset[i].attributes[this.curField] / this.subset[j].attributes[this.curField];
+								}
+
+								diff =
+									this.typeInd === 3
+										? Math.min(Math.max(20 * portion, 20), 80) // negative
+										: Math.min(Math.max((1 / portion) * 20, 20), 80); // positive
+
+								feature.setSymbol(
+									new SimpleLineSymbol( // not efficient to create new symbol for each item in table, but needed to add unique color
+										SimpleLineSymbol.STYLE_SOLID,
+										new Color(this.hexToHSL(color, diff)), // low diff = high value relative to max
+										3
+									)
+								);
+								this.featureLayer.add(feature);
+								break;
+							}
+						}
+					}
+				} else {
+					//loop though the features
+					for (var i = 0, len = this.subset.length; i &lt; len; i++) {
+						var feature = this.subset[i];
+						if (this.typeInd === 1) {
+							// min
+							diff = Math.min(Math.max(10 * (this.avgF / feature.attributes[this.curField]), 20), 80);
+						} else if (this.typeInd === 2) {
+							// max
+							diff = Math.min(Math.max(10 * (feature.attributes[this.curField] / this.avgF), 20), 80);
+							//console.log(diff);
+							//diff = Math.max(Math.min(10 * (feature.attributes[this.curField] / this.avgF), 10), 75);
+						}
+						feature.setSymbol(
+							new SimpleLineSymbol( // not efficient to create new symbol for each item in table, but needed to add unique color
+								SimpleLineSymbol.STYLE_SOLID,
+								new Color(this.hexToHSL(color, diff)), // low diff = high value relative to max
+								3
+							)
+						);
+						this.featureLayer.add(feature);
+					}
+				}
+				this._openResultInAttributeTable(this.featureLayer);
+			}
+		},
+
+		getYear: function (val) {
+			switch (val) {
+				case 0:
+					return 2013;
+				case 1:
+					return 2014;
+				case 2:
+					return 2015;
+				case 3:
+					return 2016;
+				case 4:
+					return 2017;
+				case 5:
+					return 2018;
+				case 6:
+					return 2019;
+			}
+		},
+
+		getGraphicExtent: function (index) {
+			// Adjust slider to set MIN and to updateSource only with objects > MIN
+			if (this.currSet.features) {
+				var g = this.currSet.features[0].geometry,
+					fullExt = g.getExtent(),
+					ext,
+					i,
+					il = this.currSet.features.length;
+
+				if (index) {
+					ext = (g = this.currSet.features[index].geometry).getExtent();
+					if (!ext) {
+						console.log(`Ext was null, not setting extent`);
+						return;
+					}
+					this.map.setExtent(ext);
+					document.getElementById('count').innerHTML = `Selected ${this.curField} = ${this.currSet.features[index].attributes[this.curField]} for item ${parseInt(index) + 1} of ${
+						this.currSet.features.length
+					}`;
+					return ext;
+				}
+
+				if (fullExt === null) {
+					fullExt = new Extent(g.x, g.y, g.x, g.y, g.spatialReference);
+				}
+				for (i = 1; i &lt; il; i++) {
+					ext = (g = this.currSet.features[i].geometry).getExtent();
+					if (ext === null) {
+						ext = new Extent(g.x, g.y, g.x, g.y, g.spatialReference);
+					}
+					fullExt = fullExt.union(ext);
+				}
+				this.map.setExtent(fullExt);
+			} else {
+				console.log('Source Layer has not been initialized  -- subset was null');
+			}
+		},
+
+		calcGraphicsExtent: function (val) {
+			if (this.subset) {
+				var g = this.subset[0].geometry,
+					fullExt = g.getExtent(),
+					ext,
+					i,
+					il = this.subset.length;
+
+				if (val) {
+					if (val == 'min' &amp;&amp; this.minF != null) {
+						ext = (g = this.subset.find((el) => el.attributes[this.curField] === this.minF).geometry).getExtent();
+					} else if (val == 'max' &amp;&amp; this.maxF != null) {
+						ext = (g = this.subset.find((el) => el.attributes[this.curField] === this.maxF).geometry).getExtent();
+					}
+
+					if (!ext) {
+						console.log(`Ext was null, not setting extent`);
+						return;
+					}
+					this.map.setExtent(ext);
+					return ext;
+				}
+
+				if (fullExt === null) {
+					fullExt = new Extent(g.x, g.y, g.x, g.y, g.spatialReference);
+				}
+				for (i = 1; i &lt; il; i++) {
+					ext = (g = this.currSet.features[i].geometry).getExtent();
+					if (ext === null) {
+						ext = new Extent(g.x, g.y, g.x, g.y, g.spatialReference);
+					}
+					fullExt = fullExt.union(ext);
+				}
+				this.map.setExtent(fullExt);
+			} else {
+				console.log('Source Layer has not been initialized  -- subset was null');
+			}
+		},
+
+		hexToRgb: function (hex) {
+			var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+			return result
+				? {
+						r: parseInt(result[1], 16),
+						g: parseInt(result[2], 16),
+						b: parseInt(result[3], 16),
+				  }
+				: null;
+		},
+
+		hexToHSL: function (H, percent, returnHex) {
+			// Convert hex to RGB first
+			let r = 0,
+				g = 0,
+				b = 0;
+			if (H.length == 4) {
+				r = '0x' + H[1] + H[1];
+				g = '0x' + H[2] + H[2];
+				b = '0x' + H[3] + H[3];
+			} else if (H.length == 7) {
+				r = '0x' + H[1] + H[2];
+				g = '0x' + H[3] + H[4];
+				b = '0x' + H[5] + H[6];
+			}
+			// Then to HSL
+			r /= 255;
+			g /= 255;
+			b /= 255;
+			let cmin = Math.min(r, g, b),
+				cmax = Math.max(r, g, b),
+				delta = cmax - cmin,
+				h = 0,
+				s = 0,
+				l = 0;
+
+			if (delta == 0) h = 0;
+			else if (cmax == r) h = ((g - b) / delta) % 6;
+			else if (cmax == g) h = (b - r) / delta + 2;
+			else h = (r - g) / delta + 4;
+
+			h = Math.round(h * 60);
+
+			if (h &lt; 0) h += 360;
+
+			l = (cmax + cmin) / 2;
+			s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+			s = +(s * 100).toFixed(1);
+			l = +(l * 100).toFixed(1);
+
+			if (returnHex) return this.hslToHex(h, s, percent);
+			return 'hsl(' + h + ',' + s + '%,' + percent + '%)';
+		},
+
+		hslToHex: function (h, s, l) {
+			h /= 360;
+			s /= 100;
+			l /= 100;
+			let r, g, b;
+			if (s === 0) {
+				r = g = b = l; // achromatic
+			} else {
+				const hue2rgb = (p, q, t) => {
+					if (t &lt; 0) t += 1;
+					if (t > 1) t -= 1;
+					if (t &lt; 1 / 6) return p + (q - p) * 6 * t;
+					if (t &lt; 1 / 2) return q;
+					if (t &lt; 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+					return p;
+				};
+				const q = l &lt; 0.5 ? l * (1 + s) : l + s - l * s;
+				const p = 2 * l - q;
+				r = hue2rgb(p, q, h + 1 / 3);
+				g = hue2rgb(p, q, h);
+				b = hue2rgb(p, q, h - 1 / 3);
+			}
+			const toHex = (x) => {
+				const hex = Math.round(x * 255).toString(16);
+				return hex.length === 1 ? '0' + hex : hex;
+			};
+			return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+		},
+
+		_listenDSManagerUpdateEvent: function () {
+			this.exdsBeginUpdateHandle = on(
+				this.dataSourceManager,
+				'begin-update',
+				lang.hitch(this, function (dsid) {
+					this._handleLoadingStatusForExds(dsid, true);
+				})
+			);
+		},
+
+		_checkDataSource: function (config) {
+			var dataSource = config &amp;&amp; config.dataSource;
+			var res = this._checkDataSourceCode(dataSource);
+			this._avalidDataSource = res.code === 0;
+			if (!this._avalidDataSource &amp;&amp; this.mainDijit) {
+				this.mainDijit.showNodata(res.message);
+			}
+		},
+
+		_openResultInAttributeTable: function (currentLayer) {
+			if (this.autozoomtoresults) {
+				setTimeout(
+					lang.hitch(this, function () {
+						this.zoomall();
+					}),
+					300
+				);
+			}
+			var aLayer = {
+				layerObject: currentLayer,
+				title: currentLayer.name,
+				id: currentLayer.id,
+				getLayerObject: function () {
+					var def = new Deferred();
+					if (this.layerObject) {
+						def.resolve(this.layerObject);
+					} else {
+						def.reject('layerObject is null');
+					}
+					return def;
+				},
+			};
+			if (!Object.create) {
+				Object.create = function (proto, props) {
+					if (typeof props !== 'undefined') {
+						throw 'The multiple-argument version of Object.create is not provided by this browser and cannot be shimmed.';
+					}
+
+					function ctor() {}
+					ctor.prototype = proto;
+					return new ctor();
+				};
+			}
+			this.publishData({
+				target: 'AttributeTable',
+				layer: Object.create(aLayer),
+			});
+		},
+
+		onOpen: function () {
+			console.log('onOpen');
+			this.queryTask = new QueryTask('https://ipmp.ctre.iastate.edu/arcgis/rest/services/aphares/feature19_merged_apharesOct14/MapServer/0');
+			this.fetchDataByName('Splash');
+			this.drawSwitches();
+
+			window.PC = 1; // this is only to show splash PC has been loaded
+		},
+
+		onClose: function () {
+			if (this.featureLayer) {
+				this.map.removeLayer(this.map.getLayer(`${this.curField} Indicator`));
+				this.featureLayer = null;
+			}
+			console.log('onClose');
+		},
+
+		onMinimize: function () {
+			console.log('onMinimize');
+		},
+
+		onMaximize: function () {
+			console.log('onMaximize');
+		},
+
+		onSignIn: function (credential) {
+			/* jshint unused:false*/
+			console.log('onSignIn');
+		},
+
+		onSignOut: function () {
+			console.log('onSignOut');
+		},
+	});
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="echarts_coord_scale_Ordinal%250D%250Dhttp___en.wikipedia.org_wiki_Level_of_measurementmodule_.html">echarts/coord/scale/Ordinalhttp://en.wikipedia.org/wiki/Level_of_measurement</a></li><li><a href="echarts-module_ECharts.html">ECharts</a></li><li><a href="echarts-module_MessageCenter.html">MessageCenter</a></li><li><a href="module-AttributeTable.html">AttributeTable</a></li><li><a href="module-BasemapGallery.html">BasemapGallery</a></li><li><a href="module-Draw.html">Draw</a></li><li><a href="module-echarts_animation_Animator.html">echarts/animation/Animator</a></li><li><a href="module-echarts_chart_helper_Line.html">echarts/chart/helper/Line</a></li><li><a href="module-echarts_chart_helper_LineDraw.html">echarts/chart/helper/LineDraw</a></li><li><a href="module-echarts_chart_helper_Symbol.html">echarts/chart/helper/Symbol</a></li><li><a href="module-echarts_chart_helper_SymbolDraw.html">echarts/chart/helper/SymbolDraw</a></li><li><a href="module-echarts_coord_Cartesian.html">echarts/coord/Cartesian</a></li><li><a href="module-echarts_coord_geo_parseGeoJson.html">echarts/coord/geo/parseGeoJson</a></li><li><a href="module-echarts_coord_geo_Region.html">echarts/coord/geo/Region</a></li><li><a href="module-echarts_core_BoundingRect.html">echarts/core/BoundingRect</a></li><li><a href="module-echarts_data_List.html">echarts/data/List</a></li><li><a href="module-echarts_model_Component.html">echarts/model/Component</a></li><li><a href="module-echarts_model_Model.html">echarts/model/Model</a></li><li><a href="module-echarts_scale_Interval.html">echarts/scale/Interval</a></li><li><a href="module-echarts_scale_Log.html">echarts/scale/Log</a></li><li><a href="module-echarts_scale_Scale.html">echarts/scale/Scale</a></li><li><a href="module-echarts_stream_Scheduler.html">echarts/stream/Scheduler</a></li><li><a href="module-Geoprocessing.html">Geoprocessing</a></li><li><a href="module-HomeButton.html">HomeButton</a></li><li><a href="module-Infographic.html">Infographic</a></li><li><a href="module-LayerList.html">LayerList</a></li><li><a href="module-MapProgress.html">MapProgress</a></li><li><a href="module-PickColumns.html">PickColumns</a></li><li><a href="module-Search.html">Search</a></li><li><a href="module-Select.html">Select</a></li><li><a href="module-Splash.html">Splash</a></li><li><a href="module-themes_LaunchpadTheme_widgets_AnchorBarController_BaseIconItem.html">themes/LaunchpadTheme/widgets/AnchorBarController/BaseIconItem</a></li><li><a href="module-themes_LaunchpadTheme_widgets_AnchorBarController_DockableItem.html">themes/LaunchpadTheme/widgets/AnchorBarController/DockableItem</a></li><li><a href="module-themes_LaunchpadTheme_widgets_AnchorBarController_GroupItems.html">themes/LaunchpadTheme/widgets/AnchorBarController/GroupItems</a></li><li><a href="module-themes_LaunchpadTheme_widgets_AnchorBarController_Widget.html">themes/LaunchpadTheme/widgets/AnchorBarController/Widget</a></li><li><a href="module-Treatment.html">Treatment</a></li><li><a href="module-widgets_Coordinate.html">widgets/Coordinate</a></li><li><a href="module-zrender_animation_Animation.html">zrender/animation/Animation</a></li><li><a href="module-zrender_animation_easing.html">zrender/animation/easing</a></li><li><a href="module-zrender_core_bbox.html">zrender/core/bbox</a></li><li><a href="module-zrender_core_curve.html">zrender/core/curve</a></li><li><a href="module-zrender_core_event.html">zrender/core/event</a></li><li><a href="module-zrender_core_PathProxy.html">zrender/core/PathProxy</a></li><li><a href="module-zrender_core_util.html">zrender/core/util</a></li><li><a href="module-zrender_graphic_Displayable.html">zrender/graphic/Displayable</a></li><li><a href="module-zrender_graphic_Group.html">zrender/graphic/Group</a></li><li><a href="module-zrender_graphic_shape_Arc.html">zrender/graphic/shape/Arc</a></li><li><a href="module-zrender_graphic_shape_Line.html">zrender/graphic/shape/Line</a></li><li><a href="module-zrender_graphic_shape_Polyline.html">zrender/graphic/shape/Polyline</a></li><li><a href="module-zrender_graphic_shape_Rect.html">zrender/graphic/shape/Rect</a></li><li><a href="module-zrender_graphic_shape_Ring.html">zrender/graphic/shape/Ring</a></li><li><a href="module-zrender_graphic_shape_Sector.html">zrender/graphic/shape/Sector</a></li><li><a href="module-zrender_Layer.html">zrender/Layer</a></li><li><a href="module-zrender_mixin_Eventful.html">zrender/mixin/Eventful</a></li><li><a href="module-zrender_mixin_RectText.html">zrender/mixin/RectText</a></li><li><a href="module-zrender_mixin_Transformable.html">zrender/mixin/Transformable</a></li><li><a href="module-zrender_shape_BezierCurve.html">zrender/shape/BezierCurve</a></li><li><a href="module-zrender_shape_Circle.html">zrender/shape/Circle</a></li><li><a href="module-zrender_shape_Polygon.html">zrender/shape/Polygon</a></li><li><a href="module-zrender_shape_util_smoothBezier.html">zrender/shape/util/smoothBezier</a></li><li><a href="module-zrender_shape_util_smoothSpline.html">zrender/shape/util/smoothSpline</a></li><li><a href="module-zrender_tool_matrix.html">zrender/tool/matrix</a></li><li><a href="module-zrender_ZRender.html">zrender/ZRender</a></li><li><a href="module-%257Becharts_model_Global%257D.html">{echarts/model/Global}</a></li><li><a href="module-%257Becharts_model_OptionManager%257D.html">{echarts/model/OptionManager}</a></li></ul><h3>Namespaces</h3><ul><li><a href="crc.html">crc</a></li><li><a href="LocalMediaStream%2520--%2520https___developer.mozilla.org_en-US_docs_WebRTC_MediaStream_API_LocalMediaStream.html">LocalMediaStream</a></li><li><a href="xhr.sendAsBinary%2520%2520https___developer.mozilla.org_ru_XMLHttpRequest_Sending_binary_content.html">Sending_binary_content</a></li></ul><h3>Classes</h3><ul><li><a href="FileAPI.Camera.html">Camera</a></li><li><a href="FileAPI.Camera.Shot.html">Shot</a></li><li><a href="modue_zrender_mixin_Animatable.html">modue:zrender/mixin/Animatable</a></li><li><a href="module-echarts_chart_helper_SymbolDraw.html">echarts/chart/helper/SymbolDraw</a></li><li><a href="module-echarts_component_marker_LineDraw.html">echarts/component/marker/LineDraw</a></li><li><a href="module-echarts_component_tooltip_TooltipContent.html">echarts/component/tooltip/TooltipContent</a></li><li><a href="module-echarts_coord_Cartesian.html">echarts/coord/Cartesian</a></li><li><a href="module-echarts_coord_Cartesian-module_echarts_coord_cartesian_Axis2D.html">echarts/coord/cartesian/Axis2D</a></li><li><a href="module-echarts_coord_scale_Interval.html">echarts/coord/scale/Interval</a></li><li><a href="module-echarts_coord_scale_Time.html">echarts/coord/scale/Time</a></li><li><a href="module-echarts_data_List.html">echarts/data/List</a></li><li><a href="module-echarts_model_Component.html">echarts/model/Component</a></li><li><a href="module-echarts_model_Model.html">echarts/model/Model</a></li><li><a href="module-zrender_animation_Animation.html">zrender/animation/Animation</a></li><li><a href="module-zrender_animation_Animator.html">zrender/animation/Animator</a></li><li><a href="module-zrender_core_LRU.html">zrender/core/LRU</a></li><li><a href="module-zrender_core_PathProxy.html">zrender/core/PathProxy</a></li><li><a href="module-zrender_Element.html">zrender/Element</a></li><li><a href="module-zrender_graphic_Group.html">zrender/graphic/Group</a></li><li><a href="module-zrender_graphic_Path.html">zrender/graphic/Path</a></li><li><a href="module-zrender_Handler.html">zrender/Handler</a></li><li><a href="module-zrender_Layer.html">zrender/Layer</a></li><li><a href="module-zrender_mixin_Eventful.html">zrender/mixin/Eventful</a></li><li><a href="module-zrender_mixin_Transformable.html">zrender/mixin/Transformable</a></li><li><a href="module-zrender_Painter.html">zrender/Painter</a></li><li><a href="module-zrender_Storage.html">zrender/Storage</a></li><li><a href="module-zrender_ZRender.html">zrender/ZRender</a></li><li><a href="zrender_graphic_Image.html">zrender/graphic/Image</a></li><li><a href="zrender_graphic_Text.html">zrender/graphic/Text</a></li><li>{<a href="module-echarts_chart_helper_Line.html">module:echarts/chart/helper/Line</a>}</li><li>{<a href="module-echarts_chart_helper_Symbol.html">module:echarts/chart/helper/Symbol</a>}</li></ul><h3>Events</h3><ul><li><a href="module-echarts_chart_helper_SymbolDraw.html#~event:legendScroll">legendScroll</a></li><li><a href="module-echarts_chart_helper_SymbolDraw.html#~event:legendSelect">legendSelect</a></li><li><a href="module-echarts_chart_helper_SymbolDraw.html#~event:legendToggleSelect">legendToggleSelect</a></li><li><a href="module-echarts_chart_helper_SymbolDraw.html#~event:legendUnSelect">legendUnSelect</a></li></ul><h3>Mixins</h3><ul><li><a href="module-echarts_chart_helper_LineDraw-%257Bmodule_zrender_mixin_Eventful%257D.html">{zrender/mixin/Eventful}</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_addExternalStyleSheets">_addExternalStyleSheets</a></li><li><a href="global.html#_addSectionTitle">_addSectionTitle</a></li><li><a href="global.html#_createLayout">_createLayout</a></li><li><a href="global.html#_createPrintMapParameters">_createPrintMapParameters</a></li><li><a href="global.html#_createPrintTask">_createPrintTask</a></li><li><a href="global.html#_createReportNote">_createReportNote</a></li><li><a href="global.html#_displayLayers">_displayLayers</a></li><li><a href="global.html#_executePrintTask">_executePrintTask</a></li><li><a href="global.html#_filters">_filters</a></li><li><a href="global.html#_findContentItemById">_findContentItemById</a></li><li><a href="global.html#_formatAndRenderTables">_formatAndRenderTables</a></li><li><a href="global.html#_getFixedThemeStyles">_getFixedThemeStyles</a></li><li><a href="global.html#_handleDataSourceForWidgets">_handleDataSourceForWidgets</a></li><li><a href="global.html#_onAppProxyForMapChanged">_onAppProxyForMapChanged</a></li><li><a href="global.html#_onAppProxyForUrlChanged">_onAppProxyForUrlChanged</a></li><li><a href="global.html#_onFieldVisibleChange">_onFieldVisibleChange</a></li><li><a href="global.html#_renderHTMLData">_renderHTMLData</a></li><li><a href="global.html#_renderTable">_renderTable</a></li><li><a href="global.html#_resetCoordinate">_resetCoordinate</a></li><li><a href="global.html#_setButtonLabels">_setButtonLabels</a></li><li><a href="global.html#_setCoordControlsTabindex">_setCoordControlsTabindex</a></li><li><a href="global.html#_setFootNotes">_setFootNotes</a></li><li><a href="global.html#_setPageSize">_setPageSize</a></li><li><a href="global.html#_setReportData">_setReportData</a></li><li><a href="global.html#_setReportLogo">_setReportLogo</a></li><li><a href="global.html#_setReportSizeMessage">_setReportSizeMessage</a></li><li><a href="global.html#_setReportTitle">_setReportTitle</a></li><li><a href="global.html#_updatePartForBetween">_updatePartForBetween</a></li><li><a href="global.html#_validateParameters">_validateParameters</a></li><li><a href="global.html#acceptValue">acceptValue</a></li><li><a href="global.html#action">action</a></li><li><a href="global.html#applyWidgetFilter">applyWidgetFilter</a></li><li><a href="global.html#calculateLayerIndex">calculateLayerIndex</a></li><li><a href="global.html#canAssignUsersToOrgGroups">canAssignUsersToOrgGroups</a></li><li><a href="global.html#canChangeUserRoles">canChangeUserRoles</a></li><li><a href="global.html#canCreateGroup">canCreateGroup</a></li><li><a href="global.html#canCreateItem">canCreateItem</a></li><li><a href="global.html#canDeleteOrgGroups">canDeleteOrgGroups</a></li><li><a href="global.html#canDeleteOrgItems">canDeleteOrgItems</a></li><li><a href="global.html#canDeleteUsers">canDeleteUsers</a></li><li><a href="global.html#canDesignateOpenDataGroups">canDesignateOpenDataGroups</a></li><li><a href="global.html#canDisableUsers">canDisableUsers</a></li><li><a href="global.html#canEditFeatures">canEditFeatures</a></li><li><a href="global.html#canEditFeaturesFullControl">canEditFeaturesFullControl</a></li><li><a href="global.html#canInviteUsers">canInviteUsers</a></li><li><a href="global.html#canJoinNonOrgGroup">canJoinNonOrgGroup</a></li><li><a href="global.html#canJoinOrgGroup">canJoinOrgGroup</a></li><li><a href="global.html#canManageEnterpriseGroups">canManageEnterpriseGroups</a></li><li><a href="global.html#canManageLicenses">canManageLicenses</a></li><li><a href="global.html#canManageMarketplace">canManageMarketplace</a></li><li><a href="global.html#canManageOpenData">canManageOpenData</a></li><li><a href="global.html#canPublishFeatures">canPublishFeatures</a></li><li><a href="global.html#canPublishScenes">canPublishScenes</a></li><li><a href="global.html#canPublishTiles">canPublishTiles</a></li><li><a href="global.html#canPurchaseMarketplace">canPurchaseMarketplace</a></li><li><a href="global.html#canReassignOrgGroups">canReassignOrgGroups</a></li><li><a href="global.html#canReassignOrgItems">canReassignOrgItems</a></li><li><a href="global.html#canShareGroupToOrg">canShareGroupToOrg</a></li><li><a href="global.html#canShareGroupToPublic">canShareGroupToPublic</a></li><li><a href="global.html#canShareItemToGroup">canShareItemToGroup</a></li><li><a href="global.html#canShareItemToOrg">canShareItemToOrg</a></li><li><a href="global.html#canShareItemToPublic">canShareItemToPublic</a></li><li><a href="global.html#canTrialMarketplace">canTrialMarketplace</a></li><li><a href="global.html#canUpdateOrgGroups">canUpdateOrgGroups</a></li><li><a href="global.html#canUpdateOrgItems">canUpdateOrgItems</a></li><li><a href="global.html#canUpdateUsers">canUpdateUsers</a></li><li><a href="global.html#canUseDemographics">canUseDemographics</a></li><li><a href="global.html#canUseElevation">canUseElevation</a></li><li><a href="global.html#canUseGeocode">canUseGeocode</a></li><li><a href="global.html#canUseGeoenrichment">canUseGeoenrichment</a></li><li><a href="global.html#canUseNetworkAnalysis">canUseNetworkAnalysis</a></li><li><a href="global.html#canUseSpatialAnalysis">canUseSpatialAnalysis</a></li><li><a href="global.html#canViewOrgGroups">canViewOrgGroups</a></li><li><a href="global.html#canViewOrgItems">canViewOrgItems</a></li><li><a href="global.html#canViewUsers">canViewUsers</a></li><li><a href="global.html#clear">clear</a></li><li><a href="global.html#constructor">constructor</a></li><li><a href="global.html#coordTextInputKeyWasPressed">coordTextInputKeyWasPressed</a></li><li><a href="global.html#cpBtnWasClicked">cpBtnWasClicked</a></li><li><a href="global.html#cpSubBtnWasClicked">cpSubBtnWasClicked</a></li><li><a href="global.html#createPages">createPages</a></li><li><a href="global.html#deactivateDrawTool">deactivateDrawTool</a></li><li><a href="global.html#destroyOnScreenWidgetsAndGroups">destroyOnScreenWidgetsAndGroups</a></li><li><a href="global.html#drawPointButtonWasClicked">drawPointButtonWasClicked</a></li><li><a href="global.html#expandButtonWasClicked">expandButtonWasClicked</a></li><li><a href="global.html#formatButtonWasClicked">formatButtonWasClicked</a></li><li><a href="global.html#formatDialogApplyButtonClicked">formatDialogApplyButtonClicked</a></li><li><a href="global.html#geomSrvcDidComplete">geomSrvcDidComplete</a></li><li><a href="global.html#geomSrvcDidFail">geomSrvcDidFail</a></li><li><a href="global.html#getCandidateParamNames">getCandidateParamNames</a></li><li><a href="global.html#getCleanInput">getCleanInput</a></li><li><a href="global.html#getCoordValues">getCoordValues</a></li><li><a href="global.html#getCurrentMapCoordinate">getCurrentMapCoordinate</a></li><li><a href="global.html#getDDPoint">getDDPoint</a></li><li><a href="global.html#getExportString">getExportString</a></li><li><a href="global.html#getFormattedCoordinates">getFormattedCoordinates</a></li><li><a href="global.html#getFormattedCoordinateText">getFormattedCoordinateText</a></li><li><a href="global.html#getFormattedDDMStr">getFormattedDDMStr</a></li><li><a href="global.html#getFormattedDDStr">getFormattedDDStr</a></li><li><a href="global.html#getFormattedDMSStr">getFormattedDMSStr</a></li><li><a href="global.html#getFormattedGARSStr">getFormattedGARSStr</a></li><li><a href="global.html#getFormattedGEOREFStr">getFormattedGEOREFStr</a></li><li><a href="global.html#getFormattedMGRSStr">getFormattedMGRSStr</a></li><li><a href="global.html#getFormattedUSNGStr">getFormattedUSNGStr</a></li><li><a href="global.html#getFormattedUTMHStr">getFormattedUTMHStr</a></li><li><a href="global.html#getFormattedUTMStr">getFormattedUTMStr</a></li><li><a href="global.html#getIcon">getIcon</a></li><li><a href="global.html#getMapCoordinateDD">getMapCoordinateDD</a></li><li><a href="global.html#getOrderableInput">getOrderableInput</a></li><li><a href="global.html#getOrderableOutput">getOrderableOutput</a></li><li><a href="global.html#getProjectedPoint">getProjectedPoint</a></li><li><a href="global.html#getStatisticsResult">getStatisticsResult</a></li><li><a href="global.html#getSupportExportFormats">getSupportExportFormats</a></li><li><a href="global.html#getWidgetFilter">getWidgetFilter</a></li><li><a href="global.html#getXYNotation">getXYNotation</a></li><li><a href="global.html#iconClass">iconClass</a></li><li><a href="global.html#iconFormat">iconFormat</a></li><li><a href="global.html#initUI">initUI</a></li><li><a href="global.html#inputError">inputError</a></li><li><a href="global.html#isAdmin">isAdmin</a></li><li><a href="global.html#isBasedOnAdmin">isBasedOnAdmin</a></li><li><a href="global.html#isBasedOnPublisher">isBasedOnPublisher</a></li><li><a href="global.html#isBasedOnUser">isBasedOnUser</a></li><li><a href="global.html#isCustom">isCustom</a></li><li><a href="global.html#isFeatureSupported">isFeatureSupported</a></li><li><a href="global.html#isPublisher">isPublisher</a></li><li><a href="global.html#isUser">isUser</a></li><li><a href="global.html#label">label</a></li><li><a href="global.html#loadAndLayout">loadAndLayout</a></li><li><a href="global.html#mapWasClicked">mapWasClicked</a></li><li><a href="global.html#name">name</a></li><li><a href="global.html#nodes">nodes</a></li><li><a href="global.html#onClose">onClose</a></li><li><a href="global.html#onExecute">onExecute</a></li><li><a href="global.html#onMinimize">onMinimize</a></li><li><a href="global.html#onNormalize">onNormalize</a></li><li><a href="global.html#parentWidget">parentWidget</a></li><li><a href="global.html#popupDidClose">popupDidClose</a></li><li><a href="global.html#postCreate">postCreate</a></li><li><a href="global.html#postMixInProperties">postMixInProperties</a></li><li><a href="global.html#print">print</a></li><li><a href="global.html#processCoordTextInput">processCoordTextInput</a></li><li><a href="global.html#profile">profile</a></li><li><a href="global.html#QRCode">QRCode</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#resize">resize</a></li><li><a href="global.html#setActions">setActions</a></li><li><a href="global.html#setCoordUI">setCoordUI</a></li><li><a href="global.html#setHidden">setHidden</a></li><li><a href="global.html#setMapLayout">setMapLayout</a></li><li><a href="global.html#setPosition">setPosition</a></li><li><a href="global.html#setPrivileges">setPrivileges</a></li><li><a href="global.html#setReportLayout">setReportLayout</a></li><li><a href="global.html#setSubCoordUI">setSubCoordUI</a></li><li><a href="global.html#setUIListeners">setUIListeners</a></li><li><a href="global.html#setVisible">setVisible</a></li><li><a href="global.html#showToolTip">showToolTip</a></li><li><a href="global.html#statInfo">statInfo</a></li><li><a href="global.html#stringify">stringify</a></li><li><a href="global.html#stringifyPretty">stringifyPretty</a></li><li><a href="global.html#stringifyPrivileges">stringifyPrivileges</a></li><li><a href="global.html#stringifyRole">stringifyRole</a></li><li><a href="global.html#updateDisplay">updateDisplay</a></li><li><a href="global.html#zoomButtonWasClicked">zoomButtonWasClicked</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Thu Dec 31 2020 13:49:27 GMT-0600 (Central Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

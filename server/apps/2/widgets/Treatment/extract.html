@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta
+			name="viewport"
+			content="initial-scale=1, maximum-scale=1,user-scalable=no"
+		/>
+		<title>Hotspot Analysis</title>
+		<link
+			rel="stylesheet"
+			href="https://js.arcgis.com/3.29/dijit/themes/claro/claro.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://js.arcgis.com/3.29/esri/css/esri.css"
+		/>
+
+		<style>
+			html,
+			body {
+				height: 100%;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			#mapDiv {
+				padding: 0;
+			}
+			/* Don't display the analysis widget's close icon*/
+			.esriAnalysis .esriAnalysisCloseIcon {
+				display: none;
+			}
+			#legendContainer {
+				position: absolute;
+				bottom: 8px;
+				left: 10px;
+				z-index: 33;
+				background-color: #fff;
+				border-radius: 4px;
+				border: solid 2px #ccc;
+				display: none;
+				width: 300px;
+			}
+			#rightPanel {
+				border-left: solid 2px #ccc;
+			}
+			#analysisInfo {
+				padding: 4px;
+			}
+			#loader {
+				position: absolute;
+				display: none;
+				top: 50%;
+				left: 50%;
+				z-index: 99;
+			}
+		</style>
+
+		<script src="https://js.arcgis.com/3.29/"></script>
+		<script>
+			var hotSpots;
+			require([
+				'dojo/ready',
+				'dojo/on',
+				'dojo/_base/array',
+				'dojo/dom',
+				'dijit/registry',
+				'dojo/dom-style',
+				'dojo/parser',
+				'dijit/layout/BorderContainer',
+				'dijit/layout/ContentPane',
+				'esri/map',
+				'esri/urlUtils',
+				'esri/config',
+				'esri/domUtils',
+				'esri/request',
+				'esri/layers/FeatureLayer',
+				'esri/InfoTemplate',
+				'esri/arcgis/Portal',
+				'esri/dijit/analysis/FindHotSpots',
+				'esri/dijit/analysis/ExtractData',
+				'esri/dijit/Legend'
+			], function(
+				ready,
+				on,
+				array,
+				dom,
+				registry,
+				domStyle,
+				parser,
+				BorderContainer,
+				ContentPane,
+				Map,
+				urlUtils,
+				esriConfig,
+				domUtils,
+				esriRequest,
+				FeatureLayer,
+				InfoTemplate,
+				arcgisPortal,
+				FindHotSpots,
+				ExtractData,
+				Legend
+			) {
+				ready(function() {
+					parser.parse();
+					var map = new Map('mapDiv', {
+						basemap: 'gray',
+						center: [33, 35],
+						zoom: 7
+					});
+					// https://www.arcgis.com/home/item.html?id=82185294c26e419e8ea865b307b4cf62
+					var crime = new FeatureLayer(
+						'http://services.arcgis.com/XORNS2fPFySPlBgy/arcgis/rest/services/MyMapService/FeatureServer/',
+						{
+							id: 'analysisLayer',
+							name: 'Vehicle Theft',
+							outFields: ['*']
+						}
+					);
+					map.addLayers([crime]);
+					map.on('layers-add-result', initializeHotSpotTool);
+					// add the GP server to the array of known CORS enabled servers
+					esriConfig.defaults.io.corsEnabledServers.push('analysis.arcgis.com');
+					function initializeHotSpotTool() {
+						showToolPanel();
+						//Define the default inputs for the widget
+						var extractDataParams = {
+							featureLayers: [crime],
+							inputLayers: [crime],
+							portalUrl: 'https://ipmp.ctre.iastate.edu/maps/',
+							showSelectFolder: true,
+							showChooseExtent: false,
+							clip: true,
+							map: map
+						};
+						hotSpots = new ExtractData(extractDataParams, 'analysisDiv');
+						// the only way i can get this tool to execute is when users sketch a study area of their own
+						hotSpots.startup();
+						//If any errors occur reset the widget (Not Working...troubleshoot)
+						on(hotSpots, 'job-fail', function(params) {
+							// handle
+						});
+						on(hotSpots, 'job-status', function(status) {
+							if (status.jobStatus === 'esriJobFailed') {
+								alert('Job Failed: ' + status.messages[0].description);
+								// handle
+							}
+						});
+						on(hotSpots, 'job-cancel', function() {
+							// handle
+						});
+						on(hotSpots, 'job-submit', function(result) {
+							//display the loading icon
+							domUtils.show(dom.byId('loader'));
+						});
+						on(hotSpots, 'job-result', function(result) {
+							//hide the loading icon
+							domUtils.hide(dom.byId('loader'));
+							// fetch/display the results
+						});
+					}
+					function showToolPanel() {
+						// expand the right panel to display the content
+						var cp = registry.byId('rightPanel');
+						domStyle.set(cp.domNode, { width: '20%' });
+						registry.byId('mainWin').resize();
+						map.reposition();
+						map.resize();
+					}
+				});
+			});
+		</script>
+	</head>
+
+	<body class="claro">
+		<div
+			id="mainWin"
+			data-dojo-type="dijit/layout/BorderContainer"
+			data-dojo-props="design:'headline',gutters:false"
+			style="width:100%; height:100%;"
+		>
+			<div
+				id="rightPanel"
+				data-dojo-type="dijit/layout/ContentPane"
+				data-dojo-props="region:'right'"
+			>
+				<div id="toolPanel">
+					<div id="status"></div>
+					<div id="analysisDiv"></div>
+				</div>
+				<div id="infoPanel" style="display:none;">
+					<a
+						id="closeBtn"
+						title="Close"
+						style="position:absolute;top:10px;right:5px;cursor:pointer;"
+					>
+						<img
+							border="0"
+							src="https://js.arcgis.com/3.29/esri/dijit/analysis/images/close.gif"
+						/>
+					</a>
+					<div id="analysisInfo"></div>
+				</div>
+			</div>
+			<div
+				id="mapDiv"
+				data-dojo-type="dijit/layout/ContentPane"
+				data-dojo-props="region:'center'"
+			>
+				<img id="loader" src="loader.gif" />
+				<div id="legendContainer">
+					<div id="legend"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

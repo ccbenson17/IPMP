@@ -1,0 +1,2093 @@
+{
+  "splash": {
+    "splashContent": "<p></p>",
+    "requireConfirm": true,
+    "confirm": {
+      "text": "I agree to the above terms and conditions",
+      "color": "#ffffff",
+      "transparency": 0
+    },
+    "showOption": true,
+    "confirmEverytime": true,
+    "contentVertical": "top",
+    "size": {
+      "mode": "wh",
+      "wh": {
+        "w": 815,
+        "h": 228
+      }
+    },
+    "background": {
+      "mode": "color",
+      "image": null,
+      "type": "fill",
+      "fileName": "No%20file%20chosen",
+      "color": "#000001",
+      "transparency": 0.46
+    },
+    "button": {
+      "color": "#6c341b",
+      "transparency": 0,
+      "text": "OK"
+    },
+    "infoTemplate": {
+      "info": {
+        "title": "IPMP.DBO.local_roads2018: {IPMP_RTE}",
+        "fieldInfos": [
+          {
+            "fieldName": "OBJECTID",
+            "label": "OBJECTID",
+            "isEditable": false,
+            "tooltip": "",
+            "visible": false,
+            "stringFieldOption": "textbox"
+          },
+          {
+            "fieldName": "HIST_ID_INT",
+            "label": "HIST_ID_INT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "YEAR",
+            "label": "YEAR",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "DIR",
+            "label": "DIR",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox"
+          },
+          {
+            "fieldName": "DIS_COUNT",
+            "label": "DIS_COUNT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "CALC_LGTH",
+            "label": "CALC_LGTH",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "AVG_LIRI",
+            "label": "AVG_LIRI",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "MAX_LIRI",
+            "label": "MAX_LIRI",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "AVG_RIRI",
+            "label": "AVG_RIRI",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "MAX_RIRI",
+            "label": "MAX_RIRI",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "AVG_LRUT",
+            "label": "AVG_LRUT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "MAX_LRUT",
+            "label": "MAX_LRUT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "AVG_RRUT",
+            "label": "AVG_RRUT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "MAX_RRUT",
+            "label": "MAX_RRUT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "ALLIG_S",
+            "label": "ALLIG_S",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "ALLIG_L",
+            "label": "ALLIG_L",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "ALLIG_M",
+            "label": "ALLIG_M",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "ALLIG_H",
+            "label": "ALLIG_H",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "TRANS_S",
+            "label": "TRANS_S",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "TRANS_L",
+            "label": "TRANS_L",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "TRANS_M",
+            "label": "TRANS_M",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "TRANS_H",
+            "label": "TRANS_H",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "LONG_S",
+            "label": "LONG_S",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "LONG_L",
+            "label": "LONG_L",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "LONG_M",
+            "label": "LONG_M",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "LONG_H",
+            "label": "LONG_H",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "LONG_WP_S",
+            "label": "LONG_WP_S",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "LONG_WP_L",
+            "label": "LONG_WP_L",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "LONG_WP_M",
+            "label": "LONG_WP_M",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "LONG_WP_H",
+            "label": "LONG_WP_H",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "PATCH_G",
+            "label": "PATCH_G",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "PATCH_B",
+            "label": "PATCH_B",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "PATCH_CNT",
+            "label": "PATCH_CNT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "DCRACK_S",
+            "label": "DCRACK_S",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "DCRACK_L",
+            "label": "DCRACK_L",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "DCRACK_M",
+            "label": "DCRACK_M",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "DCRACK_H",
+            "label": "DCRACK_H",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "JSPALL_M",
+            "label": "JSPALL_M",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "JSPALL_H",
+            "label": "JSPALL_H",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "FAILURE",
+            "label": "FAILURE",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "FAIL_COUNT",
+            "label": "FAIL_COUNT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "JOINT_COUNT",
+            "label": "JOINT_COUNT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "FLT_JT",
+            "label": "FLT_JT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "L_AVG_FLT",
+            "label": "L_AVG_FLT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "L_MIN_FLT",
+            "label": "L_MIN_FLT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "L_CUM_FLT",
+            "label": "L_CUM_FLT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "L_MAX_FLT",
+            "label": "L_MAX_FLT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "R_AVG_FLT",
+            "label": "R_AVG_FLT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "R_MIN_FLT",
+            "label": "R_MIN_FLT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "R_CUM_FLT",
+            "label": "R_CUM_FLT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "R_MAX_FLT",
+            "label": "R_MAX_FLT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "PUNCHOUTS",
+            "label": "PUNCHOUTS",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "BEARING",
+            "label": "BEARING",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "CRS_SLOPE_MN",
+            "label": "CRS_SLOPE_MN",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "CRS_SLOPE_MX",
+            "label": "CRS_SLOPE_MX",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "CRACK_PCT",
+            "label": "CRACK_PCT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "SLAB_CRKD",
+            "label": "SLAB_CRKD",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "ROUTEID",
+            "label": "ROUTEID",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox"
+          },
+          {
+            "fieldName": "PAVE_TYPE",
+            "label": "PAVE_TYPE",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox"
+          },
+          {
+            "fieldName": "YR_LSTWK",
+            "label": "YR_LSTWK",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "LANES",
+            "label": "LANES",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "TRAV_WAY",
+            "label": "TRAV_WAY",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "RPA",
+            "label": "RPA",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "COUNTYNUM",
+            "label": "COUNTYNUM",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "FAE",
+            "label": "FAE",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox"
+          },
+          {
+            "fieldName": "FEDFC",
+            "label": "FEDFC",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "AADT",
+            "label": "AADT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "JURISDICTION",
+            "label": "JURISDICTION",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox"
+          },
+          {
+            "fieldName": "IPMP_RTE",
+            "label": "IPMP_RTE",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox"
+          },
+          {
+            "fieldName": "LIMIT",
+            "label": "LIMIT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "PM_LGTH",
+            "label": "To",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "ROAD_NAME",
+            "label": "ROAD_NAME",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox"
+          },
+          {
+            "fieldName": "SEGID",
+            "label": "SEGID",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox"
+          },
+          {
+            "fieldName": "COVER_LGTH",
+            "label": "COVER_LGTH",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "MIN_DATE",
+            "label": "MIN_DATE",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "dateFormat": "shortDateShortTime"
+            }
+          },
+          {
+            "fieldName": "MAX_DATE",
+            "label": "MAX_DATE",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "dateFormat": "shortDateShortTime"
+            }
+          },
+          {
+            "fieldName": "PCI",
+            "label": "PCI",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "PCI6",
+            "label": "PCI6",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "CityPCI",
+            "label": "CityPCI",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "Structure",
+            "label": "Structure",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "IRI",
+            "label": "IRI",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "RUT",
+            "label": "RUT",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "COL_YEAR",
+            "label": "COL_YEAR",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "Condition",
+            "label": "Condition",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "fieldName": "GlobalID",
+            "label": "GlobalID",
+            "isEditable": false,
+            "tooltip": "",
+            "visible": false,
+            "stringFieldOption": "textbox"
+          }
+        ],
+        "description": null,
+        "showAttachments": true,
+        "mediaInfos": []
+      },
+      "_exprCache": {},
+      "_fieldLabels": {
+        "objectid": "OBJECTID",
+        "hist_id_int": "HIST_ID_INT",
+        "year": "YEAR",
+        "dir": "DIR",
+        "dis_count": "DIS_COUNT",
+        "calc_lgth": "CALC_LGTH",
+        "avg_liri": "AVG_LIRI",
+        "max_liri": "MAX_LIRI",
+        "avg_riri": "AVG_RIRI",
+        "max_riri": "MAX_RIRI",
+        "avg_lrut": "AVG_LRUT",
+        "max_lrut": "MAX_LRUT",
+        "avg_rrut": "AVG_RRUT",
+        "max_rrut": "MAX_RRUT",
+        "allig_s": "ALLIG_S",
+        "allig_l": "ALLIG_L",
+        "allig_m": "ALLIG_M",
+        "allig_h": "ALLIG_H",
+        "trans_s": "TRANS_S",
+        "trans_l": "TRANS_L",
+        "trans_m": "TRANS_M",
+        "trans_h": "TRANS_H",
+        "long_s": "LONG_S",
+        "long_l": "LONG_L",
+        "long_m": "LONG_M",
+        "long_h": "LONG_H",
+        "long_wp_s": "LONG_WP_S",
+        "long_wp_l": "LONG_WP_L",
+        "long_wp_m": "LONG_WP_M",
+        "long_wp_h": "LONG_WP_H",
+        "patch_g": "PATCH_G",
+        "patch_b": "PATCH_B",
+        "patch_cnt": "PATCH_CNT",
+        "dcrack_s": "DCRACK_S",
+        "dcrack_l": "DCRACK_L",
+        "dcrack_m": "DCRACK_M",
+        "dcrack_h": "DCRACK_H",
+        "jspall_m": "JSPALL_M",
+        "jspall_h": "JSPALL_H",
+        "failure": "FAILURE",
+        "fail_count": "FAIL_COUNT",
+        "joint_count": "JOINT_COUNT",
+        "flt_jt": "FLT_JT",
+        "l_avg_flt": "L_AVG_FLT",
+        "l_min_flt": "L_MIN_FLT",
+        "l_cum_flt": "L_CUM_FLT",
+        "l_max_flt": "L_MAX_FLT",
+        "r_avg_flt": "R_AVG_FLT",
+        "r_min_flt": "R_MIN_FLT",
+        "r_cum_flt": "R_CUM_FLT",
+        "r_max_flt": "R_MAX_FLT",
+        "punchouts": "PUNCHOUTS",
+        "bearing": "BEARING",
+        "crs_slope_mn": "CRS_SLOPE_MN",
+        "crs_slope_mx": "CRS_SLOPE_MX",
+        "crack_pct": "CRACK_PCT",
+        "slab_crkd": "SLAB_CRKD",
+        "routeid": "ROUTEID",
+        "pave_type": "PAVE_TYPE",
+        "yr_lstwk": "YR_LSTWK",
+        "lanes": "LANES",
+        "trav_way": "TRAV_WAY",
+        "rpa": "RPA",
+        "countynum": "COUNTYNUM",
+        "fae": "FAE",
+        "fedfc": "FEDFC",
+        "aadt": "AADT",
+        "jurisdiction": "JURISDICTION",
+        "ipmp_rte": "IPMP_RTE",
+        "limit": "LIMIT",
+        "pm_lgth": "To",
+        "road_name": "ROAD_NAME",
+        "segid": "SEGID",
+        "cover_lgth": "COVER_LGTH",
+        "min_date": "MIN_DATE",
+        "max_date": "MAX_DATE",
+        "pci": "PCI",
+        "pci6": "PCI6",
+        "citypci": "CityPCI",
+        "structure": "Structure",
+        "iri": "IRI",
+        "rut": "RUT",
+        "col_year": "COL_YEAR",
+        "condition": "Condition",
+        "globalid": "GlobalID"
+      },
+      "_fieldsMap": {
+        "objectid": {
+          "fieldName": "OBJECTID",
+          "label": "OBJECTID",
+          "isEditable": false,
+          "tooltip": "",
+          "visible": false,
+          "stringFieldOption": "textbox"
+        },
+        "hist_id_int": {
+          "fieldName": "HIST_ID_INT",
+          "label": "HIST_ID_INT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "year": {
+          "fieldName": "YEAR",
+          "label": "YEAR",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "dir": {
+          "fieldName": "DIR",
+          "label": "DIR",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox"
+        },
+        "dis_count": {
+          "fieldName": "DIS_COUNT",
+          "label": "DIS_COUNT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "calc_lgth": {
+          "fieldName": "CALC_LGTH",
+          "label": "CALC_LGTH",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "avg_liri": {
+          "fieldName": "AVG_LIRI",
+          "label": "AVG_LIRI",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "max_liri": {
+          "fieldName": "MAX_LIRI",
+          "label": "MAX_LIRI",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "avg_riri": {
+          "fieldName": "AVG_RIRI",
+          "label": "AVG_RIRI",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "max_riri": {
+          "fieldName": "MAX_RIRI",
+          "label": "MAX_RIRI",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "avg_lrut": {
+          "fieldName": "AVG_LRUT",
+          "label": "AVG_LRUT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "max_lrut": {
+          "fieldName": "MAX_LRUT",
+          "label": "MAX_LRUT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "avg_rrut": {
+          "fieldName": "AVG_RRUT",
+          "label": "AVG_RRUT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "max_rrut": {
+          "fieldName": "MAX_RRUT",
+          "label": "MAX_RRUT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "allig_s": {
+          "fieldName": "ALLIG_S",
+          "label": "ALLIG_S",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "allig_l": {
+          "fieldName": "ALLIG_L",
+          "label": "ALLIG_L",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "allig_m": {
+          "fieldName": "ALLIG_M",
+          "label": "ALLIG_M",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "allig_h": {
+          "fieldName": "ALLIG_H",
+          "label": "ALLIG_H",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "trans_s": {
+          "fieldName": "TRANS_S",
+          "label": "TRANS_S",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "trans_l": {
+          "fieldName": "TRANS_L",
+          "label": "TRANS_L",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "trans_m": {
+          "fieldName": "TRANS_M",
+          "label": "TRANS_M",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "trans_h": {
+          "fieldName": "TRANS_H",
+          "label": "TRANS_H",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "long_s": {
+          "fieldName": "LONG_S",
+          "label": "LONG_S",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "long_l": {
+          "fieldName": "LONG_L",
+          "label": "LONG_L",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "long_m": {
+          "fieldName": "LONG_M",
+          "label": "LONG_M",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "long_h": {
+          "fieldName": "LONG_H",
+          "label": "LONG_H",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "long_wp_s": {
+          "fieldName": "LONG_WP_S",
+          "label": "LONG_WP_S",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "long_wp_l": {
+          "fieldName": "LONG_WP_L",
+          "label": "LONG_WP_L",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "long_wp_m": {
+          "fieldName": "LONG_WP_M",
+          "label": "LONG_WP_M",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "long_wp_h": {
+          "fieldName": "LONG_WP_H",
+          "label": "LONG_WP_H",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "patch_g": {
+          "fieldName": "PATCH_G",
+          "label": "PATCH_G",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "patch_b": {
+          "fieldName": "PATCH_B",
+          "label": "PATCH_B",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "patch_cnt": {
+          "fieldName": "PATCH_CNT",
+          "label": "PATCH_CNT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "dcrack_s": {
+          "fieldName": "DCRACK_S",
+          "label": "DCRACK_S",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "dcrack_l": {
+          "fieldName": "DCRACK_L",
+          "label": "DCRACK_L",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "dcrack_m": {
+          "fieldName": "DCRACK_M",
+          "label": "DCRACK_M",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "dcrack_h": {
+          "fieldName": "DCRACK_H",
+          "label": "DCRACK_H",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "jspall_m": {
+          "fieldName": "JSPALL_M",
+          "label": "JSPALL_M",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "jspall_h": {
+          "fieldName": "JSPALL_H",
+          "label": "JSPALL_H",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "failure": {
+          "fieldName": "FAILURE",
+          "label": "FAILURE",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "fail_count": {
+          "fieldName": "FAIL_COUNT",
+          "label": "FAIL_COUNT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "joint_count": {
+          "fieldName": "JOINT_COUNT",
+          "label": "JOINT_COUNT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "flt_jt": {
+          "fieldName": "FLT_JT",
+          "label": "FLT_JT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "l_avg_flt": {
+          "fieldName": "L_AVG_FLT",
+          "label": "L_AVG_FLT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "l_min_flt": {
+          "fieldName": "L_MIN_FLT",
+          "label": "L_MIN_FLT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "l_cum_flt": {
+          "fieldName": "L_CUM_FLT",
+          "label": "L_CUM_FLT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "l_max_flt": {
+          "fieldName": "L_MAX_FLT",
+          "label": "L_MAX_FLT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "r_avg_flt": {
+          "fieldName": "R_AVG_FLT",
+          "label": "R_AVG_FLT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "r_min_flt": {
+          "fieldName": "R_MIN_FLT",
+          "label": "R_MIN_FLT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "r_cum_flt": {
+          "fieldName": "R_CUM_FLT",
+          "label": "R_CUM_FLT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "r_max_flt": {
+          "fieldName": "R_MAX_FLT",
+          "label": "R_MAX_FLT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "punchouts": {
+          "fieldName": "PUNCHOUTS",
+          "label": "PUNCHOUTS",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "bearing": {
+          "fieldName": "BEARING",
+          "label": "BEARING",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "crs_slope_mn": {
+          "fieldName": "CRS_SLOPE_MN",
+          "label": "CRS_SLOPE_MN",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "crs_slope_mx": {
+          "fieldName": "CRS_SLOPE_MX",
+          "label": "CRS_SLOPE_MX",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "crack_pct": {
+          "fieldName": "CRACK_PCT",
+          "label": "CRACK_PCT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "slab_crkd": {
+          "fieldName": "SLAB_CRKD",
+          "label": "SLAB_CRKD",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "routeid": {
+          "fieldName": "ROUTEID",
+          "label": "ROUTEID",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox"
+        },
+        "pave_type": {
+          "fieldName": "PAVE_TYPE",
+          "label": "PAVE_TYPE",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox"
+        },
+        "yr_lstwk": {
+          "fieldName": "YR_LSTWK",
+          "label": "YR_LSTWK",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "lanes": {
+          "fieldName": "LANES",
+          "label": "LANES",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "trav_way": {
+          "fieldName": "TRAV_WAY",
+          "label": "TRAV_WAY",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "rpa": {
+          "fieldName": "RPA",
+          "label": "RPA",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "countynum": {
+          "fieldName": "COUNTYNUM",
+          "label": "COUNTYNUM",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "fae": {
+          "fieldName": "FAE",
+          "label": "FAE",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox"
+        },
+        "fedfc": {
+          "fieldName": "FEDFC",
+          "label": "FEDFC",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "aadt": {
+          "fieldName": "AADT",
+          "label": "AADT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "jurisdiction": {
+          "fieldName": "JURISDICTION",
+          "label": "JURISDICTION",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox"
+        },
+        "ipmp_rte": {
+          "fieldName": "IPMP_RTE",
+          "label": "IPMP_RTE",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox"
+        },
+        "limit": {
+          "fieldName": "LIMIT",
+          "label": "LIMIT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "pm_lgth": {
+          "fieldName": "PM_LGTH",
+          "label": "To",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "road_name": {
+          "fieldName": "ROAD_NAME",
+          "label": "ROAD_NAME",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox"
+        },
+        "segid": {
+          "fieldName": "SEGID",
+          "label": "SEGID",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox"
+        },
+        "cover_lgth": {
+          "fieldName": "COVER_LGTH",
+          "label": "COVER_LGTH",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "min_date": {
+          "fieldName": "MIN_DATE",
+          "label": "MIN_DATE",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "dateFormat": "shortDateShortTime"
+          }
+        },
+        "max_date": {
+          "fieldName": "MAX_DATE",
+          "label": "MAX_DATE",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "dateFormat": "shortDateShortTime"
+          }
+        },
+        "pci": {
+          "fieldName": "PCI",
+          "label": "PCI",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "pci6": {
+          "fieldName": "PCI6",
+          "label": "PCI6",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "citypci": {
+          "fieldName": "CityPCI",
+          "label": "CityPCI",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "structure": {
+          "fieldName": "Structure",
+          "label": "Structure",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "iri": {
+          "fieldName": "IRI",
+          "label": "IRI",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "rut": {
+          "fieldName": "RUT",
+          "label": "RUT",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 2,
+            "digitSeparator": true
+          }
+        },
+        "col_year": {
+          "fieldName": "COL_YEAR",
+          "label": "COL_YEAR",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "condition": {
+          "fieldName": "Condition",
+          "label": "Condition",
+          "isEditable": true,
+          "tooltip": "",
+          "visible": true,
+          "stringFieldOption": "textbox",
+          "format": {
+            "places": 0,
+            "digitSeparator": true
+          }
+        },
+        "globalid": {
+          "fieldName": "GlobalID",
+          "label": "GlobalID",
+          "isEditable": false,
+          "tooltip": "",
+          "visible": false,
+          "stringFieldOption": "textbox"
+        }
+      },
+      "titleHasRelatedFields": false,
+      "titleHasAsyncExpressions": false,
+      "contentHasAsyncExpressions": false
+    }
+  }
+}

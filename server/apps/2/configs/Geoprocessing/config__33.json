@@ -1,0 +1,109 @@
+{
+  "name": "Script",
+  "displayName": "DownloadData",
+  "description": "for packaging download data geoprocessing task",
+  "category": "",
+  "helpUrl": "https://ipmp.ctre.iastate.edu/arcgis/rest/directories/arcgisoutput/ipmpdata/webDataDownload_GPServer/ipmpdata_webDataDownload/Script.htm",
+  "serverInfo": {
+    "currentVersion": 10.61,
+    "url": "https://ipmp.ctre.iastate.edu/arcgis/rest/services/ipmpdata/webDataDownload/GPServer",
+    "hasResultMapServer": false,
+    "resultMapServerName": "",
+    "supportsUpload": false
+  },
+  "useResultMapServer": false,
+  "taskUrl": "https://ipmp.ctre.iastate.edu/arcgis/rest/services/ipmpdata/webDataDownload/GPServer/DownloadData",
+  "isSynchronous": false,
+  "inputParams": [
+    {
+      "name": "Pick_the_area_to_search",
+      "dataType": "GPString",
+      "description": "Pick the area to search",
+      "defaultValue": "JURISDICTION",
+      "category": "",
+      "choiceList": [
+        "JURISDICTION",
+        "COUNTYNUM",
+        "RPA"
+      ],
+      "label": "Pick the area to search",
+      "visible": true,
+      "required": true,
+      "tooltip": "Pick the area to search"
+    },
+    {
+      "name": "Enter_an_exact_value_as_a_number__or_string_if_jurisdiction__e_g_City_of_Ames_",
+      "dataType": "GPString",
+      "description": "If RPA or COUNTYNUM, enter a number. If JURISDICTION, enter value as string for e.g. City of Ames, County of Dallas, etc",
+      "defaultValue": null,
+      "category": "",
+      "label": "Enter an exact value as a number, or string if jurisdiction (e.g City of Ames)",
+      "visible": true,
+      "required": true,
+      "tooltip": "Enter an exact value as a number, or string if jurisdiction (e.g City of Ames, County of Adair)"
+    },
+    {
+      "name": "Enter_the_year",
+      "dataType": "GPString",
+      "description": "Select year or accept default for the latest two years if agency collects every other year",
+      "defaultValue": "Latest Year",
+      "category": "",
+      "choiceList": [
+        "Latest Year",
+        "2020",
+        "2019",
+        "2018",
+        "2017",
+        "2016",
+        "2015",
+        "2014",
+        "2013"
+      ],
+      "label": "Select year or accept default for the latest two years if agency collects every other year",
+      "visible": true,
+      "required": true,
+      "tooltip": "Select year or accept default for the latest two years if agency collects every other year"
+    },
+    {
+      "name": "Download_as",
+      "dataType": "GPString",
+      "description": "Select feature format",
+      "defaultValue": "Geodatabase (.gdb)",
+      "category": "",
+      "choiceList": [
+        "Geodatabase (.gdb)",
+        "Shapefile (.shp)"
+      ],
+      "label": "Download as",
+      "visible": true,
+      "required": true,
+      "tooltip": "Download as"
+    }
+  ],
+  "outputParams": [
+    {
+      "name": "Output_Value",
+      "dataType": "GPDataFile",
+      "description": "",
+      "defaultValue": null,
+      "category": "",
+      "label": "Output_Value",
+      "visible": true,
+      "ignore": true,
+      "required": false
+    },
+    {
+      "name": "The_result_zip_file_",
+      "dataType": "GPDataFile",
+      "description": "The output zip file name",
+      "defaultValue": null,
+      "category": "",
+      "label": "The result zip file:",
+      "visible": true,
+      "required": true
+    }
+  ],
+  "shareResults": false,
+  "layerOrder": [],
+  "showExportButton": false
+}

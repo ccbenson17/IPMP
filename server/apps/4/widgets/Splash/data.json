@@ -1,0 +1,5216 @@
+{
+ "displayFieldName": "ROAD_NAME",
+ "fieldAliases": {
+  "JURISDICTION": "JURISDICTION"
+ },
+ "fields": [
+  {
+   "name": "JURISDICTION",
+   "type": "esriFieldTypeString",
+   "alias": "JURISDICTION",
+   "length": 30
+  }
+ ],
+ "features": [
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RENWICK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BERTRAM"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MACEDONIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF CLINTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HAMILTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WOODBURN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LUZERNE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OTTUMWA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TIFFIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRAVITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WHAT CHEER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF AURELIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BLOCKTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STOUT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CANTRIL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FREMONT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PACKWOOD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ACKLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CHILLICOTHE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF REMBRANDT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SAGEVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF CLAY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KENSETT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PACIFIC JUNCTION"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HANCOCK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROYAL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HAYESVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRANT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ARCHER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STOCKTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LARCHWOOD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PERSIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PEOSTA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MILLERSBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TENNANT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CASTANA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LAMBS GROVE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WALFORD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELDON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STORM LAKE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRAY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF POPEJOY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF IRETON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MCCALLSBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ANITA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HAVERHILL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GILLETT GROVE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LISCOMB"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF IRWIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MORRISON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ANDOVER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SIBLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DANVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EDDYVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CARBON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ATKINS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TORONTO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RIVERSIDE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GLENWOOD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLIVE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLARKSVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WEBSTER CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PANAMA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WYOMING"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROSSIE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WAHPETON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WEST CHESTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MONROE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SHEFFIELD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MONONA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WAUKEE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF INWOOD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LADORA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CASCADE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRANDVIEW"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SCHALLER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SHELDAHL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CONESVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELLSTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SILVER CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BLAIRSTOWN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WEST BEND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KINROSS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FAIRFAX"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WELTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COON RAPIDS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HAWKEYE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DURANGO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DELHI"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EPWORTH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF AUDUBON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SPILLVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CORALVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF DAVIS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CHARTER OAK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BREDA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MENLO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LOW MOOR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF LYON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RATHBUN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NICHOLS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RED OAK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF VAN HORNE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MONTICELLO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DOLLIVER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF BUTLER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LINN GROVE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF GREENE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CENTER POINT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WEST UNION"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LONG GROVE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PANORAMA PARK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF BENTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HARLAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MILLERTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WALLINGFORD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PERRY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALVORD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WATERLOO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FREDONIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HULL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROWLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MONMOUTH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SEYMOUR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HARTWICK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MARION"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MONDAMIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FONDA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LE GRAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF IOWA CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF AINSWORTH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF VAIL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SAC CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PLAINFIELD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KANAWHA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DAVENPORT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WEBB"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF APLINGTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DELTA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GREELEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DIAGONAL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ARION"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WILLIAMS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KIMBALLTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KELLOGG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEWTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF POLK CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEOLA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALTA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NORTH WASHINGTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MISSOURI VALLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KELLERTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SIDNEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BIRMINGHAM"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROWAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LEWIS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LAUREL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LITTLE ROCK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SAINT DONATUS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GENEVA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WHITING"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF VAN WERT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HOLSTEIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF WINNESHIEK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STEAMBOAT ROCK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HOLLAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WADENA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BURT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF AGENCY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF EMMET"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TABOR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WELLMAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF TAYLOR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF MARION"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TRUESDALE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CHATSWORTH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HAVELOCK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SANDYVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF REDFIELD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LAKE MILLS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WEST POINT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EXLINE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DAVIS CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FLOYD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CAMANCHE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BOXHOLM"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MAGNOLIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SAINT OLAF"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CALUMET"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ANAMOSA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MYSTIC"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GLIDDEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF MARSHALL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TAMA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LIBERTYVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF WAPELLO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALBERT CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALLERTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CENTRALIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MAYSVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PATON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KIRKMAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ARNOLDS PARK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GALVA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DOON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF POMEROY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HARPER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DE SOTO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF POCAHONTAS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WORTHINGTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HANLONTOWN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WESTPHALIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ADEL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ARMSTRONG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HEDRICK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PRIMGHAR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLEGHORN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MORLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LOWDEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SWEA CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DERBY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HUXLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF POSTVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EAST PERU"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF VINCENT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF FLOYD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRAND MOUND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CUMBERLAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRAF"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LIVERMORE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LINCOLN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MORAVIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BODE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KELLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BEDFORD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRINNELL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FARNHAMVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF UNDERWOOD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PLEASANTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CORNING"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF URBANA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SAINT MARYS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LEIGHTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RUNNELLS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GUTTENBERG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MILES"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HARDY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CROMWELL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF IOWA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELKADER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HALBUR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RINARD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MELCHER-DALLAS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LOGAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LARRABEE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF HANCOCK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLARE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SHERRILL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BUCKEYE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF MADISON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF JONES"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRUVER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF IDA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FORT ATKINSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MARTENSDALE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FAIRBANK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF JEWELL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLEAR LAKE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DEXTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COUNCIL BLUFFS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CARTER LAKE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OKOBOJI"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PLOVER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRAND RIVER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EAGLE GROVE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LE CLAIRE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ORANGE CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MCGREGOR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HARCOURT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WAUCOMA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LITTLE SIOUX"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WESTFIELD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF QUASQUETON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF CLARKE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COLLINS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF CHEROKEE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF POWESHIEK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LESTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RIDGEWAY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEWHALL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HOSPERS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MESERVEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEW LIBERTY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LINDEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELKPORT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF VAN BUREN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WHITTEMORE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF BUENA VISTA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CASTALIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OTO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF UTE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RALSTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MITCHELL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF VENTURA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SANBORN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NORTH LIBERTY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STANTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF HARRISON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SWAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RADCLIFFE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALDEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DEEP RIVER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WALCOTT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CHURDAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GLADBROOK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LOVILIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF DELEWARE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CHARITON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF THURMAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF VOLGA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STRAWBERRY POINT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF ALLAMAKEE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PARKERSBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GARDEN GROVE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DUBUQUE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CHEROKEE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WAUKON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DECORAH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MARSHALLTOWN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OSSIAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF AUBURN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF JEFFERSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF AURORA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LATIMER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FARRAGUT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DUNCOMBE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BEAVER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BETTENDORF"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KEOKUK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BUFFALO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LAURENS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELDORA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF READLYN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CEDAR FALLS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SHELDON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NORTHBORO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GOLDFIELD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LANESBORO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEMAHA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LAMONI"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KAMRAR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLARENCE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MINGO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ANTHON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEWELL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CARPENTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HAZLETON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ORCHARD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LONE TREE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MAQUOKETA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KEOMAH VILLAGE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BLAKESBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELBERON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TRURO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WASHTA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SHELBY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RUSSELL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BAYARD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF HUMBOLDT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WEST BURLINGTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MAURICE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CINCINNATI"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LAWLER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MARENGO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PIONEER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MARTELLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BADGER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LIME SPRINGS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BERNARD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BALLTOWN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BOONE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COLESBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MARATHON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TRAER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ATLANTIC"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BRANDON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LOST NATION"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF WEBSTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HAMBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SWISHER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WESTGATE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MONTEZUMA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FLORIS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LOCKRIDGE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF QUIMBY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STATE CENTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FOREST CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MELBOURNE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KNIERIM"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF MONROE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COPPOCK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COLWELL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ADAIR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RHODES"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HUMESTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RANDALL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ANDREW"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CASEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COLO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WEST OKOBOJI"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF CEDAR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PRESTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OWASA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MILTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OAKVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BOUTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WALL LAKE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALTA VISTA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BAGLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF AREDALE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LYNNVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WAPELLO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CARSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROSE HILL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GOOSE LAKE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF AFTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF SAC"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OXFORD JUNCTION"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF ADAMS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TREYNOR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF YETTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF THORNBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELLSWORTH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF CHICKASAW"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BANKSTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLAYTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF STORY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PALO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RICEVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROCK FALLS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LEDYARD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SPRINGVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PRESCOTT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF JASPER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BENTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RAKE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WATERVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RIVERDALE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HARTFORD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF AKRON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CONRAD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WOOLSTOCK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WASHINGTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STACYVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF CRAWFORD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF HENRY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF REDDING"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HAWARDEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LUTHER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GILMAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GARWIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WHITTEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WINTHROP"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PRAIRIE CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BATAVIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LEHIGH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF LOUISA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GUERNSEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HINTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ORLEANS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLUTIER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FREDERIKA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF INDIANOLA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MALLARD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BELMOND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GALT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RIPPEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BUSSEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FENTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MOUNT AUBURN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PALMER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALBIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BRONSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OSAGE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KEOTA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF JACKSON JUNCTION"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ARTHUR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DUNKERTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MAPLETON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELGIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HILLS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF WARREN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRANVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF AYRSHIRE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MASSENA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BEVINGTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LELAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LAKE VIEW"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HANSELL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF APPANOOSE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EXIRA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF UNIVERSITY HEIGHTS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEW MARKET"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TOLEDO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STORY CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EMERSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CENTERVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MCCAUSLAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF POTTAWATTAMIE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HIAWATHA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DIKE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LAMONT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COLUMBUS CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF WORTH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DONNELLSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DURANT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SABULA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BRAYTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SUPERIOR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GARNAVILLO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OLIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WESTSIDE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "STATE OF IOWA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BELLE PLAINE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF LUCAS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CHARLOTTE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SIGOURNEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF IOWA FALLS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WHEATLAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DAWSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SCARVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MOORHEAD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MOVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ONAWA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ZEARING"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROCKWELL CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WINTERSET"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MONTOUR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BEACON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF PAGE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ARCADIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OGDEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SAINT ANTHONY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GILBERTVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WILLIAMSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SIOUX RAPIDS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SPRAGUEVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SHARPSBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BEAMAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SIOUX CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BLAIRSBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TIPTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DUMONT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF JOHNSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HAMPTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EVERLY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SAINT LUCAS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WEST DES MOINES"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SIOUX CENTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DENISON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SHENANDOAH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CRESCENT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF JOHNSTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LAKESIDE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF DECATUR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DOWS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WALKER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF TAMA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRUNDY CENTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RUDD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NASHUA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SHAMBAUGH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SULLY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF GRUNDY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SOLDIER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CAMBRIDGE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PISGAH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF HAMILTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BRIDGEWATER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALGONA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DEFIANCE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF INDEPENDENCE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MANCHESTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MORNING SUN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF IDA GROVE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROCKWELL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KIRKVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF THORNTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF URBANDALE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DAYTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF THOMPSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DUNDEE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HOUGHTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SOLON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WOODBINE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CARLISLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RYAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OTTOSEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF MONONA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CORWITH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WILTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRIMES"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PROMISE CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF FREMONT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ASBURY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MAHARISHI VEDIC CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RODNEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BRADGATE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SOMERS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF SIOUX"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BRITT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DOW CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SAINT ANSGAR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SPIRIT LAKE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MARBLE ROCK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MARQUETTE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF VARINA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MEDIAPOLIS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BROOKLYN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ODEBOLT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STUART"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NORA SPRINGS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HARPERS FERRY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RICHLAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MOUNT PLEASANT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WINDSOR HEIGHTS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLIO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OAKLAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TINGLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF WOODBURY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MCINTIRE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EARLVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BELLEVUE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEW PROVIDENCE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RANDOLPH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FRUITLAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WIOTA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PAULLINA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CHARLES CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLINTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OELWEIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF CARROLL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KIRON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FERGUSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MANILLA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF JESUP"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CYLINDER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SCHLESWIG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PLEASANTVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GARRISON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MASONVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF OBRIEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BONDURANT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MOORLAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GUTHRIE CENTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELLIOT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GARBER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WAVERLY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MELVIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF SCOTT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LORIMOR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WESTWOOD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF KEOKUK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LINEVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DECATUR CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PARNELL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FORT DODGE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GREENVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DELMAR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF VINING"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WOODWARD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SEARSBORO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MCCLELLAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BLOOMFIELD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OTHO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DEDHAM"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COULTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF JOLLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LA PORTE CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MOUNT VERNON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FREDERICKSBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LONE ROCK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF BLACK HAWK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FARLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF WAYNE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF UNION"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MALVERN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLEARFIELD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GARNER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF VILLISCA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PRAIRIEBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROME"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LETTS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PLEASANT PLAIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CONWAY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEW LONDON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DONAHUE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MILFORD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EARLING"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WILLIAMSBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BRUNSVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF CALHOUN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FAIRFIELD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KESWICK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DICKENS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BUCK GROVE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF BOONE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF AVOCA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RANDALIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FERTILE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KLEMME"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF JANESVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LAKOTA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COLUMBUS JUNCTION"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF GUTHRIE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF OSCEOLA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BASSETT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEVADA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CRAWFORDSVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF JACKSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF AMES"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLARION"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COLLEGE SPRINGS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BEACONSFIELD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ARISPE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CURLEW"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GILMORE CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MURRAY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CRAIG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF ADAIR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF JAMAICA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SALIX"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WELLSBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HUDSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RICKETTS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LUVERNE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BOYDEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OCHEYEDAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROCK RAPIDS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BRISTOW"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GOWRIE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MERRILL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GIBSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EMMETSBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BERKLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MINDEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF YORKTOWN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TERRIL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ASPINWALL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SHANNON CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CHESTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEW SHARON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DELOIT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF UNIONVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLERMONT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CRYSTAL LAKE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF REASNOR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BURLINGTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COTTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRAETTINGER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COGGON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STANWOOD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLARINDA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STANHOPE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BALDWIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CLEMONS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SUTHERLAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ARLINGTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PULASKI"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NODAWAY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KALONA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROLFE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF UNIVERSITY PARK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MANLY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MANSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF THOR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELK HORN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF WINNEBAGO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PANORA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LAKE PARK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OXFORD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GREENE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BENNETT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EARLHAM"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEW VIENNA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NORTH ENGLISH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LUANA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF DALLAS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF FAYETTE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BANCROFT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DES MOINES"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DOUGHERTY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OYENS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALBURNETT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WALNUT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DALLAS CENTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BLUE GRASS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MOULTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF DICKINSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WEST LIBERTY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DIXON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NORTH BUENA VISTA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF MITCHELL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALLISON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LANSING"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF CASS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ATALISSA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF VICTOR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MALCOM"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MASON CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SPRINGBROOK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HUMBOLDT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CRESTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF MUSCATINE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRAND JUNCTION"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HORNICK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OSTERDOCK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MINBURN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PETERSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALLEMAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OLLIE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PATTERSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TRIPOLI"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LOHRVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MATLOCK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TITONKA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WEBSTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF UNION"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SMITHLAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BLENCOE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ONSLOW"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF DUBUQUE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF POCAHONTAS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MITCHELLVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DENVER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LEON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HASTINGS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SAINT CHARLES"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ASHTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WEST BRANCH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELKHART"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROLAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELK RUN HEIGHTS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CHELSEA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEW VIRGINIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF IMOGENE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DUNLAP"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALEXANDER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NUMA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF VALERIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RAYMOND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LUCAS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEW HAMPTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KNOXVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MIDDLETOWN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF KOSSUTH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF BUCHANAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF LEE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF VAN METER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ESSEX"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FOSTORIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STOCKPORT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MARNE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BATTLE CREEK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NORWALK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FONTANELLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF PLYMOUTH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TURIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PLEASANT HILL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SHUEYVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STRATFORD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BRIGHTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LA MOTTE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SAINT PAUL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF HOWARD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MOUNT AYR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SWALEDALE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BAXTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SHELL ROCK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF REMSEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EVANSDALE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF DES MOINES"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ORIENT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FARMINGTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF HARDIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KEOSAUQUA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WESLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SALEM"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MELROSE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CUSHING"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OSKALOOSA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LE ROY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF AUDUBON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF DELAWARE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRANGER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CALLENDER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OSCEOLA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HUBBARD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LACONA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LIDDERDALE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LE MARS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MAYNARD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HARVEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PROTIVIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BRADDYVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SHELLSBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF REINBECK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WINFIELD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CARROLL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF MONTGOMERY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BARNUM"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HILLSBORO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GREENFIELD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MECHANICSVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PILOT MOUND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DELAWARE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROCK VALLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF THAYER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WAYLAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF SHELBY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALBION"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF PALO ALTO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MUSCATINE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MARTINSBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF TEMPLETON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BARNES CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF MAHASKA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF MILLS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KEYSTONE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GILBERT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF POLK"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MODALE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SPENCER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CORRECTIONVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DAKOTA CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ESTHERVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RUTLAND"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ALTOONA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RIVERTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MARCUS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SLATER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STANLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EDGEWOOD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RODMAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CUMMING"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SERGEANT BLUFF"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CORYDON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CALMAR"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HARRIS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CALAMUS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PRINCETON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PLYMOUTH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FAYETTE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF CLAYTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GOODELL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MACKSBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRAFTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MADRID"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ZWINGLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF RINGGOLD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HARTLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF COLFAX"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DRAKESVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DANA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MALOY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HENDERSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FORT MADISON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF EARLY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NORWAY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DE WITT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NORTHWOOD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WODEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OAKLAND ACRES"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MANNING"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROBINS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELDRIDGE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CENTRAL CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SUMNER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF VINTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PELLA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MAXWELL"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF KINGSLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PIERSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ELMA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RUTHVEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF WRIGHT"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DANBURY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FRANKLIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SLOAN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RINGSTED"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF WILLEY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF CERRO GORDO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEW HARTFORD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LISBON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF BREMER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BUFFALO CENTER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LAWTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF WASHINGTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PORTSMOUTH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF JOICE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF JEFFERSON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DYERSVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HEPBURN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MILO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FRASER"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CEDAR RAPIDS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SOUTH ENGLISH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LENOX"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MARYSVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF OLDS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ACKWORTH"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF FARMERSBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HOLY CROSS"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF STRUBLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GRISWOLD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LUXEMBURG"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BONAPARTE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LYTTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF DYSART"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MERIDEN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF LAKE CITY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF CRESCO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF FRANKLIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF NEW ALBIN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF YALE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF IONIA"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "COUNTY OF LINN"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF SCRANTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF MONTROSE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF GEORGE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF HOPKINTON"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF RICKARDSVILLE"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF PLANO"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ROCKFORD"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF ANKENY"
+   }
+  },
+  {
+   "attributes": {
+    "JURISDICTION": "CITY OF BLANCHARD"
+   }
+  }
+ ]
+}

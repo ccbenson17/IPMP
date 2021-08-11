@@ -1,0 +1,334 @@
+[2021-07-30T12:12:17.223] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets
+[2021-07-30T12:12:19.246] [INFO] app - Find 6 predfinded apps.
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.About
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.AddData
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.Analysis
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.AttributeTable
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.BasemapGallery
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.BatchAttributeEditor
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.Bookmark
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.BusinessAnalyst
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.Chart
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.Coordinate
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.CoordinateConversion
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.CostAnalysis
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.DataAggregation
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.Directions
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.DistanceAndDirection
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.DistrictLookup
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.Draw
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.Edit
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.EmergencyResponseGuide
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.ExtentNavigate
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.Filter
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.FullScreen
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.GeoLookup
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.Geoprocessing
+[2021-07-30T12:12:19.262] [INFO] repo - insert HTML.GriddedReferenceGraphic
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.GridOverlay
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.GroupFilter
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.HomeButton
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.ImageMeasurement
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.IncidentAnalysis
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.Infographic
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.InfoSummary
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.LayerList
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.Legend
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.Measurement
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.MyLocation
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.NearMe
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.NetworkTrace
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.ObliqueViewer
+[2021-07-30T12:12:19.277] [INFO] repo - insert HTML.OverviewMap
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.ParcelDrafter
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.Print
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.PublicNotification
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.Query
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.RelatedTableCharts
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.ReportFeature
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.ReviewerDashboard
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.Scalebar
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.Screening
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.Search
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.Select
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.Share
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.SituationAwareness
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.SmartEditor
+[2021-07-30T12:12:19.293] [INFO] repo - insert HTML.Splash
+[2021-07-30T12:12:19.308] [INFO] repo - insert HTML.Stream
+[2021-07-30T12:12:19.308] [INFO] repo - insert HTML.SuitabilityModeler
+[2021-07-30T12:12:19.308] [INFO] repo - insert HTML.Summary
+[2021-07-30T12:12:19.308] [INFO] repo - insert HTML.Swipe
+[2021-07-30T12:12:19.308] [INFO] repo - insert HTML.ThreatAnalysis
+[2021-07-30T12:12:19.308] [INFO] repo - insert HTML.TimeSlider
+[2021-07-30T12:12:19.308] [INFO] repo - insert HTML.Visibility
+[2021-07-30T12:12:19.308] [INFO] repo - insert HTML.ZoomSlider
+[2021-07-30T12:12:19.308] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\themes
+[2021-07-30T12:12:19.793] [INFO] repo - insert HTML.PocketTheme
+[2021-07-30T12:12:19.793] [INFO] repo - insert HTML.DartTheme
+[2021-07-30T12:12:19.793] [INFO] repo - insert HTML.FoldableTheme
+[2021-07-30T12:12:19.793] [INFO] repo - insert HTML.BillboardTheme
+[2021-07-30T12:12:19.793] [INFO] repo - insert HTML.PlateauTheme
+[2021-07-30T12:12:19.793] [INFO] repo - insert HTML.JewelryBoxTheme
+[2021-07-30T12:12:19.793] [INFO] repo - insert HTML.LaunchpadTheme
+[2021-07-30T12:12:19.793] [INFO] repo - insert HTML.DashboardTheme
+[2021-07-30T12:12:19.793] [INFO] repo - insert HTML.BoxTheme
+[2021-07-30T12:12:19.793] [INFO] repo - insert HTML.TabTheme
+[2021-07-30T12:12:19.793] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp3d\widgets
+[2021-07-30T12:12:20.481] [INFO] repo - insert HTML3D.ZoomSlider
+[2021-07-30T12:12:20.481] [INFO] repo - insert HTML3D.About
+[2021-07-30T12:12:20.481] [INFO] repo - insert HTML3D.LayerList
+[2021-07-30T12:12:20.481] [INFO] repo - insert HTML3D.Search
+[2021-07-30T12:12:20.481] [INFO] repo - insert HTML3D.Measurement3D
+[2021-07-30T12:12:20.481] [INFO] repo - insert HTML3D.Splash
+[2021-07-30T12:12:20.481] [INFO] repo - insert HTML3D.Navigate
+[2021-07-30T12:12:20.481] [INFO] repo - insert HTML3D.Daylight
+[2021-07-30T12:12:20.481] [INFO] repo - insert HTML3D.Slides
+[2021-07-30T12:12:20.496] [INFO] repo - insert HTML3D.Coordinate
+[2021-07-30T12:12:20.496] [INFO] repo - insert HTML3D.Legend
+[2021-07-30T12:12:20.496] [INFO] repo - insert HTML3D.MyLocation
+[2021-07-30T12:12:20.496] [INFO] repo - insert HTML3D.3DFx
+[2021-07-30T12:12:20.496] [INFO] repo - insert HTML3D.Compass
+[2021-07-30T12:12:20.496] [INFO] repo - insert HTML3D.Share
+[2021-07-30T12:12:20.496] [INFO] repo - insert HTML3D.FullScreen
+[2021-07-30T12:12:20.496] [INFO] repo - insert HTML3D.Home
+[2021-07-30T12:12:20.496] [INFO] repo - insert HTML3D.BasemapGallery
+[2021-07-30T12:12:20.496] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp3d\themes
+[2021-07-30T12:12:20.865] [INFO] default - No token is found, redirect /webappbuilder to /webappbuilder?action=setportalurl
+[2021-07-30T12:12:20.968] [INFO] repo - insert HTML3D.JewelryBoxTheme
+[2021-07-30T12:12:20.970] [INFO] repo - insert HTML3D.BoxTheme
+[2021-07-30T12:12:20.972] [INFO] repo - insert HTML3D.DashboardTheme
+[2021-07-30T12:12:20.974] [INFO] repo - insert HTML3D.DartTheme
+[2021-07-30T12:12:20.976] [INFO] repo - insert HTML3D.TabTheme
+[2021-07-30T12:12:20.979] [INFO] repo - insert HTML3D.FoldableTheme
+[2021-07-30T12:12:20.982] [INFO] repo - insert HTML3D.LaunchpadTheme
+[2021-07-30T12:12:20.985] [INFO] repo - insert HTML3D.BillboardTheme
+[2021-07-30T12:13:36.307] [INFO] default - No token is found, redirect /webappbuilder to /webappbuilder?action=setportalurl
+[2021-07-30T12:20:12.868] [INFO] default - No token is found, redirect /webappbuilder to /webappbuilder?action=setportalurl
+[2021-07-30T12:20:33.617] [INFO] default - No token is found, redirect /webappbuilder to /webappbuilder?action=setportalurl
+[2021-07-30T12:21:27.464] [ERROR] app - Create app error: { message: 'The app folder already exists, this may be an internal error, please use a new app name and try again.' }
+[2021-07-30T12:21:30.081] [ERROR] app - Create app error: { message: 'An app &nbsp;\'tutorial\'&nbsp; exists already. Please choose another name.',
+  errCode: 700002 }
+[2021-07-30T12:21:34.819] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\jimu.js
+[2021-07-30T12:21:37.494] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\images
+[2021-07-30T12:21:37.535] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\libs
+[2021-07-30T12:21:37.650] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\index.html
+[2021-07-30T12:21:37.655] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\env.js
+[2021-07-30T12:21:37.673] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\simpleLoader.js
+[2021-07-30T12:21:37.677] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\init.js
+[2021-07-30T12:21:37.682] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\web.config
+[2021-07-30T12:21:37.685] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\dynamic-modules
+[2021-07-30T12:21:37.701] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\readme.html
+[2021-07-30T12:21:37.704] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\config-readme.txt
+[2021-07-30T12:21:37.707] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\configs
+[2021-07-30T12:21:37.723] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\.jshintrc
+[2021-07-30T12:21:37.727] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\.jshintignore
+[2021-07-30T12:21:37.731] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\3rd-party-license.txt
+[2021-07-30T12:21:37.734] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\service-worker.js
+[2021-07-30T12:21:37.737] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\service-worker-registration.js
+[2021-07-30T12:21:37.740] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\browser-message
+[2021-07-30T12:21:37.766] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\themes\FoldableTheme
+[2021-07-30T12:21:38.392] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Scalebar
+[2021-07-30T12:21:38.682] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Search
+[2021-07-30T12:21:38.954] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Coordinate
+[2021-07-30T12:21:39.286] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\OverviewMap
+[2021-07-30T12:21:39.569] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\HomeButton
+[2021-07-30T12:21:39.690] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\MyLocation
+[2021-07-30T12:21:39.968] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\AttributeTable
+[2021-07-30T12:21:40.398] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Splash
+[2021-07-30T12:21:40.711] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\ZoomSlider
+[2021-07-30T12:21:40.830] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\ExtentNavigate
+[2021-07-30T12:21:40.952] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\FullScreen
+[2021-07-30T12:21:41.138] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Legend
+[2021-07-30T12:21:41.408] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\LayerList
+[2021-07-30T12:22:21.369] [INFO] app - App removed, id: 3
+[2021-07-30T12:23:24.126] [ERROR] app - Create app error: { message: 'An app &nbsp;\'tutorial\'&nbsp; exists already. Please choose another name.',
+  errCode: 700002 }
+[2021-07-30T12:23:29.458] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\jimu.js
+[2021-07-30T12:23:31.158] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\images
+[2021-07-30T12:23:31.174] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\libs
+[2021-07-30T12:23:31.262] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\index.html
+[2021-07-30T12:23:31.265] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\env.js
+[2021-07-30T12:23:31.268] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\simpleLoader.js
+[2021-07-30T12:23:31.271] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\init.js
+[2021-07-30T12:23:31.274] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\web.config
+[2021-07-30T12:23:31.278] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\dynamic-modules
+[2021-07-30T12:23:31.290] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\readme.html
+[2021-07-30T12:23:31.294] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\config-readme.txt
+[2021-07-30T12:23:31.297] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\configs
+[2021-07-30T12:23:31.308] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\.jshintrc
+[2021-07-30T12:23:31.313] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\.jshintignore
+[2021-07-30T12:23:31.316] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\3rd-party-license.txt
+[2021-07-30T12:23:31.319] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\service-worker.js
+[2021-07-30T12:23:31.321] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\service-worker-registration.js
+[2021-07-30T12:23:31.324] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\browser-message
+[2021-07-30T12:23:31.348] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\themes\FoldableTheme
+[2021-07-30T12:23:31.789] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Scalebar
+[2021-07-30T12:23:32.033] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Search
+[2021-07-30T12:23:32.280] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Coordinate
+[2021-07-30T12:23:32.556] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\OverviewMap
+[2021-07-30T12:23:32.857] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\HomeButton
+[2021-07-30T12:23:32.972] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\MyLocation
+[2021-07-30T12:23:33.219] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\AttributeTable
+[2021-07-30T12:23:33.542] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Splash
+[2021-07-30T12:23:33.849] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\ZoomSlider
+[2021-07-30T12:23:33.966] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\ExtentNavigate
+[2021-07-30T12:23:34.086] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\FullScreen
+[2021-07-30T12:23:34.208] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Legend
+[2021-07-30T12:23:34.432] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\LayerList
+[2021-08-04T10:16:39.840] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets
+[2021-08-04T10:16:55.295] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets
+[2021-08-04T10:16:59.441] [INFO] default - No token is found, redirect /webappbuilder to /webappbuilder?action=setportalurl
+[2021-08-04T10:17:00.761] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\themes
+[2021-08-04T10:17:03.179] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp3d\widgets
+[2021-08-04T10:17:06.830] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp3d\themes
+[2021-08-04T10:17:44.622] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=2 to /webappbuilder/apps/2
+[2021-08-04T10:26:14.360] [INFO] app - remove theme FoldableTheme from app 4
+[2021-08-04T10:26:14.405] [INFO] app - remove widget About from app 4
+[2021-08-04T10:26:14.460] [INFO] app - remove widget Coordinate from app 4
+[2021-08-04T10:26:14.489] [INFO] app - remove widget HomeButton from app 4
+[2021-08-04T10:26:14.539] [INFO] app - remove widget Legend from app 4
+[2021-08-04T10:26:14.589] [INFO] app - remove widget MyLocation from app 4
+[2021-08-04T10:26:14.642] [INFO] app - remove widget OverviewMap from app 4
+[2021-08-04T10:26:14.693] [INFO] app - remove widget Scalebar from app 4
+[2021-08-04T11:12:00.295] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\OverviewMap
+[2021-08-04T11:12:00.967] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\HomeButton
+[2021-08-04T11:12:01.145] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\MyLocation
+[2021-08-04T11:12:01.764] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Coordinate
+[2021-08-04T11:12:02.451] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Scalebar
+[2021-08-04T11:42:04.920] [INFO] app - remove widget config config_widgets_AttributeTable_Widget_39.json from app configs folder C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\server\apps\4\
+[2021-08-04T11:42:04.972] [INFO] app - remove widget Coordinate from app 4
+[2021-08-04T11:42:04.997] [INFO] app - remove widget HomeButton from app 4
+[2021-08-04T11:42:05.048] [INFO] app - remove widget MyLocation from app 4
+[2021-08-04T11:42:05.100] [INFO] app - remove widget OverviewMap from app 4
+[2021-08-04T11:42:05.150] [INFO] app - remove widget Scalebar from app 4
+[2021-08-04T11:42:05.175] [INFO] app - remove widget Treatment from app 4
+[2021-08-04T11:43:54.983] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\OverviewMap
+[2021-08-04T11:43:55.299] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\HomeButton
+[2021-08-04T11:43:55.444] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\MyLocation
+[2021-08-04T11:43:55.743] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Coordinate
+[2021-08-04T11:43:56.031] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Scalebar
+[2021-08-04T11:54:54.717] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-04T11:56:23.701] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-04T11:57:32.336] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-04T12:28:39.220] [INFO] app - remove widget Coordinate from app 4
+[2021-08-04T12:28:39.245] [INFO] app - remove widget HomeButton from app 4
+[2021-08-04T12:28:39.294] [INFO] app - remove widget MyLocation from app 4
+[2021-08-04T12:28:39.342] [INFO] app - remove widget OverviewMap from app 4
+[2021-08-04T12:28:39.389] [INFO] app - remove widget Scalebar from app 4
+[2021-08-04T12:28:44.427] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\OverviewMap
+[2021-08-04T12:28:44.606] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\HomeButton
+[2021-08-04T12:28:44.687] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\MyLocation
+[2021-08-04T12:28:44.851] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Coordinate
+[2021-08-04T12:28:45.022] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Scalebar
+[2021-08-04T12:30:06.447] [INFO] app - remove widget Coordinate from app 4
+[2021-08-04T12:30:06.471] [INFO] app - remove widget HomeButton from app 4
+[2021-08-04T12:30:06.521] [INFO] app - remove widget MyLocation from app 4
+[2021-08-04T12:30:06.569] [INFO] app - remove widget OverviewMap from app 4
+[2021-08-04T12:30:06.616] [INFO] app - remove widget Scalebar from app 4
+[2021-08-04T12:30:06.671] [INFO] app - remove widget Splash from app 4
+[2021-08-04T12:30:11.145] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\OverviewMap
+[2021-08-04T12:30:11.312] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\HomeButton
+[2021-08-04T12:30:11.388] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\MyLocation
+[2021-08-04T12:30:11.546] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Coordinate
+[2021-08-04T12:30:11.718] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Scalebar
+[2021-08-04T12:30:11.867] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Splash
+[2021-08-04T12:31:28.599] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-04T12:31:41.974] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-04T12:33:17.425] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-04T12:35:10.656] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-04T12:35:42.169] [INFO] app - remove widget Coordinate from app 4
+[2021-08-04T12:35:42.194] [INFO] app - remove widget HomeButton from app 4
+[2021-08-04T12:35:42.242] [INFO] app - remove widget MyLocation from app 4
+[2021-08-04T12:35:42.290] [INFO] app - remove widget OverviewMap from app 4
+[2021-08-04T12:35:42.334] [INFO] app - remove widget Scalebar from app 4
+[2021-08-04T12:35:42.385] [INFO] app - remove widget Splash from app 4
+[2021-08-04T12:35:50.287] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-04T12:36:13.034] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\OverviewMap
+[2021-08-04T12:36:13.212] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\HomeButton
+[2021-08-04T12:36:13.297] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\MyLocation
+[2021-08-04T12:36:13.467] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Coordinate
+[2021-08-04T12:36:13.636] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Scalebar
+[2021-08-04T12:36:13.788] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Splash
+[2021-08-04T12:40:03.992] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-04T13:41:35.903] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-04T13:43:28.277] [INFO] app - remove widget Coordinate from app 4
+[2021-08-04T13:43:28.302] [INFO] app - remove widget HomeButton from app 4
+[2021-08-04T13:43:28.352] [INFO] app - remove widget MyLocation from app 4
+[2021-08-04T13:43:28.405] [INFO] app - remove widget OverviewMap from app 4
+[2021-08-04T13:43:28.454] [INFO] app - remove widget Scalebar from app 4
+[2021-08-04T13:43:35.941] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-04T13:43:54.403] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\OverviewMap
+[2021-08-04T13:43:54.572] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\HomeButton
+[2021-08-04T13:43:54.649] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\MyLocation
+[2021-08-04T13:43:54.811] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Coordinate
+[2021-08-04T13:43:55.006] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Scalebar
+[2021-08-04T13:44:20.322] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets
+[2021-08-04T13:44:23.066] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\themes
+[2021-08-04T13:44:23.620] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp3d\widgets
+[2021-08-04T13:44:24.154] [INFO] default - No token is found, redirect /webappbuilder to /webappbuilder?action=setportalurl
+[2021-08-04T13:44:24.688] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp3d\themes
+[2021-08-04T13:59:38.820] [INFO] app - remove widget Coordinate from app 4
+[2021-08-04T13:59:38.843] [INFO] app - remove widget HomeButton from app 4
+[2021-08-04T13:59:38.890] [INFO] app - remove widget MyLocation from app 4
+[2021-08-04T13:59:38.936] [INFO] app - remove widget OverviewMap from app 4
+[2021-08-04T13:59:38.983] [INFO] app - remove widget Scalebar from app 4
+[2021-08-04T14:04:17.485] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\OverviewMap
+[2021-08-04T14:04:17.659] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\HomeButton
+[2021-08-04T14:04:17.742] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\MyLocation
+[2021-08-04T14:04:17.916] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Coordinate
+[2021-08-04T14:04:18.095] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Scalebar
+[2021-08-04T14:04:43.218] [INFO] app - remove widget Coordinate from app 4
+[2021-08-04T14:04:43.243] [INFO] app - remove widget HomeButton from app 4
+[2021-08-04T14:04:43.292] [INFO] app - remove widget MyLocation from app 4
+[2021-08-04T14:04:43.338] [INFO] app - remove widget OverviewMap from app 4
+[2021-08-04T14:04:43.385] [INFO] app - remove widget Scalebar from app 4
+[2021-08-04T14:05:59.349] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\OverviewMap
+[2021-08-04T14:05:59.518] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\HomeButton
+[2021-08-04T14:05:59.593] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\MyLocation
+[2021-08-04T14:05:59.755] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Coordinate
+[2021-08-04T14:05:59.941] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Scalebar
+[2021-08-04T14:06:19.801] [INFO] app - remove widget Coordinate from app 4
+[2021-08-04T14:06:19.826] [INFO] app - remove widget HomeButton from app 4
+[2021-08-04T14:06:19.876] [INFO] app - remove widget MyLocation from app 4
+[2021-08-04T14:06:19.925] [INFO] app - remove widget OverviewMap from app 4
+[2021-08-04T14:06:19.972] [INFO] app - remove widget Scalebar from app 4
+[2021-08-04T14:06:48.147] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\OverviewMap
+[2021-08-04T14:06:48.314] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\HomeButton
+[2021-08-04T14:06:48.394] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\MyLocation
+[2021-08-04T14:06:48.557] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Coordinate
+[2021-08-04T14:06:48.722] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Scalebar
+[2021-08-04T14:07:06.999] [INFO] app - remove widget Coordinate from app 4
+[2021-08-04T14:07:07.023] [INFO] app - remove widget HomeButton from app 4
+[2021-08-04T14:07:07.073] [INFO] app - remove widget MyLocation from app 4
+[2021-08-04T14:07:07.122] [INFO] app - remove widget OverviewMap from app 4
+[2021-08-04T14:07:07.169] [INFO] app - remove widget Scalebar from app 4
+[2021-08-04T14:13:34.493] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-04T14:13:50.389] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\OverviewMap
+[2021-08-04T14:13:50.564] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\HomeButton
+[2021-08-04T14:13:50.645] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\MyLocation
+[2021-08-04T14:13:50.819] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Coordinate
+[2021-08-04T14:13:51.017] [DEBUG] utils - copy C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets\Scalebar
+[2021-08-04T14:14:54.461] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-04T14:33:03.442] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-04T14:34:10.441] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4
+[2021-08-09T11:02:00.771] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets
+[2021-08-09T11:02:03.553] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\themes
+[2021-08-09T11:02:04.117] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp3d\widgets
+[2021-08-09T11:02:04.648] [INFO] default - No token is found, redirect /webappbuilder to /webappbuilder?action=setportalurl
+[2021-08-09T11:02:05.174] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp3d\themes
+[2021-08-09T13:23:25.870] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets
+[2021-08-09T13:23:37.609] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\themes
+[2021-08-09T13:23:39.301] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp3d\widgets
+[2021-08-09T13:23:41.818] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp3d\themes
+[2021-08-09T13:25:03.188] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets
+[2021-08-09T13:25:06.051] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\themes
+[2021-08-09T13:25:06.660] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp3d\widgets
+[2021-08-09T13:25:07.254] [INFO] default - No token is found, redirect /webappbuilder to /webappbuilder?action=setportalurl
+[2021-08-09T13:25:07.807] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp3d\themes
+[2021-08-10T09:52:46.901] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\widgets
+[2021-08-10T09:52:59.025] [INFO] default - No token is found, redirect /webappbuilder to /webappbuilder?action=setportalurl
+[2021-08-10T09:53:00.166] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp\themes
+[2021-08-10T09:53:02.120] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp3d\widgets
+[2021-08-10T09:53:04.902] [INFO] repo - Read repository items: C:\Users\ccbenson\Downloads\arcgis-web-appbuilder\ArcGISWebAppBuilder\client\stemapp3d\themes
+[2021-08-10T12:23:58.319] [INFO] default - redirect  /webappbuilder/stemapp/index.html?id=4 to /webappbuilder/apps/4

@@ -1,0 +1,20 @@
+{
+  "selectionColor": "#00FFFF",
+  "selectionMode": "partial",
+  "enableByDefault": false,
+  "allowExport": true,
+  "includeRuntimeLayers": true,
+  "geometryTypes": [
+    "POINT",
+    "POLYLINE",
+    "EXTENT",
+    "CIRCLE",
+    "POLYGON",
+    "FREEHAND_POLYGON"
+  ],
+  "layerState": {
+    "IPMP_Roads_Subset_9244": {
+      "selected": true
+    }
+  }
+}
