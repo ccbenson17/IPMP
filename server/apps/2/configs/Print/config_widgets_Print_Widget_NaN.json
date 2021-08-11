@@ -1,9 +1,0 @@
-{
-  "serviceURL": "https://ipmp.ctre.iastate.edu/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task",
-  "defaultTitle": "Data Exploration Interface Map",
-  "defaultAuthor": "Iowa Pavement Management Program",
-  "defaultCopyright": "",
-  "defaultFormat": "PDF",
-  "defaultLayout": "A4 Portrait",
-  "copyrightEditable": true
-}
