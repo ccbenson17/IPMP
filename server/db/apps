@@ -1,9 +1,12 @@
 {"k":"0000000078","o":"0000000344","v":"001"}
 {"_id":2,"_uid":1,"_dt":1627665687463,"_s":"7a89177e4ae5dba76f213df9b61717b1"}
 {"_id":2,"id":2,"name":"tutorial","description":"","lastUpdated":1627665687460,"createdTime":1627665687463,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false}
-{"k":"0000000078","o":"0000000397","v":"001"}
-{"_id":4,"_uid":1,"_dt":1628102608465,"_s":"726f05ebcffe4322556018c690135e4b"}
-{"_id":4,"id":4,"name":"tutorial1","description":"","lastUpdated":1628102608464,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
+{"k":"0000000078","o":"0000000401","v":"001"}
+{"_id":4,"_uid":1,"_dt":1632851300328,"_s":"be00d569251c6521ed1c87de10b60696"}
+{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1632851300328,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
+{"k":"0000000078","o":"0000000395","v":"001"}
+{"_id":5,"_uid":1,"_dt":1632430979690,"_s":"b51f2bf30a74b753cf03e572995096f9"}
+{"_id":5,"id":5,"name":"practice","description":"","lastUpdated":1632430979689,"createdTime":1632430454851,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#d07d0e","themeName":"FoldableTheme"}
 {"k":"0000000096","o":"0000000352","v":"001"}
 {"_id":"HTML_basic_viewer","_uid":1,"_dt":1627665137332,"_s":"b4a0ca15b65209f5067d72cb31129e65"}
 {"createdTime":1439251200000,"lastUpdated":1439251200000,"creator":"Esri","appType":"HTML","_id":"HTML_basic_viewer","id":"HTML_basic_viewer","predefinedId":"basic_viewer","thumbnail":"images/thumbnail.jpg","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","isTemplate":true,"isPredefined":true,"portalUrl":"*","modified":"Esri"}
@@ -22,21 +25,30 @@
 {"k":"0000000093","o":"0000000390","v":"001"}
 {"_id":"HTML3D_default","_uid":1,"_dt":1627665139246,"_s":"79d5a5b1521058616f3b7b7029e9942f"}
 {"name":"Default","description":"_Default","createdTime":1439337600000,"lastUpdated":1439337600000,"creator":"Esri","appType":"HTML3D","_id":"HTML3D_default","id":"HTML3D_default","predefinedId":"default","thumbnail":"images/thumbnail.jpg","stemappPath":"client\\stemapp3d\\","stemappUrl":"/webappbuilder/stemapp3d/","isTemplate":false,"isPredefined":true,"portalUrl":"*","modified":"Esri"}
-{"k":"0000000078","o":"0000000397","v":"001"}
-{"_id":4,"_uid":1,"_dt":1628103578993,"_s":"2ffbd7cd7f356ac5569af745c2f9d0c9"}
-{"_id":4,"id":4,"name":"tutorial1","description":"","lastUpdated":1628103578992,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
-{"k":"0000000078","o":"0000000397","v":"001"}
-{"_id":4,"_uid":1,"_dt":1628103883401,"_s":"1b7669b88926a6aa8b6cbdb12313ba30"}
-{"_id":4,"id":4,"name":"tutorial1","description":"","lastUpdated":1628103883400,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
-{"k":"0000000078","o":"0000000397","v":"001"}
-{"_id":4,"_uid":1,"_dt":1628103979980,"_s":"2e57779d778ff4ed40e23c203d9d7f8f"}
-{"_id":4,"id":4,"name":"tutorial1","description":"","lastUpdated":1628103979980,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
-{"k":"0000000078","o":"0000000397","v":"001"}
-{"_id":4,"_uid":1,"_dt":1628104027177,"_s":"d1e067a902f5ff643c5cf2d3c18051f3"}
-{"_id":4,"id":4,"name":"tutorial1","description":"","lastUpdated":1628104027176,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
-{"k":"0000000078","o":"0000000397","v":"001"}
-{"_id":4,"_uid":1,"_dt":1628104403109,"_s":"3a5dbf09be6f2d7a4e5526cc1c07978a"}
-{"_id":4,"id":4,"name":"tutorial1","description":"","lastUpdated":1628104403108,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
-{"k":"0000000078","o":"0000000402","v":"001"}
-{"_id":4,"_uid":1,"_dt":1628625738759,"_s":"fd24e77183a2566bc3216529daad79e9"}
-{"_id":4,"id":4,"name":"IPMP duplicate","description":"","lastUpdated":1628625738758,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
+{"k":"0000000078","o":"0000000401","v":"001"}
+{"_id":4,"_uid":1,"_dt":1633027916217,"_s":"1531f38f8f7c5c6f6bec76ab15cde12a"}
+{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1633027916217,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
+{"k":"0000000078","o":"0000000401","v":"001"}
+{"_id":4,"_uid":1,"_dt":1633028157709,"_s":"eb8c98203a4fdd49f898470777054eb0"}
+{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1633028157708,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
+{"k":"0000000078","o":"0000000401","v":"001"}
+{"_id":4,"_uid":1,"_dt":1633028255059,"_s":"d52720fe23bee4705471c191a500b389"}
+{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1633028255059,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
+{"k":"0000000078","o":"0000000401","v":"001"}
+{"_id":4,"_uid":1,"_dt":1633028368759,"_s":"794d30656cc67a46c7fe369c315bafcd"}
+{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1633028368758,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
+{"k":"0000000078","o":"0000000401","v":"001"}
+{"_id":4,"_uid":1,"_dt":1633028410011,"_s":"eb1f497d66197e9e2eafe9440caf4153"}
+{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1633028410011,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
+{"k":"0000000078","o":"0000000401","v":"001"}
+{"_id":4,"_uid":1,"_dt":1633028552836,"_s":"3125a8ee22dcd6bf0d048f257b2caef7"}
+{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1633028552836,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
+{"k":"0000000078","o":"0000000401","v":"001"}
+{"_id":4,"_uid":1,"_dt":1633028625501,"_s":"3697f4a3da13c7e73a8704168e6ff40f"}
+{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1633028625500,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
+{"k":"0000000078","o":"0000000401","v":"001"}
+{"_id":4,"_uid":1,"_dt":1633029322182,"_s":"49c3700ba866ad2da2892699014c5c18"}
+{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1633029322182,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
+{"k":"0000000078","o":"0000000401","v":"001"}
+{"_id":4,"_uid":1,"_dt":1633029356930,"_s":"63f8b4ed098a025a68c31242824bcce4"}
+{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1633029356929,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}

@@ -1,6 +1,6 @@
 /**
- * @fileoverview
- * (Custom Widget - {@link module:PickColumns|More info}) PickColumns (Visualize Data in web app) is a custom widget used as an interface to graphs and visualizations related fields in the IPMP FeatureSet. It displays average values, and interactive maps which display a color-coded representation of the selected field.
+ * @fileoverviewD
+ * (Custom Widget - {@link module:PickColumns|More info}) PickColumns (Visualize ata in web app) is a custom widget used as an interface to graphs and visualizations related fields in the IPMP FeatureSet. It displays average values, and interactive maps which display a color-coded representation of the selected field.
  */
 
 /*global define, console, setTimeout*/
@@ -427,10 +427,10 @@ define([
 					widConf = this._getWidgetConfig('RPA by Year', false);
 					break;
 				//  Menu 2
-				case 'FAIL_COUNT':
-					this.query.where += ` AND PAVE_TYPE=PCC`;
-					widConf = this._getWidgetConfig('FAIL_COUNT', false);
-					break;
+				//case 'FAIL_COUNT':
+					//this.query.where += ` AND PAVE_TYPE=PCC`;
+					//widConf = this._getWidgetConfig('FAIL_COUNT', false);
+					//break;
 				case 'IRI':
 					this.query.where += ` AND IRI<>999`;
 					widConf = this._getWidgetConfig('IRI', false);

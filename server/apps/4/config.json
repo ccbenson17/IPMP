@@ -17,7 +17,7 @@
     }
   },
   "portalUrl": "https://ipmp.ctre.iastate.edu/maps",
-  "appId": "",
+  "appId": "4",
   "authorizedCrossOriginDomains": [],
   "title": "Data Exploration Interface",
   "subtitle": "Iowa Pavement Management Program",
@@ -30,8 +30,8 @@
       "url": "https://trello.com/b/RVBZRW0W/ipmp-apps"
     },
     {
-      "label": "Gitlab",
-      "url": "https://gitlab.com/aphares/ipmp-dbo-web-application"
+      "label": "Github",
+      "url": "https://github.com/ccbenson17/IPMP"
     }
   ],
   "widgetOnScreen": {
@@ -46,9 +46,7 @@
         },
         "version": "2.20",
         "id": "themes_LaunchpadTheme_widgets_AnchorBarController_Widget_21",
-        "name": "AnchorBarController",
-        "icon": "/webappbuilder/apps/2/themes/LaunchpadTheme/widgets/AnchorBarController/images/icon.png?wab_dv=2.20",
-        "config": null
+        "name": "AnchorBarController"
       },
       {
         "uri": "widgets/Search/Widget",
@@ -98,22 +96,18 @@
         },
         "closeable": true,
         "id": "widgets_AttributeTable_Widget_28",
-        "name": "AttributeTable",
-        "icon": "/webappbuilder/apps/2/widgets/AttributeTable/images/icon.png?wab_dv=2.20"
+        "name": "AttributeTable"
       },
       {
         "uri": "widgets/Splash/Widget",
         "position": {
           "relativeTo": "browser"
         },
-        "version": "2.20",
+        "version": "2.13",
         "id": "widgets_Splash_Widget_31",
         "name": "Splash",
-        "config": "configs/Splash/config_widgets_Splash_Widget_31.json",
-        "icon": "/webappbuilder/apps/2/widgets/Splash/images/icon.png?wab_dv=2.20"
+        "config": "configs/Splash/config_widgets_Splash_Widget_31.json"
       },
-      
-      
       {
         "uri": "widgets/ExtentNavigate/Widget",
         "visible": false,
@@ -148,11 +142,10 @@
         "id": "PickColumns__32",
         "name": "PickColumns",
         "label": "Visualize Data",
-        "version": "2.20",
+        "version": "2.13",
         "closeable": true,
         "uri": "widgets/PickColumns/Widget",
-        "config": "configs/PickColumns/config_PickColumns__32.json",
-        "icon": "/webappbuilder/apps/2/widgets/PickColumns/images/icon.png?wab_dv=2.20"
+        "config": "configs/PickColumns/config_PickColumns__32.json"
       },
       {
         "position": {
@@ -164,11 +157,10 @@
         "id": "_33",
         "name": "Geoprocessing",
         "label": "Download Data",
-        "version": "2.20",
+        "version": "2.13",
         "closeable": true,
         "uri": "widgets/Geoprocessing/Widget",
-        "config": "configs/Geoprocessing/config__33.json",
-        "icon": "/webappbuilder/apps/2/widgets/Geoprocessing/images/icon.png?wab_dv=2.20"
+        "config": "configs/Geoprocessing/config__33.json"
       },
       {
         "position": {
@@ -177,24 +169,21 @@
           "relativeTo": "map"
         },
         "name": "Treatment",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/Treatment/Widget",
         "config": "configs/Treatment/config_widgets_Treatment_Widget_NaN.json",
-        "id": "widgets_Treatment_Widget_NaN",
-        "icon": "/webappbuilder/apps/2/widgets/Treatment/images/icon.png?wab_dv=2.20"
+        "id": "widgets_Treatment_Widget_NaN"
       },
-      
       {
         "uri": "widgets/MapProgress/Widget",
         "position": {
           "relativeTo": "browser"
         },
-        "version": "2.20",
+        "version": "2.8",
         "id": "widgets_MapProgress_Widget_NaN",
         "IsController": false,
         "name": "MapProgress",
-        "config": "configs/MapProgress/config_widgets_MapProgress_Widget_NaN.json",
-        "icon": "/webappbuilder/apps/2/widgets/MapProgress/images/icon.png?wab_dv=2.20"
+        "config": "configs/MapProgress/config_widgets_MapProgress_Widget_NaN.json"
       },
       {
         "uri": "widgets/ExtentNavigate/Widget",
@@ -206,8 +195,7 @@
         },
         "version": "2.20",
         "id": "widgets_ExtentNavigate_Widget_35",
-        "name": "ExtentNavigate",
-        "icon": "/webappbuilder/apps/2/widgets/ExtentNavigate/images/icon.png?wab_dv=2.20"
+        "name": "ExtentNavigate"
       },
       {
         "uri": "widgets/FullScreen/Widget",
@@ -219,13 +207,12 @@
         },
         "version": "2.20",
         "id": "widgets_FullScreen_Widget_36",
-        "name": "FullScreen",
-        "icon": "/webappbuilder/apps/2/widgets/FullScreen/images/icon.png?wab_dv=2.20"
+        "name": "FullScreen"
       },
       {
         "name": "myInfographic",
         "label": "Average Values",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/myInfographic/Widget",
         "config": "configs/myInfographic/config_config_JurisdictionAVG.json",
         "id": "config_JurisdictionAVG",
@@ -233,13 +220,12 @@
         "position": {
           "relativeTo": "map"
         },
-        "closeable": true,
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        "closeable": true
       },
       {
         "name": "myInfographic",
         "label": "RPA by Year",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/myInfographic/Widget",
         "config": "configs/myInfographic/config_config_RPA.json",
         "id": "config_RPA",
@@ -247,176 +233,152 @@
         "position": {
           "relativeTo": "map"
         },
-        "closeable": true,
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        "closeable": true
       },
       {
         "name": "myInfographic",
         "label": "ALLIG",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/myInfographic/Widget",
         "config": "configs/myInfographic/config_ALLIG.json",
         "id": "ALLIG",
         "position": {
           "relativeTo": "map"
-        },
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        }
       },
       {
-        "name": "myInfographic",
-        "label": "AVG_FLT",
         "version": "2.20",
-        "uri": "widgets/myInfographic/Widget",
-        "config": "configs/myInfographic/config_AVG_FLT.json",
+        "uri": "widgets/Infographic/Widget",
         "id": "AVG_FLT",
         "position": {
           "relativeTo": "map"
         },
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        "placeholderIndex": 1,
+        "closeable": true,
+        "name": "Infographic",
+        "config": "configs/Infographic/config_AVG_FLT.json",
+        "label": "FAIL_COUNT"
       },
       {
         "name": "myInfographic",
         "label": "FAILURE",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/myInfographic/Widget",
         "config": "configs/myInfographic/config_FAILURE.json",
         "id": "FAILURE",
         "position": {
           "relativeTo": "map"
-        },
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
-      },
-      {
-        "name": "myInfographic",
-        "label": "FAIL_COUNT",
-        "version": "2.20",
-        "uri": "widgets/myInfographic/Widget",
-        "config": "configs/myInfographic/config_FAIL_COUNT.json",
-        "id": "FAIL_COUNT",
-        "position": {
-          "relativeTo": "map"
-        },
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        }
       },
       {
         "name": "myInfographic",
         "label": "LONG",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/myInfographic/Widget",
         "config": "configs/myInfographic/config_LONG.json",
         "id": "LONG",
         "position": {
           "relativeTo": "map"
-        },
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        }
       },
       {
         "name": "myInfographic",
         "label": "LONG_NP",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/myInfographic/Widget",
         "config": "configs/myInfographic/config_LONG_NP.json",
         "id": "LONG_NP",
         "position": {
           "relativeTo": "map"
-        },
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        }
       },
       {
         "name": "myInfographic",
         "label": "LONG_WP",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/myInfographic/Widget",
         "config": "configs/myInfographic/config_LONG_WP.json",
         "id": "LONG_WP",
         "position": {
           "relativeTo": "map"
-        },
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        }
       },
       {
         "name": "myInfographic",
         "label": "IRI",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/myInfographic/Widget",
         "config": "configs/myInfographic/config_IRI.json",
         "id": "IRI",
         "position": {
           "relativeTo": "map"
-        },
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        }
       },
       {
         "name": "myInfographic",
         "label": "PATCH_B",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/myInfographic/Widget",
         "config": "configs/myInfographic/config_PATCH_B.json",
         "id": "PATCH_B",
         "position": {
           "relativeTo": "map"
-        },
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        }
       },
       {
         "name": "myInfographic",
         "label": "PATCH_G",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/myInfographic/Widget",
         "config": "configs/myInfographic/config_PATCH_G.json",
         "id": "PATCH_G",
         "position": {
           "relativeTo": "map"
-        },
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        }
       },
       {
         "name": "myInfographic",
         "label": "PCI",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/myInfographic/Widget",
         "config": "configs/myInfographic/config_PCI.json",
         "id": "PCI",
         "position": {
           "relativeTo": "map"
-        },
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        }
       },
       {
         "name": "myInfographic",
         "label": "CityPCI",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/myInfographic/Widget",
         "config": "configs/myInfographic/config_CityPCI.json",
         "id": "CityPCI",
         "position": {
           "relativeTo": "map"
-        },
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        }
       },
       {
         "name": "myInfographic",
         "label": "RUT",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/myInfographic/Widget",
         "config": "configs/myInfographic/config_RUT.json",
         "id": "RUT",
         "position": {
           "relativeTo": "map"
-        },
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        }
       },
       {
         "name": "myInfographic",
         "label": "TRANS",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/myInfographic/Widget",
         "config": "configs/myInfographic/config_TRANS.json",
         "id": "TRANS",
         "position": {
           "relativeTo": "map"
-        },
-        "icon": "/webappbuilder/apps/2/widgets/myInfographic/images/icon.png?wab_dv=2.20"
+        }
       }
     ],
     "panel": {
@@ -556,7 +518,7 @@
         "name": "BasemapGallery",
         "version": "2.20",
         "uri": "widgets/BasemapGallery/Widget",
-        "config": "configs/BasemapGallery/config_widgets_BasemapGallery_Widget_NaN.json",
+        "config": "configs/BasemapGallery/config_widgets_BasemapGallery_Widget_36.json",
         "index": 2,
         "id": "widgets_BasemapGallery_Widget_36"
       },
@@ -577,7 +539,7 @@
       },
       {
         "name": "Select",
-        "version": "2.20",
+        "version": "2.13",
         "uri": "widgets/Select/Widget",
         "index": 5,
         "id": "widgets_Select_Widget_38"
@@ -1084,7 +1046,11 @@
               "name": "FAIL_COUNT",
               "type": "esriFieldTypeDouble",
               "alias": "FAIL_COUNT",
-              "domain": null
+              "domain": null,
+              "editable": true,
+              "nullable": true,
+              "checked": false,
+              "disabled": false
             },
             {
               "name": "JOINT_COUNT",

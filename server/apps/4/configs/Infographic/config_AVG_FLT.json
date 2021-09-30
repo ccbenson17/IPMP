@@ -14,11 +14,11 @@
             "isClosable": true,
             "componentName": "jimu grid",
             "componentState": {
-              "id": "1356235235444323-2"
+              "id": "6159633051476872-2"
             },
             "reorderEnabled": true,
             "title": "jimu grid",
-            "id": "1356235235444323-2"
+            "id": "6159633051476872-2"
           }
         ]
       }
@@ -26,7 +26,7 @@
   },
   "dijits": [
     {
-      "id": "1356235235444323-1",
+      "id": "6159633051476872-1",
       "type": "text",
       "visible": false,
       "config": {
@@ -48,11 +48,11 @@
           "fontSize": 16,
           "textColor": "#282828"
         },
-        "text": "TITLE OF THE myInfographic"
+        "text": "TITLE OF THE INFOGRAPHIC"
       }
     },
     {
-      "id": "1356235235444323-2",
+      "id": "6159633051476872-2",
       "type": "chart",
       "visible": true,
       "config": {
@@ -79,7 +79,7 @@
               {
                 "style": {
                   "color": [
-                    "#73301f"
+                    "#8b4513"
                   ]
                 },
                 "name": "FAIL_COUNT",
@@ -92,7 +92,7 @@
               "color": "#000000",
               "fontSize": 12
             },
-            "show": true
+            "show": false
           },
           "xAxis": {
             "textStyle": {
@@ -124,7 +124,7 @@
       }
     },
     {
-      "id": "1356235235444323-3",
+      "id": "6159633051476872-3",
       "type": "text",
       "visible": false,
       "config": {
@@ -146,12 +146,12 @@
           "fontSize": 12,
           "textColor": "#282828"
         },
-        "text": "Description: additional information about this myInfographic."
+        "text": "Description: additional information about this infographic."
       }
     }
   ],
   "name": "column",
-  "wid": "1356235235444323",
+  "wid": "6159633051476872",
   "dataSource": {
     "dataSourceType": "DATA_SOURCE_FROM_FRAMEWORK",
     "name": "IPMP_DBO_ALL",
