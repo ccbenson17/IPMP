@@ -439,6 +439,9 @@ define([
 					this.query.where += ` AND PAVE_TYPE<>PCC`;
 					widConf = this._getWidgetConfig('RUT', false);
 					break;
+				case 'ALLIG':
+					widConf = this._getWidgetConfig('ConditionCategory', false);
+					break;
 				default:
 					widConf = this._getWidgetConfig(newFieldNode, false);
 					break;
@@ -446,7 +449,8 @@ define([
 
 			if (this.curTab != 0) {
 				this.curField = newFieldNode;
-				this.query.outFields = [this.curField, `OBJECTID`, `YEAR`];
+				//This is where you add data to be used in the graph------------------------------
+				this.query.outFields = [this.curField, `OBJECTID`, `YEAR`,'VeryPoor','Poor','Fair','Good','Excellent'];
 				this.query.where += ` AND ${this.curField}<>0`;
 				this.query.orderByFields = [this.curField];
 			}
@@ -731,7 +735,14 @@ define([
 			} else if (this.curTab === 1) {
 				if (this.subset.length === 1) {
 					document.getElementById('count').innerHTML = `${this.avgF} is the average for ${this.subset.length} record`;
-				} else {
+				} 
+				else if (this.curField != 'ALLIG'){
+					document.getElementById('count').innerHTML =`${this.avgF} is the average for ${this.subset.length} record`;
+				}
+				else if (this.curField = 'ALLIG'){
+					document.getElementById('count').innerHTML ='';
+				}
+				else {
 					document.getElementById('count').innerHTML = `${this.avgF} is the average for ${this.subset.length} records`;
 				}
 			} else {

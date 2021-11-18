@@ -14,11 +14,11 @@
             "isClosable": true,
             "componentName": "jimu grid",
             "componentState": {
-              "id": "6535234562353252-2"
+              "id": "13068763527516936-2"
             },
             "reorderEnabled": true,
             "title": "jimu grid",
-            "id": "6535234562353252-2"
+            "id": "13068763527516936-2"
           }
         ]
       }
@@ -26,7 +26,7 @@
   },
   "dijits": [
     {
-      "id": "6535234562353252-1",
+      "id": "13068763527516936-1",
       "type": "text",
       "visible": false,
       "config": {
@@ -48,11 +48,11 @@
           "fontSize": 16,
           "textColor": "#282828"
         },
-        "text": "TITLE OF THE myInfographic"
+        "text": "TITLE OF THE INFOGRAPHIC"
       }
     },
     {
-      "id": "6535234562353252-2",
+      "id": "13068763527516936-2",
       "type": "chart",
       "visible": true,
       "config": {
@@ -61,13 +61,13 @@
           "type": "column",
           "clusterField": "YEAR",
           "valueFields": [
-            "RUT"
+            "CityPCI"
           ],
           "operation": "average",
           "nullValue": false,
           "sortOrder": {
             "isAsc": true,
-            "field": "RUT",
+            "field": "CityPCI",
             "isLabelAxis": "on"
           }
         },
@@ -82,8 +82,8 @@
                     "#73301f"
                   ]
                 },
-                "name": "RUT",
-                "label": "RUT"
+                "name": "CityPCI",
+                "label": "CityPCI"
               }
             ]
           },
@@ -92,7 +92,7 @@
               "color": "#000000",
               "fontSize": 12
             },
-            "show": true
+            "show": false
           },
           "xAxis": {
             "textStyle": {
@@ -124,7 +124,7 @@
       }
     },
     {
-      "id": "6535234562353252-3",
+      "id": "13068763527516936-3",
       "type": "text",
       "visible": false,
       "config": {
@@ -146,12 +146,12 @@
           "fontSize": 12,
           "textColor": "#282828"
         },
-        "text": "Description: additional information about this myInfographic."
+        "text": "Description: additional information about this infographic."
       }
     }
   ],
   "name": "column",
-  "wid": "6535234562353252",
+  "wid": "13068763527516936",
   "dataSource": {
     "dataSourceType": "DATA_SOURCE_FROM_FRAMEWORK",
     "name": "IPMP_DBO_ALL",

@@ -26,10 +26,10 @@
         "COUNTYNUM",
         "RPA"
       ],
-      "label": "Pick the area to search",
+      "label": "Select admin level",
       "visible": true,
       "required": true,
-      "tooltip": "Pick the area to search"
+      "tooltip": "Select admin level"
     },
     {
       "name": "Enter_an_exact_value_as_a_number__or_string_if_jurisdiction__e_g_City_of_Ames_",
@@ -59,10 +59,10 @@
         "2014",
         "2013"
       ],
-      "label": "Select year or accept default for the latest two years if agency collects every other year",
+      "label": "Select year",
       "visible": true,
       "required": true,
-      "tooltip": "Select year or accept default for the latest two years if agency collects every other year"
+      "tooltip": "Select year"
     },
     {
       "name": "Download_as",

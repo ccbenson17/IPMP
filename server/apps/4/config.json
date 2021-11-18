@@ -121,6 +121,20 @@
         "name": "ExtentNavigate"
       },
       {
+        "uri": "widgets/About/Widget",
+        "position": {
+          "top": 150,
+          "right": 820,
+          "relativeTo": "map"
+        },
+        "version": "2.20",
+        "id": "widgets_About_Widget_NaN",
+        "name": "About",
+        "label": "Legend",
+        "config": "configs/About/config_widgets_About_Widget_NaN.json",
+        "icon": "configs\\About\\icon_widgets_About_Widget_NaN.png"
+      },
+      {
         "uri": "widgets/FullScreen/Widget",
         "visible": false,
         "position": {
@@ -236,15 +250,17 @@
         "closeable": true
       },
       {
-        "name": "myInfographic",
-        "label": "ALLIG",
-        "version": "2.13",
-        "uri": "widgets/myInfographic/Widget",
-        "config": "configs/myInfographic/config_ALLIG.json",
+        "name": "Infographic",
+        "label": "ConditionCategory",
+        "version": "2.20",
+        "uri": "widgets/Infographic/Widget",
+        "config": "configs/Infographic/config_ALLIG.json",
         "id": "ALLIG",
         "position": {
           "relativeTo": "map"
-        }
+        },
+        "placeholderIndex": 1,
+        "closeable": true
       },
       {
         "version": "2.20",
@@ -348,26 +364,30 @@
         }
       },
       {
-        "name": "myInfographic",
+        "name": "Infographic",
         "label": "CityPCI",
-        "version": "2.13",
-        "uri": "widgets/myInfographic/Widget",
-        "config": "configs/myInfographic/config_CityPCI.json",
+        "version": "2.20",
+        "uri": "widgets/Infographic/Widget",
+        "config": "configs/Infographic/config_CityPCI.json",
         "id": "CityPCI",
         "position": {
           "relativeTo": "map"
-        }
+        },
+        "placeholderIndex": 1,
+        "closeable": true
       },
       {
-        "name": "myInfographic",
-        "label": "RUT",
-        "version": "2.13",
-        "uri": "widgets/myInfographic/Widget",
-        "config": "configs/myInfographic/config_RUT.json",
-        "id": "RUT",
+        "name": "HomeButton",
+        "version": "2.20",
+        "uri": "widgets/HomeButton/Widget",
+        "id": "HomeButton",
         "position": {
+          "right": 820,
+          "top": 100,
           "relativeTo": "map"
-        }
+        },
+        "placeholderIndex": 1,
+        "closeable": true
       },
       {
         "name": "myInfographic",
@@ -605,6 +625,14 @@
           "uri": "widgets/HomeButton/Widget",
           "position": {
             "right": 10,
+            "bottom": 75,
+            "relativeTo": "map"
+          }
+        },
+        {
+          "uri": "",
+          "position": {
+            "right": 30,
             "bottom": 75,
             "relativeTo": "map"
           }
@@ -1166,19 +1194,31 @@
               "name": "PCI",
               "type": "esriFieldTypeDouble",
               "alias": "PCI",
-              "domain": null
+              "domain": null,
+              "editable": true,
+              "nullable": true,
+              "checked": false,
+              "disabled": false
             },
             {
               "name": "PCI6",
               "type": "esriFieldTypeDouble",
               "alias": "PCI6",
-              "domain": null
+              "domain": null,
+              "editable": true,
+              "nullable": true,
+              "checked": false,
+              "disabled": false
             },
             {
               "name": "STRUCTURE",
               "type": "esriFieldTypeDouble",
               "alias": "STRUCTURE",
-              "domain": null
+              "domain": null,
+              "editable": true,
+              "nullable": true,
+              "checked": false,
+              "disabled": false
             },
             {
               "name": "PM_LGTH",
@@ -1262,7 +1302,11 @@
               "name": "CityPCI",
               "type": "esriFieldTypeDouble",
               "alias": "CityPCI",
-              "domain": null
+              "domain": null,
+              "editable": true,
+              "nullable": true,
+              "checked": false,
+              "disabled": false
             },
             {
               "name": "RECORD_ID",
@@ -1360,6 +1404,56 @@
               "name": "IRI_s999",
               "type": "esriFieldTypeDouble",
               "alias": "IRI_s999",
+              "domain": null,
+              "editable": true,
+              "nullable": true,
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "VeryPoor",
+              "type": "esriFieldTypeDouble",
+              "alias": "VeryPoor",
+              "domain": null,
+              "editable": true,
+              "nullable": true,
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Poor",
+              "type": "esriFieldTypeDouble",
+              "alias": "Poor",
+              "domain": null,
+              "editable": true,
+              "nullable": true,
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Fair",
+              "type": "esriFieldTypeDouble",
+              "alias": "Fair",
+              "domain": null,
+              "editable": true,
+              "nullable": true,
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Good",
+              "type": "esriFieldTypeDouble",
+              "alias": "Good",
+              "domain": null,
+              "editable": true,
+              "nullable": true,
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Excellent",
+              "type": "esriFieldTypeDouble",
+              "alias": "Excellent",
               "domain": null,
               "editable": true,
               "nullable": true,

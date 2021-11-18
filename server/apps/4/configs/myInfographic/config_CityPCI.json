@@ -61,13 +61,13 @@
           "type": "column",
           "clusterField": "YEAR",
           "valueFields": [
-            "CityPCI"
+            "DIR"
           ],
-          "operation": "average",
+          "operation": "sum",
           "nullValue": false,
           "sortOrder": {
             "isAsc": true,
-            "field": "CityPCI",
+            "field": "DIR",
             "isLabelAxis": "on"
           }
         },
@@ -79,11 +79,11 @@
               {
                 "style": {
                   "color": [
-                    "#8b4513"
+                    "#f29157"
                   ]
                 },
-                "name": "CityPCI",
-                "label": "CityPCI"
+                "name": "DIR",
+                "label": "DIR"
               }
             ]
           },

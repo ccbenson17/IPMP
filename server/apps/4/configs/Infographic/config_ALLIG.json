@@ -1,0 +1,203 @@
+{
+  "layout": {
+    "definition": [
+      {
+        "type": "stack",
+        "isClosable": true,
+        "reorderEnabled": true,
+        "title": "",
+        "activeItemIndex": 0,
+        "height": 100,
+        "content": [
+          {
+            "type": "component",
+            "isClosable": true,
+            "componentName": "jimu grid",
+            "componentState": {
+              "id": "9056906182668953-2"
+            },
+            "reorderEnabled": true,
+            "title": "jimu grid",
+            "id": "9056906182668953-2"
+          }
+        ]
+      }
+    ]
+  },
+  "dijits": [
+    {
+      "id": "9056906182668953-1",
+      "type": "text",
+      "visible": false,
+      "config": {
+        "background": {
+          "backgroundColor": "#FFF",
+          "alignment": {
+            "horizontal": "center",
+            "vertical": "middle"
+          },
+          "link": ""
+        },
+        "font": {
+          "font": {
+            "fontFamily": "Arial",
+            "bold": false,
+            "italic": false,
+            "underline": false
+          },
+          "fontSize": 16,
+          "textColor": "#282828"
+        },
+        "text": "TITLE OF THE INFOGRAPHIC"
+      }
+    },
+    {
+      "id": "9056906182668953-2",
+      "type": "chart",
+      "visible": true,
+      "config": {
+        "data": {
+          "mode": "category",
+          "type": "column",
+          "clusterField": "YEAR",
+          "valueFields": [
+            "VeryPoor",
+            "Poor",
+            "Fair",
+            "Good",
+            "Excellent"
+          ],
+          "operation": "sum",
+          "nullValue": false,
+          "sortOrder": {
+            "isAsc": true,
+            "field": "VeryPoor",
+            "isLabelAxis": "on"
+          }
+        },
+        "display": {
+          "backgroundColor": "#ffffff",
+          "seriesStyle": {
+            "type": "series",
+            "styles": [
+              {
+                "style": {
+                  "color": [
+                    "#ff0000"
+                  ]
+                },
+                "name": "VeryPoor",
+                "label": "VeryPoor"
+              },
+              {
+                "style": {
+                  "color": [
+                    "#ffa500"
+                  ]
+                },
+                "name": "Poor",
+                "label": "Poor"
+              },
+              {
+                "style": {
+                  "color": [
+                    "#ffff00"
+                  ]
+                },
+                "name": "Fair",
+                "label": "Fair"
+              },
+              {
+                "style": {
+                  "color": [
+                    "#008000"
+                  ]
+                },
+                "name": "Good",
+                "label": "Good"
+              },
+              {
+                "style": {
+                  "color": [
+                    "#0000ff"
+                  ]
+                },
+                "name": "Excellent",
+                "label": "Excellent"
+              }
+            ]
+          },
+          "legend": {
+            "textStyle": {
+              "color": "#000000",
+              "fontSize": 12
+            },
+            "show": true
+          },
+          "xAxis": {
+            "textStyle": {
+              "color": "#000000",
+              "fontSize": 12
+            },
+            "show": true,
+            "format": {
+              "digitSeparator": false
+            }
+          },
+          "yAxis": {
+            "textStyle": {
+              "color": "#000000",
+              "fontSize": 12
+            },
+            "show": true,
+            "format": {
+              "type": "float",
+              "digitSeparator": false
+            }
+          },
+          "stack": "percent",
+          "tooltip": {
+            "confine": true,
+            "trigger": "axis"
+          },
+          "marks": {}
+        }
+      }
+    },
+    {
+      "id": "9056906182668953-3",
+      "type": "text",
+      "visible": false,
+      "config": {
+        "background": {
+          "backgroundColor": "#FFF",
+          "alignment": {
+            "horizontal": "center",
+            "vertical": "top"
+          },
+          "link": ""
+        },
+        "font": {
+          "font": {
+            "fontFamily": "Arial",
+            "bold": false,
+            "italic": false,
+            "underline": false
+          },
+          "fontSize": 12,
+          "textColor": "#282828"
+        },
+        "text": "Description: additional information about this infographic."
+      }
+    }
+  ],
+  "name": "percentage_stacked_column",
+  "wid": "9056906182668953",
+  "dataSource": {
+    "dataSourceType": "DATA_SOURCE_FROM_FRAMEWORK",
+    "name": "IPMP_DBO_ALL",
+    "frameWorkDsId": "widget~PickColumns__32~0",
+    "useSelection": false,
+    "filterByExtent": false
+  }
+}
