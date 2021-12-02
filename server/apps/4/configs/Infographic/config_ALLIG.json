@@ -130,7 +130,7 @@
           "legend": {
             "textStyle": {
               "color": "#000000",
-              "fontSize": 12
+              "fontSize": 8
             },
             "show": true
           },
@@ -151,7 +151,7 @@
             },
             "show": true,
             "format": {
-              "type": "float",
+              "type": "int",
               "digitSeparator": false
             }
           },
@@ -187,7 +187,7 @@
           "fontSize": 12,
           "textColor": "#282828"
         },
-        "text": "Description: additional information about this infographic."
+        "text": "about this infographic."
       }
     }
   ],
