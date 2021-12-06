@@ -719,3 +719,7 @@ input:checked + .sliderPC7:after {
 #animP:hover {
 	animation: shake 500ms ease-in-out forwards;
 }
+#ALLIG_panel{
+	height: 500px !important;
+	width: 425px !important;
+  }

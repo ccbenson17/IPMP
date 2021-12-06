@@ -79,7 +79,7 @@
               {
                 "style": {
                   "color": [
-                    "#8b4513"
+                    "#73301f"
                   ]
                 },
                 "name": "FAIL_COUNT",
@@ -92,7 +92,7 @@
               "color": "#000000",
               "fontSize": 12
             },
-            "show": false
+            "show": true
           },
           "xAxis": {
             "textStyle": {

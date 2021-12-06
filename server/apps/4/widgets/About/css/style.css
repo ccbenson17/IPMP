@@ -46,3 +46,7 @@
   color: #fff;
   max-height: 388px;
 }
+#widgets_About_Widget_NaN_panel{
+  height: 275px !important;
+  width: 225px !important;
+}
