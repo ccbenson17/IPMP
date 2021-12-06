@@ -130,7 +130,7 @@
           "legend": {
             "textStyle": {
               "color": "#000000",
-              "fontSize": 8
+              "fontSize": 12
             },
             "show": true
           },
