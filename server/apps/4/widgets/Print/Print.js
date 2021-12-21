@@ -148,7 +148,7 @@ define([
         if (srUtils.isValidWkid(this.map.spatialReference.wkid)) {
           this.wkidInput.set('value', this.map.spatialReference.wkid);
           wkidLabel = srUtils.getSRLabel(this.map.spatialReference.wkid);
-          this.wkidLabel.innerHTML = utils.sanitizeHTML(wkidLabel);
+          this.wkidLabel.innerHTML = wkidLabel;
           this.wkidLabel.title = wkidLabel;
         } else {
           this.wkidInput.set('value', '');
@@ -244,7 +244,7 @@ define([
       var wkidLabel;
       if (srUtils.isValidWkid(+newValue)) {
         wkidLabel = srUtils.getSRLabel(+newValue);
-        this.wkidLabel.innerHTML = utils.sanitizeHTML(wkidLabel);
+        this.wkidLabel.innerHTML = wkidLabel;
         this.wkidLabel.title = wkidLabel;
       } else {
         this.wkidLabel.innerHTML = '';
@@ -658,9 +658,6 @@ define([
         template.format = form.format;
         template.layout = form.layout;
         template.preserveScale = (form.preserveScale === 'true' || form.preserveScale === 'force');
-        if (form.preserveScale === 'force') {
-          template.outScale = this.preserve.forcedScale > 0 ? this.preserve.forcedScale : this.map.getScale();
-        }
         template.forceFeatureAttributes = form.forceFeatureAttributes && form.forceFeatureAttributes[0];
         template.label = form.title;
         template.exportOptions = mapOnlyForm;

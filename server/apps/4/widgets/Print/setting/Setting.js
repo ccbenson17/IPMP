@@ -213,7 +213,7 @@ define([
         if (config.defaultAuthor) {
           this.defaultAuthor.set('value', utils.stripHTML(config.defaultAuthor));
         } else {
-          this.defaultTitle.set('value', "ArcGIS Web AppBuilder");
+          this.defaultTitle.set('value', "Web AppBuilder for ArcGIS");
         }
 
         if (config.defaultCopyright) {

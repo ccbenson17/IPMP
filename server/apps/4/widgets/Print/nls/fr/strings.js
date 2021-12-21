@@ -24,7 +24,7 @@ define({
   "unitsMeters": "Mètres",
   "unitsFeet": "Pieds",
   "unitsYards": "Yards",
-  "unitsNauticalMiles": "Milles nautiques",
+  "unitsNauticalMiles": "Milles marins",
   "lncludeLegend": "Inclure la légende",
   "printQualityOptions": "Qualité d’impression",
   "dpi": "PPP",

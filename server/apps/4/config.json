@@ -82,9 +82,10 @@
         },
         "closeable": true,
         "id": "widgets_AttributeTable_Widget_27",
+        "placeholderIndex": 1,
+        "openAtStart": false,
         "name": "Print",
-        "config": "configs/Print/config_widgets_AttributeTable_Widget_27.json",
-        "placeholderIndex": 1
+        "config": "configs/Print/config_widgets_Print_Widget_NaN.json"
       },
       {
         "uri": "widgets/AttributeTable/Widget",
@@ -388,8 +389,7 @@
           "relativeTo": "map"
         },
         "placeholderIndex": 1,
-        "closeable": true,
-        "openAtStart": false
+        "closeable": true
       },
       {
         "name": "myInfographic",
