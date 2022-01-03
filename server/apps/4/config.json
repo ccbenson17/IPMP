@@ -74,7 +74,7 @@
       },
       {
         "uri": "widgets/Print/Widget",
-        "version": "2.20",
+        "version": "2.13",
         "position": {
           "right": 20,
           "top": 170,
@@ -85,7 +85,7 @@
         "placeholderIndex": 1,
         "openAtStart": false,
         "name": "Print",
-        "config": "configs/Print/config_widgets_Print_Widget_NaN.json"
+        "config": "configs/Print/config_widgets_AttributeTable_Widget_27.json"
       },
       {
         "uri": "widgets/AttributeTable/Widget",

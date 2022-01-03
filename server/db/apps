@@ -1,6 +1,6 @@
 {"k":"0000000078","o":"0000000401","v":"001"}
-{"_id":4,"_uid":1,"_dt":1638481783048,"_s":"057e51ec2a8fe078933b1e944395d3c2"}
-{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1638481783047,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
+{"_id":4,"_uid":1,"_dt":1640125941720,"_s":"8f79010b613e427053fbba013eb49bd2"}
+{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1640125941719,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
 {"k":"0000000078","o":"0000000395","v":"001"}
 {"_id":6,"_uid":1,"_dt":1636053122568,"_s":"74f4dab89ec58537391931d295f667f5"}
 {"_id":6,"id":6,"name":"Original","description":"","lastUpdated":1636053122533,"createdTime":1636053106651,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#d07d0e","themeName":"FoldableTheme"}
@@ -22,12 +22,3 @@
 {"k":"0000000093","o":"0000000390","v":"001"}
 {"_id":"HTML3D_default","_uid":1,"_dt":1627665139246,"_s":"79d5a5b1521058616f3b7b7029e9942f"}
 {"name":"Default","description":"_Default","createdTime":1439337600000,"lastUpdated":1439337600000,"creator":"Esri","appType":"HTML3D","_id":"HTML3D_default","id":"HTML3D_default","predefinedId":"default","thumbnail":"images/thumbnail.jpg","stemappPath":"client\\stemapp3d\\","stemappUrl":"/webappbuilder/stemapp3d/","isTemplate":false,"isPredefined":true,"portalUrl":"*","modified":"Esri"}
-{"k":"0000000078","o":"0000000401","v":"001"}
-{"_id":4,"_uid":1,"_dt":1638816221069,"_s":"a031e28212326e9f8f79c5ca38ff9c5b"}
-{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1638816221068,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
-{"k":"0000000078","o":"0000000401","v":"001"}
-{"_id":4,"_uid":1,"_dt":1640040539255,"_s":"46d3fab1d2f23505337f3ca1bcb776d9"}
-{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1640040539247,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}
-{"k":"0000000078","o":"0000000401","v":"001"}
-{"_id":4,"_uid":1,"_dt":1640104648274,"_s":"72f78d331dc23cbf4f564932eae859df"}
-{"_id":4,"id":4,"name":"IPMP  Website","description":"","lastUpdated":1640104648274,"createdTime":1627665809457,"appType":"HTML","stemappPath":"client\\stemapp\\","stemappUrl":"/webappbuilder/stemapp/","creator":"ccbenson","modified":"ccbenson","portalUrl":"//ipmp.ctre.iastate.edu/maps","isTemplateApp":true,"isTemplate":false,"isPredefined":false,"styleColor":"#8b572a","themeName":"LaunchpadTheme"}

@@ -451,7 +451,9 @@ define([
 				this.curField = newFieldNode;
 				//This is where you add data to be used in the graph------------------------------
 				this.query.outFields = [this.curField, `OBJECTID`, `YEAR`,'VeryPoor','Poor','Fair','Good','Excellent'];
-				this.query.where += ` AND ${this.curField}<>0`;
+				if (newFieldNode !== 'ALLIG'){
+					this.query.where += ` AND ${this.curField}<>0`;
+				}
 				this.query.orderByFields = [this.curField];
 			}
 			this.execQuery(0);
